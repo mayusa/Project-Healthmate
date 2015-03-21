@@ -32,13 +32,13 @@
 		"post-update-cmd": [
 			"php artisan clear-compiled",
 			"php artisan optimize",
-			"chmod -R 777 storage",
-            "php artisan migrate",
-            "php artisan db:seed"
+			"chmod -R 777 storage"
 		],
 		"post-create-project-cmd": [
 			"php -r \"copy('.env.example', '.env');\"",
-			"php artisan key:generate"
+			"php artisan key:generate",
+            "php artisan migrate",
+            "php artisan db:seed"
 		]
 	},
 	"config": {
