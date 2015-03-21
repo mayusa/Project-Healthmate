@@ -32,7 +32,9 @@
 		"post-update-cmd": [
 			"php artisan clear-compiled",
 			"php artisan optimize",
-			"chmod -R 777 storage" 
+			"chmod -R 777 storage",
+            "php artisan migrate",
+            "php artisan db:seed"
 		],
 		"post-create-project-cmd": [
 			"php -r \"copy('.env.example', '.env');\"",

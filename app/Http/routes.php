@@ -11,11 +11,26 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+Route::get('pages/{id}', 'UserController@show');
 
-Route::get('home', 'HomeController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
+{
+    Route::get('/', 'AdminHomeController@index');
+    Route::resource('users', 'UsersController');//资源控制器
+
+});
+
+Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth'], function()
+{
+    Route::get('/{id}/profile', 'UserProfileController@view');
+    Route::get('/{id}/edit', 'UserProfileController@edit');
+    Route::post('/{id}/edit','UserProfileController@update');
+});
