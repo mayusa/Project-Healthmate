@@ -22,11 +22,23 @@
 
                         <form action="{{ URL('user/'.$user->id.'/edit') }}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                            <h5>
                             <div class="input-group">
                                 <span class="input-group-addon">Nick Name </span>
                                 <input type="text" name="name" class="form-control" required="required" value="{{ $user->name }}">
                             </div>
+                            </h5>
+
+                            @if(Auth::user()->rid == 3)
+                            <div>
+
+                                <div class="input-group">
+                                    <span class="input-group-addon">Role </span>
+                                    <input type="text" name="rid" class="form-control" required="required" value="{{ $user->rid }}">
+                                </div>
+
+                            </div>
+                            @endif
                             <h5>
                             <div class="input-group">
                                 <span class="input-group-addon">First Name </span>

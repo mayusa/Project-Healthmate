@@ -31,7 +31,11 @@
                         <tr>
                             <td>{{$user->id}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->name}}</td>
+                            <td>
+                                <a href="{{ URL('http://healthmate.app/user/'.$user->id.'/edit') }}">
+                                {{$user->name}}
+                                </a>
+                            </td></td>
                             {{--<td>{{$user->first_name}}</td>--}}
                             {{--<td>{{$user->last_name}}</td>--}}
                             {{--<td>{{$user->gender}}</td>--}}
@@ -50,7 +54,6 @@
                                 @else
                                     editor
                                 @endif
-                            </td>
                             <td>
                                 @if($user->status==0)
                                     active

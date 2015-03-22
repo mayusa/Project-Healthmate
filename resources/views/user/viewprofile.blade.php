@@ -75,7 +75,7 @@
                                 Zip Code
                             </td>
                             <td>
-                                {{$user->phone}}
+                                {{$user->zip_code}}
                             </td>
                         </tr>
                         <tr>

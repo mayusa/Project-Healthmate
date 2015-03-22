@@ -24,12 +24,13 @@ Route::controllers([
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 {
     Route::get('/', 'AdminHomeController@index');
-    Route::resource('users', 'UsersController');//资源控制器
+    Route::resource('users', 'UsersController');//resource control
 
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth'], function()
 {
+    // not resource control
     Route::get('/{id}/profile', 'UserProfileController@view');
     Route::get('/{id}/edit', 'UserProfileController@edit');
     Route::post('/{id}/edit','UserProfileController@update');

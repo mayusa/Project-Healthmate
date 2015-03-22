@@ -18,11 +18,18 @@ class UserProfileController extends Controller {
      */
     public function view($id){
 
+        if(Auth::user()->rid != 3 && Auth::id() != $id ){
+            return Redirect::to('/home');
+        }
+
         return view('user.viewprofile')->withUser(User::find($id));
     }
 
     public function edit($id)
     {
+        if(Auth::user()->rid != 3 && Auth::id() != $id ){
+            return Redirect::to('/home');
+        }
         return view('user.editprofile')->withUser(User::find($id));
     }
 
@@ -34,6 +41,9 @@ class UserProfileController extends Controller {
      */
     public function update(Request $request,$id)
     {
+        if(Auth::user()->rid != 3 && Auth::id() != $id ){
+            return Redirect::to('/home');
+        }
         $this->validate($request, [
             'name' => 'required|max:20',
         ]);
