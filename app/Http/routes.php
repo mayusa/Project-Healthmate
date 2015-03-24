@@ -19,12 +19,13 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth', 'middleware' => 'admin'], function()
 {
     Route::get('/', 'AdminHomeController@index');
     // goto angular view page(make::View)
     Route::get('/users/home', 'UsersController@view');
-    Route::resource('/users', 'UsersController');//resource control
+    // laravel resource control
+    Route::resource('/users', 'UsersController');
 
 });
 

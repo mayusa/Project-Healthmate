@@ -7,42 +7,27 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 
-class AdminHomeController extends Controller {
+// using route middleware to check admin auth
+class AdminHomeController extends Controller 
+{
+  public function index()
+  {
+    // checking user status
+    $status = Auth::user()->status;
 
-    /**
-     * @return $this
-     */
-    public function index()
+    if($status == 1) 
     {
+        Auth::logout();
+        return view('auth.login')->withErrors([
+            'email' => 'Your account are blocked by administrator!',
+        ]);
 
-        // checking user status
-        $status = Auth::user()->status;
-
-        if($status == 1) {
-
-            Auth::logout();
-            return view('auth.login')->withErrors([
-                'email' => 'Your account are blocked by administrator!',
-            ]);
-
-        } else {
-
-            $rid = Auth::user()->rid;
-            // only admin and super admin
-            if($rid == 2 || $rid == 3) {                
-                //return view('AdminHome')->withPages(User::all());                
-                return view('AdminHome');
-
-            } else {
-                Auth::logout();
-                return view('auth.login')->withErrors([
-                    'email' => 'You are not admin',
-                ]);
-
-            }
-        }
-
+    } 
+    else 
+    {
+        return view('AdminHome');
     }
 
+  }
 
 }
