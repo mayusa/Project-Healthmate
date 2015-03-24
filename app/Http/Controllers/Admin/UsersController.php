@@ -32,7 +32,6 @@ class UsersController extends Controller {
     public function edit($id)
     {
        return Redirect::to('/admin/users');
-        //return view('admin.users.edit')->withUser(User::find($id));
     }
     // PUT
     public function update($id)
