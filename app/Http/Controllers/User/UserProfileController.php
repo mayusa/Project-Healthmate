@@ -56,9 +56,10 @@ class UserProfileController extends Controller {
         $user->phone = Input::get('phone');
         $user->address = Input::get('address');
         $user->zip_code = Input::get('zip_code');
+        $user->birth = Input::get('birth');
 
         if ($user->save()) {
-            return Redirect::to('/home');
+            return Redirect::to('/user/'.$id.'/profile');
         } else {
             return Redirect::back()->withInput()->withErrors('error！');
         }
