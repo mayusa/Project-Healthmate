@@ -28,9 +28,10 @@ class AdminHomeController extends Controller {
         } else {
 
             $rid = Auth::user()->rid;
-
-            if($rid >= 2) {
-                return view('AdminHome')->withPages(User::all());
+            // only admin and super admin
+            if($rid == 2 || $rid == 3) {                
+                //return view('AdminHome')->withPages(User::all());                
+                return view('AdminHome');
 
             } else {
                 Auth::logout();

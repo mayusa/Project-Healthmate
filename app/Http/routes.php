@@ -13,8 +13,6 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
-Route::get('pages/{id}', 'UserController@show');
-
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -24,7 +22,9 @@ Route::controllers([
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
 {
     Route::get('/', 'AdminHomeController@index');
-    Route::resource('users', 'UsersController');//resource control
+    // goto angular view page(make::View)
+    Route::get('/users/home', 'UsersController@view');
+    Route::resource('/users', 'UsersController');//resource control
 
 });
 

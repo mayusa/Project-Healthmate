@@ -34,9 +34,6 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/') }}">Home</a></li>
-                @if ( !Auth::guest() && (Auth::user()->rid==2 || Auth::user()->rid==3))
-                    <li><a href="/admin/users">Users</a></li>
-                @endif
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -51,9 +48,9 @@
 
                                 @if ((Auth::user()->rid) >= 2 && Request::path() != 'admin')
                                  <li><a href="/admin">Admin</a></li>
-                                @else
-                                <li><a href="{{ URL('/user/'. Auth::id() . '/profile') }}"><span class="am-icon-user"></span> My Profile</a></li>
                                 @endif
+                                <li><a href="{{ URL('/user/'. Auth::id() . '/profile') }}"><span class="am-icon-user"></span> My Profile</a></li>
+                                
 								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
 							</ul>
 						</li>
