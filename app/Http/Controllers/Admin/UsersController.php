@@ -32,8 +32,19 @@ class UsersController extends Controller {
     public function update($id)
     {
         $user = User::find($id);
+
+        $user->name = Input::get('name');
+        $user->first_name = Input::get('first_name');
+        $user->last_name = Input::get('last_name');
+        $user->gender = Input::get('gender');
+        $user->phone = Input::get('phone');
+        $user->address = Input::get('address');
+        $user->zip_code = Input::get('zip_code');
+        $user->birth = Input::get('birth');
+
         // change status field
         $user->status = Input::get('status');
+
 
         if ($user->save()) {
             return "success";

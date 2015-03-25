@@ -25,7 +25,7 @@ class AdminHomeController extends Controller
     } 
     else 
     {
-        return view('AdminHome');
+        return view('admin.home');
     }
 
   }
