@@ -19,7 +19,7 @@
                     <tr ng-repeat="user in users">
                         <td><% user.id %></td>
                         <td><% user.email %></td>
-                        <td><a href="/user/<% user.id %>/edit"> <% user.name %></a></td>
+                        <td><% user.name %> <a href="/user/<% user.id %>/edit" ng-if="{{Auth::user()->rid}} == 3">edit</a></td>
                         <td>
 													<span ng-if=" user.rid == 1 ">user</span>								
 													<span ng-if=" user.rid == 2 ">admin</span>
@@ -30,8 +30,8 @@
 													<span ng-if=" user.status == 0 ">active</span>								
 													<span ng-if=" user.status == 1 ">blocked</span>
                         <td>
-                          <span ng-if=" user.rid == 2 && user.id != {{Auth::id()}} && user.rid != 3">
-                        	<button ng-if=" user.status == 0 "  ng-click="changeStatus(user.id, $index)" class="btn btn-danger">BLOCK</button>
+                          <span ng-if=" user.id != {{Auth::id()}} && user.rid != 3">
+                        	<button ng-if=" user.status == 0 " ng-click="changeStatus(user.id, $index)" class="btn btn-danger">BLOCK</button>
                         	<button ng-if=" user.status == 1 " ng-click="changeStatus(user.id, $index)" class="btn btn-success">UNBLOCK</button>
                           </span>
                         </td>
