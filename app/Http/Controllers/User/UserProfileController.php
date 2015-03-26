@@ -27,9 +27,13 @@ class UserProfileController extends Controller {
 
     public function edit($id)
     {
-        if(Auth::user()->rid != 3 && Auth::id() != $id ){
+        if(Auth::user()->rid != 3 && Auth::user()->rid != 2 && Auth::id() != $id ){
             return Redirect::to('/home');
         }
+        else if (Auth::user()->rid == 2 && User::find($id)->rid == 3) {          
+            return Redirect::to('/admin/users/home');
+        }
+
         return view('user.editprofile')->withUser(User::find($id));
     }
 

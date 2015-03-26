@@ -29,7 +29,10 @@
                         <td><% user.id %></td>
                         <td><% user.email %></td>
                         <td><a href="/user/<% user.id %>/profile"><% user.name %></a> 
-                        <a href="/user/<% user.id %>/edit" ng-if="{{Auth::user()->rid}} == 3 || {{Auth::user()->rid}} == 2 && user.rid !=3 "><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <a href="/user/<% user.id %>/edit" ng-if="
+                        ({{Auth::user()->rid}} == 3 || {{Auth::user()->rid}} == 2) && 
+                        user.rid !=3 && 
+                        {{Auth::user()->rid}} != user.rid"><span class="glyphicon glyphicon-edit"></span></a></td>
                         <td>
 													<span ng-if=" user.rid == 1 ">user</span>								
 													<span ng-if=" user.rid == 2 ">admin</span>
