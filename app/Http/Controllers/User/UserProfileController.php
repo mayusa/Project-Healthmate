@@ -50,6 +50,9 @@ class UserProfileController extends Controller {
 
         $user = User::find($id);
         $user->name = Input::get('name');
+        if(Input::get('rid')!=null){
+            $user->rid = Input::get('rid');
+        }
         $user->first_name = Input::get('first_name');
         $user->last_name = Input::get('last_name');
         $user->gender = Input::get('gender');

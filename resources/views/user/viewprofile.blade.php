@@ -26,6 +26,25 @@
                                 {{$user->name}}
                             </td>
                         </tr>
+                        @if(Auth::user()->rid == 3)
+
+                        <tr>
+                            <td class="text-right text-info">
+                                Role
+                            </td>
+                            <td>
+                                @if($user->rid == 1)
+                                 User
+                                @elseif($user->rid == 2)
+                                Admin
+                                @elseif($user->rid == 3)
+                                God
+                                @else
+                                Editor
+                                @endif
+                            </td>
+                        </tr>
+                        @endif
                         <tr>
                             <td class="text-right text-info">
                                 First Name
@@ -98,7 +117,10 @@
                     </table>
 
                 </div>
-                    <a href="{{ '/user/'. Auth::id() . '/edit' }}" class="btn btn-lg btn-primary btn-block">edit</a>
+
+                    @if(Auth::user()->rid == 3 || Auth::id()==$user->id)
+                    <a href="{{ '/user/'. $user->id . '/edit' }}" class="btn btn-lg btn-primary btn-block">edit</a>
+                    @endif
             </div>
         </div>
     </div>

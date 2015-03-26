@@ -29,13 +29,53 @@
                             </div>
                             </h5>
 
-                            @if(Auth::user()->rid == 3)
-                            <div>
+                            @if(Auth::user()->rid == 3 && Auth::user()->id != $user->id )
+                            <div class="row">
 
-                                <div class="input-group">
-                                    <span class="input-group-addon">Role </span>
-                                    <input type="text" name="rid" class="form-control" required="required" value="{{ $user->rid }}">
-                                </div>
+                                <div class="col-xs-4">
+                                    <div class="input-group">
+                                      <span class="input-group-addon">
+
+                                        @if($user->rid==1)
+                                          <input type="radio" aria-label="..." name="rid" value="1" checked="checked">
+                                        @else
+                                          <input type="radio" aria-label="..." name="rid" value="1">
+                                        @endif
+                                      </span>
+
+                                      <input type="text" class="form-control" aria-label="..." name="" value="user">
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-xs-4 -->
+
+                                <div class="col-xs-4">
+                                    <div class="input-group">
+                                      <span class="input-group-addon">
+
+                                        @if($user->rid==2)
+                                          <input type="radio" aria-label="..." name="rid" value="2" checked="checked">
+                                        @else
+                                          <input type="radio" aria-label="..." name="rid" value="2">
+                                        @endif
+                                      </span>
+
+                                      <input type="text" class="form-control" aria-label="..." name="" value="admin">
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-xs-4 -->
+
+                                <div class="col-xs-4">
+                                    <div class="input-group">
+                                      <span class="input-group-addon">
+
+                                        @if($user->rid==4)
+                                          <input type="radio" aria-label="..." name="rid" value="4" checked="checked">
+                                        @else
+                                          <input type="radio" aria-label="..." name="rid" value="4">
+                                        @endif
+                                      </span>
+
+                                      <input type="text" class="form-control" aria-label="..." name="" value="editor">
+                                    </div><!-- /input-group -->
+                                </div><!-- /.col-xs-4 -->
 
                             </div>
                             @endif
@@ -66,7 +106,7 @@
 
                                           <input type="text" class="form-control" aria-label="..." name="" value="male">
                                         </div><!-- /input-group -->
-                                    </div><!-- /.col-lg-6 -->
+                                    </div><!-- /.col-xs-6 -->
                                     <div class="col-xs-6">
                                         <div class="input-group">
                                           <span class="input-group-addon">
@@ -78,6 +118,7 @@
                                           </span>
                                             <input type="text" class="form-control" aria-label="..." name="" value="female">
                                         </div><!-- /input-group -->
+
                                     </div><!-- /.col-lg-6 -->
                                 </div><!-- /.row -->
                             </h5>
