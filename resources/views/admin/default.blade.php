@@ -33,11 +33,13 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/admin') }}">Admin Home</a></li>
-                @if ( !Auth::guest() && (Auth::user()->rid==2 || Auth::user()->rid==3))
-                    <li><a href="/admin/users/home">Users</a></li>
-                @endif
+				<ul class="nav navbar-nav" id="nav">
+					<li	@if(strstr(Request::url(), '/admin') == '/admin') class="active"
+					@endif >
+					<a href="{{ url('/admin') }}">Admin Home</a></li>
+          <li @if(strstr(Request::url(), '/admin') == '/admin/users/home') class="active"
+					@endif>
+					<a href="/admin/users/home">Users</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
@@ -66,6 +68,7 @@
     <script src="https://code.angularjs.org/1.3.15/angular-resource.min.js"></script>
     <script src="/js/controllers/adminController.js"></script>
     <script src="/js/services/adminUsersService.js"></script>
+    <script src="/js/custom.js"></script>
 
 
 </body>

@@ -30,7 +30,7 @@ class UserProfileController extends Controller {
         if(Auth::user()->rid != 3 && Auth::user()->rid != 2 && Auth::id() != $id ){
             return Redirect::to('/home');
         }
-        else if (Auth::user()->rid == 2 && User::find($id)->rid == 3) {          
+        else if (Auth::user()->rid == 2 && (User::find($id)->rid == 3 || User::find($id)->rid == 2)  && Auth::id() != $id) {          
             return Redirect::to('/admin/users/home');
         }
 
@@ -45,8 +45,8 @@ class UserProfileController extends Controller {
      */
     public function update(Request $request,$id)
     {
-        if(Auth::user()->rid != 3 && Auth::id() != $id ){
-            return Redirect::to('/home');
+        if( Auth::user()->rid != 2 && Auth::user()->rid != 3 && Auth::id() != $id && (Auth::user()->rid == 2 && ($id == 2 || $id == 3 )) ){
+            return Redirect::to('/admin/users/home');
         }
         $this->validate($request, [
             'name' => 'required|max:20',

@@ -29,7 +29,7 @@
                             </div>
                             </h5>
 
-                            @if(Auth::user()->rid == 3 && Auth::user()->id != $user->id )
+                            @if((Auth::user()->rid == 2  || Auth::user()->rid == 3) && $user->rid != 3 )
                             <div class="row">
 
                                 <div class="col-xs-4">

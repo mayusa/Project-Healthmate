@@ -8,7 +8,7 @@
             <div class="panel-heading">
               <div class="row">
                 <div class="col-xs-6">
-                   Users list
+                   Users
                 </div>
                 <div class="col-xs-6 text-right">
                     Search <input ng-model="search.$">
@@ -30,9 +30,7 @@
                         <td><% user.email %></td>
                         <td><a href="/user/<% user.id %>/profile"><% user.name %></a> 
                         <a href="/user/<% user.id %>/edit" ng-if="
-                        ({{Auth::user()->rid}} == 3 || {{Auth::user()->rid}} == 2) && 
-                        user.rid !=3 && 
-                        {{Auth::user()->rid}} != user.rid"><span class="glyphicon glyphicon-edit"></span></a></td>
+                        ({{Auth::user()->rid}} == 2 || {{Auth::user()->rid}} == 3) && user.rid !=3  && {{Auth::user()->rid}} != user.rid  || {{Auth::id()}} == user.id "><span class="glyphicon glyphicon-edit"></span></a></td>
                         <td>
 													<span ng-if=" user.rid == 1 ">user</span>								
 													<span ng-if=" user.rid == 2 ">admin</span>
@@ -44,8 +42,8 @@
 													<span ng-if=" user.status == 1 ">blocked</span>
                         <td>
                           <span ng-if=" user.id != {{Auth::id()}} && user.rid != 3">
-                        	<button ng-if=" user.status == 0 " ng-click="changeStatus(user.id, $index)" class="btn btn-danger">BLOCK</button>
-                        	<button ng-if=" user.status == 1 " ng-click="changeStatus(user.id, $index)" class="btn btn-success">UNBLOCK</button>
+                        	<button ng-if=" user.status == 0 " ng-click="changeStatus(user.id, $index)" class="btn btn-danger btn-xs">BLOCK</button>
+                        	<button ng-if=" user.status == 1 " ng-click="changeStatus(user.id, $index)" class="btn btn-success btn-xs">UNBLOCK</button>
                           </span>
                         </td>
                     </tr>

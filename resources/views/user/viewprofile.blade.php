@@ -26,7 +26,7 @@
                                 {{$user->name}}
                             </td>
                         </tr>
-                        @if(Auth::user()->rid == 3)
+                        @if(Auth::user()->rid == 2 || Auth::user()->rid == 3)
 
                         <tr>
                             <td class="text-right text-info">
@@ -118,7 +118,7 @@
 
                 </div>
 
-                    @if(Auth::user()->rid == 3 || Auth::id()==$user->id)
+                    @if( (Auth::user()->rid == 2 && $user->rid != 2 && $user->rid != 3 ) || Auth::user()->rid == 3 || Auth::id() == $user->id )
                     <a href="{{ '/user/'. $user->id . '/edit' }}" class="btn btn-lg btn-primary btn-block">edit</a>
                     @endif
             </div>

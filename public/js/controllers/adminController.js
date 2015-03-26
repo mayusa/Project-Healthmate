@@ -13,6 +13,9 @@ app.controller('AdminCtrl', ['$scope', function ($scope) {
 app.controller('AdminUsersCtrl', ['$scope', '$resource', 'User', function ($scope, $resource, User) {
   $scope.users = User.query();
 
+  $scope.nav1 = 1;
+  $scope.nav2 = 0;
+
   $scope.changeStatus = function (userid, index)
   {
   	var user = User.get({id: userid}, function(user)
