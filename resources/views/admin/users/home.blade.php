@@ -5,7 +5,16 @@
 <div ng-controller="AdminUsersCtrl">
     <div class="row">
         <div class="panel panel-default">
-            <div class="panel-heading">Users list</div>
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-6">
+                   Users list
+                </div>
+                <div class="col-xs-6 text-right">
+                    Search <input ng-model="search.$">
+                </div>  
+              </div>           
+            </div>
             <div class="panel-body">
                 <table class="table">
                     <tr>
@@ -16,10 +25,11 @@
                         <th>status</th>
                         <th>modify</th>
                     </tr>
-                    <tr ng-repeat="user in users">
+                    <tr ng-repeat="user in users | filter:search">
                         <td><% user.id %></td>
                         <td><% user.email %></td>
-                        <td><a href="/user/<% user.id %>/profile"><% user.name %></a> <a href="/user/<% user.id %>/edit" ng-if="{{Auth::user()->rid}} == 3"><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <td><a href="/user/<% user.id %>/profile"><% user.name %></a> 
+                        <a href="/user/<% user.id %>/edit" ng-if="{{Auth::user()->rid}} == 3 || {{Auth::user()->rid}} == 2 && user.rid !=3 "><span class="glyphicon glyphicon-edit"></span></a></td>
                         <td>
 													<span ng-if=" user.rid == 1 ">user</span>								
 													<span ng-if=" user.rid == 2 ">admin</span>

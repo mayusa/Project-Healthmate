@@ -18,7 +18,7 @@ class UserProfileController extends Controller {
      */
     public function view($id){
 
-        if(Auth::user()->rid != 3 && Auth::id() != $id ){
+        if(Auth::user()->rid != 3 && Auth::user()->rid != 2 && Auth::id() != $id ){
             return Redirect::to('/home');
         }
 
