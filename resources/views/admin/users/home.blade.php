@@ -41,7 +41,7 @@
                         <td>
 													<span ng-if=" user.rid == 1 ">user</span>
 													<span ng-if=" user.rid == 2 ">admin</span>
-													<span ng-if=" user.rid == 3 ">god</span>
+													<span ng-if=" user.rid == 3 "><span class="glyphicon glyphicon-heart text-danger"></span></span>
 													<span ng-if=" user.rid == 4 ">editor</span>
                         </td>
                         <td>
