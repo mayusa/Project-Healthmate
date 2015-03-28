@@ -19,14 +19,10 @@
                 <table class="table">
                     <tr>
                         <th>id</th>
-                        {{--<th class="hidden-xs"><a href="" ng-click="sortField=sortField=='email'?'-email':'email'">email</a></th>--}}
-                        {{--<th><a href="" ng-click="sortField=sortField=='name'?'-name':'name'">nick name</a></th>--}}
-                        {{--<th><a href="" ng-click="sortField=sortField=='rid'?'-rid':'rid'">role</a></th>--}}
-                        {{--<th><a href="" ng-click="sortField=sortField=='status'?'-status':'status'">status</a></th>--}}
-                        <th class="hidden-xs">email</th>
-                        <th>nick name</th>
-                        <th>role</th>
-                        <th>status</th>
+                        <th class="hidden-xs"><a href="" ng-click="sortField=sortField=='email'?'-email':'email'">email</a></th>
+                        <th><a href="" ng-click="sortField=sortField=='name'?'-name':'name'">nick name</a></th>
+                        <th><a href="" ng-click="sortField=sortField=='rid'?'-rid':'rid'">role</a></th>
+                        <th><a href="" ng-click="sortField=sortField=='status'?'-status':'status'">status</a></th>
                         <th>modify</th>
                     </tr>
                     <tr ng-repeat="user in users | filter:search | orderBy:sortField">
@@ -53,8 +49,8 @@
 													<span ng-if=" user.status == 1 " class="text-danger">blocked</span>
                         <td>
                           <span ng-if=" user.id != {{Auth::id()}} && user.rid != 3">
-                        	<button ng-if=" user.status == 0 " ng-click="changeStatus(user.id, $index)" class="btn btn-danger btn-xs">BLOCK</button>
-                        	<button ng-if=" user.status == 1 " ng-click="changeStatus(user.id, $index)" class="btn btn-success btn-xs">UNBLOCK</button>
+                        	<button ng-if=" user.status == 0 " ng-click="changeStatus(user.id, user)" class="btn btn-danger btn-xs">BLOCK</button>
+                        	<button ng-if=" user.status == 1 " ng-click="changeStatus(user.id, user)" class="btn btn-success btn-xs">UNBLOCK</button>
                           </span>
                         </td>
                     </tr>
