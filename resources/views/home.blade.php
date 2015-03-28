@@ -13,7 +13,7 @@
                     @elseif (Auth::guest())
                         Welcome to HealthMate~~~
                     @else
-                        Dear <b class="text-danger">{{ Auth::user()->name }}</b>, you are logged in!
+                        Dear <b class="text-danger">{{ Auth::user()->name }}</b>, Welcome to HealthMate~~~!
                     @endif
 				</div>
 			</div>
