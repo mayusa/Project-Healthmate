@@ -15,7 +15,7 @@ app.controller('AdminUsersCtrl', ['$scope', '$resource', 'User', function ($scop
 
   $scope.nav1 = 1;
   $scope.nav2 = 0;
-    $scope.sortField = 'id';
+    $scope.sortField = '';
   $scope.changeStatus = function (userid, index)
   {
   	var user = User.get({id: userid}, function(user)
