@@ -19,7 +19,7 @@
                 <table class="table">
                     <tr>
                         <th>id</th>
-                        <th><a href="" ng-click="sortField=sortField=='email'?'-email':'email'">email</a></th>
+                        <th class="hidden-xs"><a href="" ng-click="sortField=sortField=='email'?'-email':'email'">email</a></th>
                         <th><a href="" ng-click="sortField=sortField=='name'?'-name':'name'">nick name</a></th>
                         <th><a href="" ng-click="sortField=sortField=='rid'?'-rid':'rid'">role</a></th>
                         <th><a href="" ng-click="sortField=sortField=='status'?'-status':'status'">status</a></th>
@@ -27,7 +27,7 @@
                     </tr>
                     <tr ng-repeat="user in users | filter:search | orderBy:sortField">
                         <td><% user.id %></td>
-                        <td class="text-success"><% user.email %></td>
+                        <td class="text-success hidden-xs"><% user.email %></td>
                         <td><a href="/user/<% user.id %>/profile">
                                 <strong ng-if="user.id == {{Auth::id()}}" class="text-muted"><% user.name %></strong>
                                 <span ng-if="user.id != {{Auth::id()}}"><% user.name %></span>
