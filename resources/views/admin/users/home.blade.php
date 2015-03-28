@@ -19,20 +19,20 @@
                 <table class="table">
                     <tr>
                         <th>id</th>
-                        <th>email</th>
-                        <th>nick name</th>
-                        <th>role</th>
-                        <th>status</th>
+                        <th><a href="" ng-click="sortField=sortField=='email'?'-email':'email'">email</a></th>
+                        <th><a href="" ng-click="sortField=sortField=='name'?'-name':'name'">nick name</a></th>
+                        <th><a href="" ng-click="sortField=sortField=='rid'?'-rid':'rid'">role</a></th>
+                        <th><a href="" ng-click="sortField=sortField=='status'?'-status':'status'">status</a></th>
                         <th>modify</th>
                     </tr>
-                    <tr ng-repeat="user in users | filter:search">
+                    <tr ng-repeat="user in users | filter:search | orderBy:sortField">
                         <td><% user.id %></td>
                         <td><% user.email %></td>
                         <td><a href="/user/<% user.id %>/profile"><% user.name %></a> 
                         <a href="/user/<% user.id %>/edit" ng-if="
                         ({{Auth::user()->rid}} == 2 || {{Auth::user()->rid}} == 3) && user.rid !=3  && {{Auth::user()->rid}} != user.rid  || {{Auth::id()}} == user.id "><span class="glyphicon glyphicon-edit"></span></a></td>
                         <td>
-													<span ng-if=" user.rid == 1 ">user</span>								
+													<span ng-if=" user.rid == 1 ">user</span>
 													<span ng-if=" user.rid == 2 ">admin</span>
 													<span ng-if=" user.rid == 3 ">god</span>
 													<span ng-if=" user.rid == 4 ">editor</span>
