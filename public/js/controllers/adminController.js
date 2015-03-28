@@ -16,16 +16,16 @@ app.controller('AdminUsersCtrl', ['$scope', '$resource', 'User', function ($scop
   $scope.nav1 = 1;
   $scope.nav2 = 0;
     $scope.sortField = '';
-  $scope.changeStatus = function (userid, index)
+  $scope.changeStatus = function (userid, u)
   {
   	var user = User.get({id: userid}, function(user)
     {
   		if(user.status == 0)
-  			$scope.users[index].status = 1;
+  			u.status = 1;
   		else
-  			$scope.users[index].status = 0
+  			u.status = 0
 
-  		User.update({id: userid}, $scope.users[index]);
+  		User.update({id: userid}, u);
   	});
   }
 
