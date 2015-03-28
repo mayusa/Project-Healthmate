@@ -18,7 +18,7 @@
             <div class="panel-body">
                 <table class="table">
                     <tr>
-                        <th>id</th>
+                        <th><a href="" ng-click="sortField=sortField=='id'?'-id':'id'">id</a></th>
                         <th><a href="" ng-click="sortField=sortField=='email'?'-email':'email'">email</a></th>
                         <th><a href="" ng-click="sortField=sortField=='name'?'-name':'name'">nick name</a></th>
                         <th><a href="" ng-click="sortField=sortField=='rid'?'-rid':'rid'">role</a></th>
