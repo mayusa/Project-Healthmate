@@ -19,10 +19,14 @@
                 <table class="table">
                     <tr>
                         <th>id</th>
-                        <th class="hidden-xs"><a href="" ng-click="sortField=sortField=='email'?'-email':'email'">email</a></th>
-                        <th><a href="" ng-click="sortField=sortField=='name'?'-name':'name'">nick name</a></th>
-                        <th><a href="" ng-click="sortField=sortField=='rid'?'-rid':'rid'">role</a></th>
-                        <th><a href="" ng-click="sortField=sortField=='status'?'-status':'status'">status</a></th>
+                        {{--<th class="hidden-xs"><a href="" ng-click="sortField=sortField=='email'?'-email':'email'">email</a></th>--}}
+                        {{--<th><a href="" ng-click="sortField=sortField=='name'?'-name':'name'">nick name</a></th>--}}
+                        {{--<th><a href="" ng-click="sortField=sortField=='rid'?'-rid':'rid'">role</a></th>--}}
+                        {{--<th><a href="" ng-click="sortField=sortField=='status'?'-status':'status'">status</a></th>--}}
+                        <th class="hidden-xs">email</th>
+                        <th>nick name</th>
+                        <th>role</th>
+                        <th>status</th>
                         <th>modify</th>
                     </tr>
                     <tr ng-repeat="user in users | filter:search | orderBy:sortField">
