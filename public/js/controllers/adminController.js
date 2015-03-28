@@ -21,17 +21,11 @@ app.controller('AdminUsersCtrl', ['$scope', '$resource', 'User', function ($scop
   	var user = User.get({id: userid}, function(user)
     {
   		if(user.status == 0)
-  			user.status = 1;
+  			$scope.users[index].status = 1;
   		else
-  			user.status = 0
-  		User.update({id: userid}, user);
+  			$scope.users[index].status = 0
 
-        for(var i =0; i<$scope.users.length; i++){
-            if($scope.users[i+1].id = user.id){
-                $scope.users[i+1].status = user.status;
-            }
-        }
-
+  		User.update({id: userid}, $scope.users[index]);
   	});
   }
 
