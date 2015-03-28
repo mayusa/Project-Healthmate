@@ -8,7 +8,7 @@
             <div class="panel-heading">
               <div class="row">
                 <div class="col-sm-6">
-                   Users
+                   Users List
                 </div>
                 <div class="col-sm-6 text-right">
                     Search <input ng-model="search.$">
