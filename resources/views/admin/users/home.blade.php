@@ -7,10 +7,10 @@
         <div class="panel panel-default">
             <div class="panel-heading">
               <div class="row">
-                <div class="col-xs-6">
+                <div class="col-sm-6">
                    Users
                 </div>
-                <div class="col-xs-6 text-right">
+                <div class="col-sm-6 text-right">
                     Search <input ng-model="search.$">
                 </div>  
               </div>           
