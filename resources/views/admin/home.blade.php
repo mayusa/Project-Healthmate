@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
 
-                        This admin dashboard.
+                        Welcome to admin dashboard.
 
                     </div>
                 </div>
