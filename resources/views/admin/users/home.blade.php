@@ -27,7 +27,7 @@
                     </tr>
                     <tr ng-repeat="user in users | filter:search | orderBy:sortField">
                         <td><% user.id %></td>
-                        <td><% user.email %></td>
+                        <td class="text-success"><% user.email %></td>
                         <td><a href="/user/<% user.id %>/profile"><% user.name %></a> 
                         <a href="/user/<% user.id %>/edit" ng-if="
                         ({{Auth::user()->rid}} == 2 || {{Auth::user()->rid}} == 3) && user.rid !=3  && {{Auth::user()->rid}} != user.rid  || {{Auth::id()}} == user.id "><span class="glyphicon glyphicon-edit"></span></a></td>
@@ -39,7 +39,7 @@
                         </td>
                         <td>
 													<span ng-if=" user.status == 0 ">active</span>								
-													<span ng-if=" user.status == 1 ">blocked</span>
+													<span ng-if=" user.status == 1 " class="text-danger">blocked</span>
                         <td>
                           <span ng-if=" user.id != {{Auth::id()}} && user.rid != 3">
                         	<button ng-if=" user.status == 0 " ng-click="changeStatus(user.id, $index)" class="btn btn-danger btn-xs">BLOCK</button>
