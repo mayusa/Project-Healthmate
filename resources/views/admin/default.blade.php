@@ -6,9 +6,10 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
 	<title>HealthMate Admin Dashboard</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="/lib/magnific-popup/magnific-popup.css">
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
 
@@ -61,14 +62,19 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <!--AngularJS-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.3.15/angular-resource.min.js"></script>
-    <script src="/js/controllers/adminController.js"></script>
-    <script src="/js/services/adminUsersService.js"></script>
-    <script src="/js/custom.js"></script>
+	<script src="/lib/jquery2/jquery.min.js"></script>
+	<script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="/lib/magnific-popup/jquery.magnific-popup.js"></script>
+  <!--AngularJS-->
+
+	<script src="/lib/angular/angular.js"></script>
+	<script src="/lib/angular/angular-resource.min.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://code.angularjs.org/1.3.15/angular-resource.min.js"></script>-->
+
+  <script src="/js/controllers/adminController.js"></script>
+  <script src="/js/services/adminUsersService.js"></script>
+  <script src="/js/custom.js"></script>
 
 
 </body>

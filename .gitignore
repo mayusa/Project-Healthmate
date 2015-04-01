@@ -1,0 +1,6 @@
+/vendor
+/node_modules
+.env
+.idea/workspace.xml
+bower_components
+.DS_Store
