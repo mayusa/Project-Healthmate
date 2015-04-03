@@ -7,12 +7,15 @@
         <div class="panel panel-default">
             <div class="panel-heading">
               <div class="row">
-                <div class="col-sm-5 col-xs-12">
-                   Users List
+                <div class="col-sm-8 col-xs-12">
+                  <h5><strong>Users List</strong></h5>
                 </div>
-                <div class="col-sm-7 col-xs-12 text-right">
-                    Search <input ng-model="search.$">
-                </div>  
+
+                  <div class="col-sm-4 col-xs-12">
+                    <label for="searchinput" class="sr-only">Search</label>
+                     <input ng-model="search.$" class="form-control" id="searchinput" placeholder="search">
+                  </div>
+
               </div>           
             </div>
             <div class="panel-body">

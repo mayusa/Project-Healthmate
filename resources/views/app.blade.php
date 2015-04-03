@@ -30,7 +30,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#page-top">HealthMate</a>
+				<a class="navbar-brand" href="{{ asset('/') }}">HealthMate</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -41,7 +41,8 @@
 					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-heartbeat"></span></h1>Conditions</a></li>
 					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-calendar"></span></h1>Calendar</a></li>
 					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-newspaper-o"></span></h1>News</a></li>
-					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-phone-square"></span></h1>Hotlines</a></li>
+					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-phone"></span></h1>Hotlines</a></li>
+					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-medkit"></span></h1>My Health</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

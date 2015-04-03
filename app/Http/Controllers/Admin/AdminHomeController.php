@@ -21,7 +21,6 @@ class AdminHomeController extends Controller
         return view('auth.login')->withErrors([
             'email' => 'Your account are blocked by administrator!',
         ]);
-
     } 
     else 
     {

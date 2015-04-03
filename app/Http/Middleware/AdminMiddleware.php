@@ -22,6 +22,13 @@ class AdminMiddleware
             'email' => 'YOU ARE NOT ADMIN',
         ]);
     }
+    else if(Auth::user()->status == 1)
+    {
+        // throw new \Exception("YOU ARE NOT ADMIN");
+        return redirect('/auth/login')->withErrors([
+            'email' => 'YOUR ACCOUNT WAS BLOCKED',
+        ]);
+    }
 		return $next($request);
 	}
 }
