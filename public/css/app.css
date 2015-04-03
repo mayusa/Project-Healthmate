@@ -27,7 +27,10 @@ body.index nav.navbar{
 
 
 @media(min-width:768px) {
-
+	.navbar-nav li a {
+		padding-top: 8px;
+		padding-bottom: 5px;
+	}
 		.navbar-nav li h1 {
 			line-height: 0.8em;
 			margin-top: 0px;
@@ -38,7 +41,10 @@ body.index nav.navbar{
 		}
 
 		.navbar-shrink h1 {
-			font-size: 1.8em;
+			font-size: 2.2em;
+      -webkit-transition: all .3s;
+      -moz-transition: all .3s;
+      transition: all .3s;
 		}
 
 		.navbar-right li a {
