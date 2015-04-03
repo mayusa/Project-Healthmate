@@ -27,7 +27,7 @@ body.index nav.navbar{
 
 
 @media(min-width:768px) {
-	.navbar-nav li a {
+	body.index .navbar-nav li a {
 		padding-top: 8px;
 		padding-bottom: 5px;
 	}
