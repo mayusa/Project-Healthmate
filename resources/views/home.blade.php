@@ -7,7 +7,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Home Page</div>
 
-				<div class="panel-body">
+				<div class="panel-body" style="height:900px">
                     @if (Session::has('errmsg'))
                         Your account are blocked ~!
                     @elseif (Auth::guest())

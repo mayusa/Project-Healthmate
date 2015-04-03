@@ -36,3 +36,11 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth']
     Route::get('/{id}/edit', 'UserProfileController@edit');
     Route::post('/{id}/edit','UserProfileController@update');
 });
+
+Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth'], function()
+{
+    Route::get('/', 'CmsHomeController@index');
+    Route::get('/{id}/view', 'CmsController@view');
+    Route::get('/{id}/edit', 'CmsController@edit');
+    Route::post('/{id}/edit','CmsController@update');
+});

@@ -3,12 +3,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
-	<title>HealthMate</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
+	<title>HealthMate | Home</title>
 
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="/lib/magnific-popup/magnific-popup.css">
+	<link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.min.css">
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -18,27 +20,33 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
-	<nav class="navbar navbar-default">
+<body id="page-top" class="index">
+	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
-			<div class="navbar-header">
+			<div class="navbar-header page-scroll">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle Navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">HealthMate</a>
+				<a class="navbar-brand" href="#page-top">HealthMate</a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="{{ url('/') }}">Home</a></li>
+				<ul class="nav navbar-nav text-center">
+          <li class="hidden"><a href="#page-top"></a></li>
+					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-user-md"></span></h1>Doctors</a></li>
+					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-hospital-o"></span></h1>Facilities</a></li>
+					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-heartbeat"></span></h1>Conditions</a></li>
+					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-calendar"></span></h1>Calendar</a></li>
+					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-newspaper-o"></span></h1>News</a></li>
+					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-phone-square"></span></h1>Hotlines</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}">Login</a></li>
+						<li><a href="{{ url('/auth/login') }}" class>Login</a></li>
 						<li><a href="{{ url('/auth/register') }}">Register</a></li>
 					@else
 
@@ -62,8 +70,34 @@
 
 	@yield('content')
 
+<footer class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+	<div class="row">
+		<h5>
+			<div class="text-left col-sm-6"><small>Copyright © 2015 HealthMate LLC. All rights reserved.</small></div>
+		</h5>
+		<h5>
+		  <div class="text-right col-sm-6">
+		  <small>
+			  <a href="{{ url('/') }}" class>About</a> | 
+			  <a href="{{ url('/') }}" class>Tour</a> | 
+			  <a href="{{ url('/') }}" class>Feedback</a>
+			  </small>
+		  </div>
+		  </div>
+    </h5>
+  </div>
+</footer>
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="/lib/jquery2/jquery.min.js"></script>
+	<script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="/lib/magnific-popup/jquery.magnific-popup.js"></script>
+	<script src="/lib/jquery2/jquery.easing.min.js"></script>
+  <!--AngularJS-->
+	<script src="/lib/angular/angular.js"></script>
+	<script src="/lib/angular/angular-resource.min.js"></script>
+
+  <script src="/js/custom.js"></script>
+  <script src="/js/animatedHeader.js"></script>
 </body>
 </html>

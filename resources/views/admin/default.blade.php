@@ -10,8 +10,8 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="/lib/magnific-popup/magnific-popup.css">
+	<link rel="stylesheet" href="/lib/fontawesome/css/font-awesome.min.css">
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,7 +21,7 @@
 	<![endif]-->
 </head>
 <body ng-controller="AdminCtrl" ng-cloak>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
