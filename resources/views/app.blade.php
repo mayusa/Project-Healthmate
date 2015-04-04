@@ -70,7 +70,7 @@
 
 	@yield('content')
 
-<footer class="navbar navbar-default navbar-fixed-bottom">
+<footer class="navbar navbar-inverse navbar-fixed-bottom">
   <div class="container">
 	<div class="row">
 		<h5>
