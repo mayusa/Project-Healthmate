@@ -45,10 +45,10 @@
 					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-medkit"></span></h1>My Health</a></li>
 				</ul>
 
-				<ul class="nav navbar-nav navbar-right">
+				<div class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}" class>Login</a></li>
-						<li><a href="{{ url('/auth/register') }}">Register</a></li>
+						<a href="{{ url('/auth/login') }}" class="btn btn-default btn-sm">Login</a>
+						<a href="{{ url('/auth/register') }}" class="btn btn-default btn-sm">Register</a>
 					@else
 
 						<li class="dropdown">
@@ -64,7 +64,7 @@
 							</ul>
 						</li>
 					@endif
-				</ul>
+				</div>
 			</div>
 		</div>
 	</nav>

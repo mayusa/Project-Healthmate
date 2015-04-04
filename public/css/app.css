@@ -82,3 +82,11 @@ body.index nav.navbar{
 			font-size: 12px;
 		}
 }
+@media(max-width:767px){
+	body.index .nav li {
+		float:left;
+	}
+	body.index .nav li a {
+		  padding: 3px 10px;
+	}
+}
