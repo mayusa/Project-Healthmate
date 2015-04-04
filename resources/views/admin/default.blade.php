@@ -35,11 +35,9 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav" id="nav">
-					<li	@if(strstr(Request::url(), '/admin') == '/admin') class="active"
-					@endif >
+					<li	@if(strstr(Request::url(), '/admin') == '/admin') class="active" @endif >
 					<a href="{{ url('/admin') }}">Admin Home</a></li>
-          <li @if(strstr(Request::url(), '/admin') == '/admin/users/home') class="active"
-					@endif>
+          <li @if(strstr(Request::url(), '/admin') == '/admin/users/home') class="active" @endif>
 					<a href="/admin/users/home">Users</a></li>
 				</ul>
 

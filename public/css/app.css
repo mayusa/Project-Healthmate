@@ -84,14 +84,25 @@ body.index nav.navbar{
 }
 @media(max-width:767px){
 
-body.index {
-	padding-top: 60px;
-	padding-bottom:70px;
-}
+	body.index {
+		padding-top: 60px;
+		padding-bottom:60px;
+	}
+
+	.navbar-nav li h1 {
+		font-size: 1.6em;
+		line-height: 0.8em;
+		margin-top: 0px;
+		margin-bottom: 2px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+	}
+
 	body.index .nav li {
 		float:left;
 	}
 	body.index .nav li a {
-		  padding: 3px 10px;
+		  padding: 3px 13px;
 	}
 }

@@ -34,9 +34,8 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav text-center">
+				<ul class="nav navbar-nav text-center row">
           <li class="hidden"><a href="#page-top"></a></li>
-					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-user-md"></span></h1>Doctors</a></li>
 					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-hospital-o"></span></h1>Facilities</a></li>
 					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-heartbeat"></span></h1>Conditions</a></li>
 					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-calendar"></span></h1>Calendar</a></li>
