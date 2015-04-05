@@ -46,7 +46,7 @@
 
 				<div class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
-						<a href="{{ url('/auth/login') }}" class="btn btn-default btn-sm">Login</a>
+						<a href="{{ url('/auth/login') }}" class="btn btn-primary btn-sm">Login</a>
 						<a href="{{ url('/auth/register') }}" class="btn btn-default btn-sm">Register</a>
 					@else
 
