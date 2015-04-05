@@ -20,7 +20,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body ng-controller="AdminCtrl" ng-cloak class="indexcms">
+<body ng-controller="CmsCtrl" ng-cloak class="indexcms">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -47,7 +47,7 @@
           <li @if(strstr(Request::url(), '/cms/conditions/home') == '/cms/conditions/home') class="active" @endif>
 						<a href="/cms/conditions/home"><span class="fa fa-heartbeat"></span> Conditions</a>
 					</li>
-          <li @if(strstr(Request::url(), '/cms/news/home') == '/cms/news/home') class="active" @endif>
+          <li @if(strstr(Request::url(), '/cms/news/home') == '/cms/news/home' || strstr(Request::url(), '/cms/news/create') == '/cms/news/create') class="active" @endif>
 						<a href="/cms/news/home"><span class="fa fa-newspaper-o"></span> News</a>
 					</li>
 				</ul>
@@ -83,8 +83,12 @@
   <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
   <script src="https://code.angularjs.org/1.3.15/angular-resource.min.js"></script>-->
 
-  <script src="/js/controllers/adminController.js"></script>
-  <script src="/js/services/adminUsersService.js"></script>
+  <script src="/js/controllers/cmsController.js"></script>
+  <script src="/js/services/cmsNewsService.js"></script>
+  <script src="/js/services/cmsNewsCategoryService.js"></script>
+  <script src="/js/services/cmsDoctorsService.js"></script>
+  <script src="/js/services/cmsConditionsService.js"></script>
+  <script src="/js/services/cmsFacilitiesService.js"></script>
   <script src="/js/custom.js"></script>
 
 

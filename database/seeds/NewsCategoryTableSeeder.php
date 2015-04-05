@@ -30,9 +30,6 @@ class NewsCategoryTableSeeder extends Seeder {
             'category_name' => 'Infant Health'
         ]);
         NewsCategory::create([
-            'category_name' => 'Infant Health'
-        ]);
-        NewsCategory::create([
             'category_name' => 'HealthMate News'
         ]);
         NewsCategory::create([

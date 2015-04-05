@@ -4,7 +4,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect, Input, Auth;
-use App\User;
+use App\News;
+use App\NewsCategory;
+
 
 // using route middleware to check admin auth
 class NewsController extends Controller {
@@ -13,15 +15,23 @@ class NewsController extends Controller {
         return view('cms.news.home');
     }
     // RESTful methods: return json data. 
-    // 并且需要验证用户，保护路径不被匿名访问
-    // GET user list
     public function index()
     {
-        return response()->json(User::all());
+        return response()->json(News::all());
     }
+    // get all news categories
+    public function getCategory()
+    {
+        return response()->json(NewsCategory::all());
+    }
+
+    public function create(){
+        return view('cms.news.create');
+    }
+
     // GET 1 user
     public function show($id){
-      return response()->json(User::find($id));
+      return response()->json(News::find($id));
     }
     // 暂时没用，交给/User/UserProfileController.php处理
     public function edit($id)
@@ -31,7 +41,7 @@ class NewsController extends Controller {
     // PUT
     public function update($id)
     {
-        $user = User::find($id);
+        $user = News::find($id);
 
         $user->name = Input::get('name');
         $user->first_name = Input::get('first_name');

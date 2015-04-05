@@ -36,6 +36,7 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
   Route::get('/', 'CmsHomeController@index'); // /cms home page
   // news
   Route::get('/news/home', 'NewsController@view');
+  Route::get('/newscategory', 'NewsController@getCategory');
   Route::resource('/news', 'NewsController');
   // doctors
   Route::get('/doctors/home', 'DoctorsController@view');
