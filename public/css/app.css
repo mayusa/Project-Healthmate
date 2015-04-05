@@ -109,4 +109,9 @@ body.index nav.navbar{
 	body.index .nav li a {
 		  padding: 3px 13px;
 	}
+
+	.nav {
+		padding-left:10px;
+	}
+
 }
