@@ -36,6 +36,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav text-center row">
           <li class="hidden"><a href="#page-top"></a></li>
+					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-user-md"></span></h1>Doctors</a></li>
 					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-hospital-o"></span></h1>Facilities</a></li>
 					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-heartbeat"></span></h1>Conditions</a></li>
 					<li class="page-scroll"><a href="{{ url('/') }}"><h1><span class="fa fa-calendar"></span></h1>Calendar</a></li>
@@ -56,6 +57,9 @@
 
                 @if (Auth::user()->rid == 2 || Auth::user()->rid == 3 )
                  <li><a href="/admin">Admin</a></li>
+                @endif
+                @if (Auth::user()->rid == 2 || Auth::user()->rid == 3 || Auth::user()->rid == 4 )
+                 <li><a href="/cms">CMS</a></li>
                 @endif
                 <li><a href="{{ URL('/user/'. Auth::id() . '/profile') }}"><span class="am-icon-user"></span> My Profile</a></li>
                                 

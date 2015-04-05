@@ -2,8 +2,8 @@
 use Closure;
 use Auth;
 
-class AdminMiddleware 
-{
+class EditorMiddleware {
+
 	public function handle($request, Closure $next)
 	{
 		// check login first
@@ -15,11 +15,11 @@ class AdminMiddleware
         ]);
 
     } 
-    else if(Auth::user()->rid != 2 && Auth::user()->rid != 3)
+    else if(Auth::user()->rid != 2 && Auth::user()->rid != 3 && Auth::user()->rid != 4)
     {
         // throw new \Exception("YOU ARE NOT ADMIN");
         return redirect('/auth/login')->withErrors([
-            'email' => 'YOU ARE NOT ADMIN',
+            'email' => 'YOU ARE NOT EDITOR !',
         ]);
     }
     else if(Auth::user()->status == 1)

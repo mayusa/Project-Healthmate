@@ -19,28 +19,41 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+// Admin module
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth', 'middleware' => 'admin'], function()
 {
-    Route::get('/', 'AdminHomeController@index');
-    // goto angular view page(make::View)
-    Route::get('/users/home', 'UsersController@view');
-    // laravel resource control
-    Route::resource('/users', 'UsersController');
+  Route::get('/', 'AdminHomeController@index');
+  // goto angular view page(make::View)
+  Route::get('/users/home', 'UsersController@view');
+  // laravel resource control
+  Route::resource('/users', 'UsersController');
 
 });
 
+// CMS module
+Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', 'middleware' => 'editor'], function()
+{
+  Route::get('/', 'CmsHomeController@index'); // /cms home page
+  // news
+  Route::get('/news/home', 'NewsController@view');
+  Route::resource('/news', 'NewsController');
+  // doctors
+  Route::get('/doctors/home', 'DoctorsController@view');
+  Route::resource('/doctors', 'DoctorsController');
+  // facilities
+  Route::get('/facilities/home', 'FacilitiesController@view');
+  Route::resource('/facilities', 'FacilitiesController');
+  // conditions
+  Route::get('/conditions/home', 'ConditionsController@view');
+  Route::resource('/conditions', 'ConditionsController');
+
+});
+
+// User module
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth'], function()
 {
-    // not resource control
-    Route::get('/{id}/profile', 'UserProfileController@view');
-    Route::get('/{id}/edit', 'UserProfileController@edit');
-    Route::post('/{id}/edit','UserProfileController@update');
-});
-
-Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth'], function()
-{
-    Route::get('/', 'CmsHomeController@index');
-    Route::get('/{id}/view', 'CmsController@view');
-    Route::get('/{id}/edit', 'CmsController@edit');
-    Route::post('/{id}/edit','CmsController@update');
+  // not resource control
+  Route::get('/{id}/profile', 'UserProfileController@view');
+  Route::get('/{id}/edit', 'UserProfileController@edit');
+  Route::post('/{id}/edit','UserProfileController@update');
 });
