@@ -19,7 +19,7 @@
               </div>           
             </div>
             <div class="panel-body">
-                <table class="table">
+                <table class="table table-condensed">
                     <tr>
                         <th>id</th>
                         <th class="hidden-xs"><a href="" ng-click="sortField=sortField=='email'?'-email':'email'">email</a></th>
@@ -28,7 +28,7 @@
                         <th><a href="" ng-click="sortField=sortField=='status'?'-status':'status'">status</a></th>
                         <th>modify</th>
                     </tr>
-                    <tr ng-repeat="user in users | filter:search | orderBy:sortField">
+                    <tr ng-repeat="user in users | filter:search | orderBy:sortField" ng-class="{ warning:user.id == {{Auth::id()}} }">
                         <td><% user.id %></td>
                         <td class="hidden-xs"><% user.email %></td>
                         <td><a href="/user/<% user.id %>/profile">

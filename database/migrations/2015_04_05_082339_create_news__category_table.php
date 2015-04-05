@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFacilityMediaTable extends Migration {
+class CreateNewsCategoryTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,11 @@ class CreateFacilityMediaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('facility__media', function(Blueprint $table)
+		Schema::create('news_category', function(Blueprint $table)
 		{
-			$table->increments('id');
+			// dont need redefine primary key
+			$table->increments('cate_id');
+			$table->string('category_name');
 			$table->timestamps();
 		});
 	}
@@ -26,7 +28,7 @@ class CreateFacilityMediaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('facility__media');
+		Schema::drop('news_category');
 	}
 
 }

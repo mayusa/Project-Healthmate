@@ -1,12 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: may2015
- * Date: 3/20/15
- * Time: 2:42 PM
- */
-
-//
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Model;

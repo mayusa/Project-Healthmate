@@ -15,6 +15,10 @@ body.index {
 	padding-bottom:70px;
 }
 
+body.indexcms {
+	padding-top: 70px;
+}
+
 body.index nav.navbar{
 	background: white;
 

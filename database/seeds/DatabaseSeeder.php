@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use database\seeds\NewsCategoryTableSeeder;
 
 class DatabaseSeeder extends Seeder {
 
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('RoleTableSeeder');
 		$this->call('AdminUserSeeder');
+		$this->call('NewsCategoryTableSeeder');
 	}
 
 }
