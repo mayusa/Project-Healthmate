@@ -2,21 +2,19 @@
 
 @section('content')
 
-<div ng-controller="CmsNewsCreateCtrl">
+<div ng-controller="CmsNewsEditCtrl">
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
               <div class="row">
                 <div class="col-sm-8 col-xs-12">
-                  <h5><strong>CMS Create News </strong></h5>
+                  <h5><strong>Edit News </strong></h5>
                 </div>
               </div>           
             </div>
-            <!-- success msg -->
+
             <div class="panel-body">
-            @if (Session::has('msg'))
-               <div class="alert alert-success text-center">{{ Session::get('msg') }}</div>
-            @endif
+
             <!-- error message -->
             @if (count($errors) > 0)
             <div class="alert alert-danger">
@@ -31,7 +29,8 @@
           <!-- start form -->
           <form id="news_form" action="/cms/news" method="POST" name="frm" novalidate>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="userid" value="{{Auth::id()}}">
+            <input type="hidden" name="id" value="{{ $news->id }}" id="newsid">
+
               <div class="row">
               <div class="col-lg-6 col-lg-offset-3">
                 

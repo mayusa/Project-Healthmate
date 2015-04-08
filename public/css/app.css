@@ -60,9 +60,9 @@ body.index nav.navbar{
 		}
     body.index nav.navbar-fixed-top {
         padding: 5px 0;
-        -webkit-transition: all .3s;
-        -moz-transition: all .3s;
-        transition: all .3s;
+        -webkit-transition: all .9s;
+        -moz-transition: all .9s;
+        transition: all .9s;
     }
 
     .navbar-fixed-top .navbar-brand {

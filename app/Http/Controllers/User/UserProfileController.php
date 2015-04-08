@@ -43,7 +43,7 @@ class UserProfileController extends Controller {
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         if( Auth::user()->rid != 2 && Auth::user()->rid != 3 && Auth::id() != $id && (Auth::user()->rid == 2 && ($id == 2 || $id == 3 )) ){
             return Redirect::to('/admin/users/home');

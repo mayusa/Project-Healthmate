@@ -69,12 +69,12 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title text-center">Are you sure <span ng-if="blockuser.status == 0" class="text-danger">block</span><span ng-if="blockuser.status == 1"class="text-success">unblock</span><br><%blockuser.name%> ?</h4>
+            <h4 class="modal-title text-center">Are you sure <span ng-if="blockobj.status == 0" class="text-danger">block</span><span ng-if="blockobj.status == 1"class="text-success">unblock</span><br><%blockuser.name%> ?</h4>
           </div>
           <div class="modal-body text-center">
 
             <button type="button" class="btn btn-default btn-block" data-dismiss="modal">No</button>
-            <button type="button" class="btn btn-primary btn-block" ng-click="changeStatus(blockid, blockuser)">Yes</button>
+            <button type="button" class="btn btn-primary btn-block" ng-click="changeStatus(blockid, blockobj)">Yes</button>
           </div>
           <div class="modal-footer">
           </div>

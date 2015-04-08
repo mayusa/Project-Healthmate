@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div ng-controller="AdminUsersCtrl">
+<div ng-controller="CmsFacilityCtrl">
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">

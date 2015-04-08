@@ -1,6 +1,6 @@
 
-
-// Highlight the top nav as scrolling occurs
+(function(){
+	// Highlight the top nav as scrolling occurs
 $('body').scrollspy({
     target: '.navbar-fixed-top'
 });
@@ -9,3 +9,7 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+setTimeout('$(".alert-success").fadeOut(600)',3000);
+
+})();

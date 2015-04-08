@@ -34,17 +34,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', 'middleware' => 'editor'], function()
 {
   Route::get('/', 'CmsHomeController@index'); // /cms home page
-  // news
-  Route::get('/news/home', 'NewsController@view');
+  // cms news
+  Route::get('/news/home', 'NewsController@home');
+  Route::get('/news/{id}/view', 'NewsController@view');
   Route::get('/newscategory', 'NewsController@getCategory');
   Route::resource('/news', 'NewsController');
-  // doctors
+
+  // cms doctors
   Route::get('/doctors/home', 'DoctorsController@view');
   Route::resource('/doctors', 'DoctorsController');
-  // facilities
+
+  // cms facilities
   Route::get('/facilities/home', 'FacilitiesController@view');
   Route::resource('/facilities', 'FacilitiesController');
-  // conditions
+  // cms conditions
   Route::get('/conditions/home', 'ConditionsController@view');
   Route::resource('/conditions', 'ConditionsController');
 

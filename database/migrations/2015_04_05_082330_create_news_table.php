@@ -14,13 +14,13 @@ class CreateNewsTable extends Migration {
 	{
 		Schema::create('news', function(Blueprint $table)
 		{
-			$table->increments('news_id');
-			$table->Integer('id');//user id
-			$table->Integer('cate_id');//news category id
+			$table->increments('id');
+			$table->Integer('userid');//user id
+			$table->Integer('cateid');//news category id
 			$table->string('title');
 			$table->text('content');
 			$table->timestamps();
-			$table->string('from'); // url string
+			$table->string('fromurl'); // url string
 			$table->tinyInteger('status')->default(1);//1-active, 0-blocked
 		});
 	}

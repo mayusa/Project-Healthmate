@@ -4,7 +4,7 @@
 /* Services */
 angular.module('newsCagetoryService', [])
   .factory('NewsCategory', function($resource) {   
-      return $resource('/cms/newscategory', {}, {}) ; 
+      return $resource('/cms/newscategory', null, null) ; 
   });
 
   

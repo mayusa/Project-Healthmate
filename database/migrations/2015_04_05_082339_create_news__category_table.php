@@ -15,7 +15,7 @@ class CreateNewsCategoryTable extends Migration {
 		Schema::create('news_category', function(Blueprint $table)
 		{
 			// dont need redefine primary key
-			$table->increments('cate_id');
+			$table->increments('id');
 			$table->string('category_name');
 			$table->timestamps();
 		});

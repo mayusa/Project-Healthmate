@@ -38,16 +38,16 @@
 					<li	@if(strstr(Request::url(), '/cms') == '/cms') class="active" @endif >
 						<a href="{{ url('/cms') }}">CMS Home</a>
 					</li>
-          <li @if(strstr(Request::url(), '/cms/doctors/home') == '/cms/doctors/home') class="active" @endif>
+          <li @if( strpos(Request::url(), '/cms/doctors') ) class="active" @endif>
 						<a href="/cms/doctors/home"><span class="fa fa-user-md"></span> Doctors</a>
 					</li>
-          <li @if(strstr(Request::url(), '/cms/facilities/home') == '/cms/facilities/home') class="active" @endif>
+          <li @if( strpos(Request::url(), '/cms/facilities') ) class="active" @endif>
 						<a href="/cms/facilities/home"><span class="fa fa-hospital-o"></span> Facilities</a>
 					</li>
-          <li @if(strstr(Request::url(), '/cms/conditions/home') == '/cms/conditions/home') class="active" @endif>
+          <li @if( strpos(Request::url(), '/cms/conditions') ) class="active" @endif>
 						<a href="/cms/conditions/home"><span class="fa fa-heartbeat"></span> Conditions</a>
 					</li>
-          <li @if(strstr(Request::url(), '/cms/news/home') == '/cms/news/home' || strstr(Request::url(), '/cms/news/create') == '/cms/news/create') class="active" @endif>
+          <li @if( strpos(Request::url(), '/cms/news') ) class="active" @endif>
 						<a href="/cms/news/home"><span class="fa fa-newspaper-o"></span> News</a>
 					</li>
 				</ul>

@@ -11,55 +11,68 @@ use App\NewsCategory;
 // using route middleware to check admin auth
 class NewsController extends Controller {
     // for route: return angular page
-    public function view(){
-        return view('cms.news.home');
-    }
+  public function home(){
+    return view('cms.news.home');
+  }
+
+  // news detail page
+  public function view($id){
+    return view('cms.news.view')->withNews(News::find($id));//withNews: $news
+  }
     // RESTful methods: return json data. 
-    public function index()
-    {
-        return response()->json(News::all());
-    }
+  public function index()
+  {
+    return response()->json(News::all());
+  }
     // get all news categories
-    public function getCategory()
-    {
-        return response()->json(NewsCategory::all());
-    }
+  public function getCategory()
+  {
+    return response()->json(NewsCategory::all());
+  }
 
-    public function create(){
-        return view('cms.news.create');
-    }
+  public function create(){
+    return view('cms.news.create');
+  }
+    // store news to db
+  public function store()
+  {
+     if (News::create(Input::all())) {
+      // return Redirect::back()->with('msg', 'Success');
+      return Redirect::to('/cms/news/home')->with('msg', 'Success');
+     } else {
+      return Redirect::back()->withInput()->withErrors('error!');
+     }
+  }
 
-    // GET 1 user
-    public function show($id){
-      return response()->json(News::find($id));
-    }
-    // 暂时没用，交给/User/UserProfileController.php处理
-    public function edit($id)
-    {
-       return Redirect::to('/admin/users');
-    }
+    // GET 1 news
+  public function show($id){
+
+    return response()->json(News::find($id));
+  }
+    // goto edit page
+  public function edit($id)
+  {
+    return view('cms.news.edit')->withNews(News::find($id));
+  }
     // PUT
-    public function update($id)
-    {
-        $user = News::find($id);
+  public function update($id){
 
-        $user->name = Input::get('name');
-        $user->first_name = Input::get('first_name');
-        $user->last_name = Input::get('last_name');
-        $user->gender = Input::get('gender');
-        $user->phone = Input::get('phone');
-        $user->address = Input::get('address');
-        $user->zip_code = Input::get('zip_code');
-        $user->birth = Input::get('birth');
+    $news = News::find($id);
 
-        // change status field
-        $user->status = Input::get('status');
+    $news->title = Input::get('title');
+    $news->content = Input::get('content');
+    $news->cateid = Input::get('cateid');
 
+    // change status field
+    $news->status = Input::get('status');
 
-        if ($user->save()) {
-            return "success";
-        } else {
-            return "error";;
-        }
+    if ($news->save()) {
+      return "success";
+    } else {
+      return "error";
     }
+    
+  }
+
+
 }
