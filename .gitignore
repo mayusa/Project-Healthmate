@@ -4,3 +4,5 @@
 .idea/workspace.xml
 bower_components
 .DS_Store
+.vagrant
+Vagrantfile
