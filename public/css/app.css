@@ -33,6 +33,10 @@ body.index nav.navbar{
 	border-top: none;
 }
 
+#editor {
+	overflow:scroll; 
+	max-height:300px
+}
 
 @media(min-width:768px) {
 	body.index .navbar-nav li a {

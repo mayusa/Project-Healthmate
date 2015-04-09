@@ -68,14 +68,11 @@
 		</div>
 	</nav>
 
-	<div class="container">
-	@yield('content')
-	</div>
-
 	<!-- Scripts -->
 	<script src="/lib/jquery2/jquery.min.js"></script>
 	<script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="/lib/magnific-popup/jquery.magnific-popup.js"></script>
+
   <!--AngularJS-->
 
 	<script src="/lib/angular/angular.js"></script>
@@ -88,8 +85,15 @@
   <script src="/js/services/cmsDoctorsService.js"></script>
   <script src="/js/services/cmsConditionsService.js"></script>
   <script src="/js/services/cmsFacilitiesService.js"></script>
+ 		<!-- ueditor 配置文件 -->
+    <script type="text/javascript" src="/lib/ueditor/ueditor.config.js"></script>
+    <!-- editor 编辑器源码文件 -->
+    <script type="text/javascript" src="/lib/ueditor/ueditor.all.js"></script>
   <script src="/js/custom.js"></script>
 
+	<div class="container">
+	@yield('content')
+	</div>
 
 </body>
 </html>

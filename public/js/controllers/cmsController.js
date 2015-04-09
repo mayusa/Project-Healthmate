@@ -48,9 +48,13 @@ app.controller('CmsNewsCtrl', ['$scope', 'News', 'NewsCategory', function ($scop
 }]);
 
 // /cms/news/{id}/view
-app.controller('CmsNewsViewCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
+app.controller('CmsNewsViewCtrl', ['$scope', 'News', function ($scope, News) 
 {
   //data comes from laravel 
+  var htmlcontent = $(".text-justify").text();
+  // transfor text to html
+  $(".text-justify").html(htmlcontent);
+
 }]);
 
 // /cms/news/{id}/edit
@@ -61,6 +65,10 @@ app.controller('CmsNewsEditCtrl', ['$scope', 'News', 'NewsCategory', function ($
   var newsid = $("#newsid").val();
   $scope.news={};
   $scope.news.cateid = 0;
+  $scope.news.title = ""
+  $scope.news.content = ""
+  $scope.news.from = ""
+
   $scope.selected_cate = "";
   $scope.err_msg = "";
 
@@ -83,6 +91,9 @@ app.controller('CmsNewsEditCtrl', ['$scope', 'News', 'NewsCategory', function ($
   };
 
   $scope.updateNews = function(event, n) {
+
+    $scope.news.content = ueedit.getContent();
+    
     if(event){
       event.stopPropagation();
       event.preventDefault();
@@ -137,11 +148,13 @@ app.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', function 
   // 切记表单元素的id和name都要自定义名称,
   // 不要使用关键词,比如'submit',否则jquery提交可能无效
   $scope.submitNews = function(event) {
+    
+    $scope.news.content = uecreate.getContent();
+
     if(event){
       event.stopPropagation();
       event.preventDefault();
       if(checkInput()){
-
 	  		console.log("true", $scope.news);
 				$("#news_form").submit();
 				return false;

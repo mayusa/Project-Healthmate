@@ -40,7 +40,7 @@
             <!-- news title -->
             <h5>
               <div class="row">
-              <div class="col-lg-6 col-lg-offset-3">
+              <div class="col-lg-8 col-lg-offset-2">
                 <div class="input-group">
                   <input type="text" class="form-control" aria-label="..." name="title" id="title" placeholder="News Title" ng-model="news.title" ng-change="checkInput()" required="required">
                   <div class="input-group-btn">
@@ -60,8 +60,12 @@
 
             <h5>
             <div class="row">
-              <div class="col-lg-6 col-lg-offset-3">
-                  <textarea name="content" id="content" class="form-control" ng-model="news.content" placeholder="news content" ng-change="checkInput()"></textarea>
+              <div class="col-lg-8 col-lg-offset-2">
+
+                <!-- 加载ueditor 编辑器的容器 -->
+                <script id="editContainer" name="content" type="text/plain" ng-model="news.content" ng-change="checkInput()"></script>
+              </div><!-- /.col-lg-6 -->
+
               </div><!-- /.col-lg-6 -->
 
             </div>
@@ -69,7 +73,7 @@
 
             <h5>
             <div class="row">
-              <div class="col-lg-6 col-lg-offset-3">
+              <div class="col-lg-8 col-lg-offset-2">
                   <input type="text" class="form-control" aria-label="..." name="fromurl" id="fromurl" placeholder="News Source (URL)" ng-model="news.fromurl">
               </div><!-- /.col-lg-6 -->
             </div>
@@ -85,5 +89,17 @@
         </div>
     </div>
 
+<script>
+// 实例 ueditor 编辑器, instance name should be variable
+var ueedit = UE.getEditor('editContainer');
+ueedit.ready(function(){
+  var newsContent = '{{ $news->content }}';
+  newsContent = UE.utils.html(newsContent);
+  // console.log(newsContent);
+  UE.getEditor('editContainer').setContent(newsContent);
+
+  //ue.execCommand('insertHtml', "{{ $news->content }}");
+})
+</script>
 </div>
 @endsection

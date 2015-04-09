@@ -12,6 +12,7 @@
                 </div>
               </div>           
             </div>
+            
             <div class="panel-body">
             <!-- success msg -->
             @if (Session::has('msg'))
@@ -33,7 +34,7 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="userid" value="{{Auth::id()}}">
               <div class="row">
-              <div class="col-lg-6 col-lg-offset-3">
+              <div class="col-lg-8 col-lg-offset-2">
                 
                 <div id="err" class="text-danger"><% err_msg %></div> 
               </div>
@@ -41,7 +42,7 @@
             <!-- news title -->
             <h5>
               <div class="row">
-              <div class="col-lg-6 col-lg-offset-3">
+              <div class="col-lg-8 col-lg-offset-2">
                 <div class="input-group">
                   <input type="text" class="form-control" aria-label="..." name="title" id="title" placeholder="News Title" ng-model="news.title" ng-change="checkInput()" required="required">
                   <div class="input-group-btn">
@@ -59,8 +60,10 @@
 
             <h5>
             <div class="row">
-              <div class="col-lg-6 col-lg-offset-3">
-                  <textarea name="content" id="content" class="form-control" ng-model="news.content" placeholder="news content" ng-change="checkInput()"></textarea>
+              <div class="col-lg-8 col-lg-offset-2">
+
+                <!-- 加载ueditor 编辑器的容器 -->
+                <script id="createContainer" name="content" type="text/plain" ng-model="news.content" ng-change="checkInput()">content</script>
               </div><!-- /.col-lg-6 -->
 
             </div>
@@ -68,7 +71,7 @@
 
             <h5>
             <div class="row">
-              <div class="col-lg-6 col-lg-offset-3">
+              <div class="col-lg-8 col-lg-offset-2">
                   <input type="text" class="form-control" aria-label="..." name="fromurl" id="fromurl" placeholder="News Source (URL)" ng-model="news.from">
               </div><!-- /.col-lg-6 -->
             </div>
@@ -85,4 +88,12 @@
     </div>
 
 </div>
+
+<script>
+
+// 实例 ueditor 编辑器
+var uecreate = UE.getEditor('createContainer');
+uecreate.ready(function(){});
+
+  </script>
 @endsection

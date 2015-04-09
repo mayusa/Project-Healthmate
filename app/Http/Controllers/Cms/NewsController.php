@@ -36,7 +36,15 @@ class NewsController extends Controller {
     // store news to db
   public function store()
   {
-     if (News::create(Input::all())) {
+    $news = new News;
+    $news->userid = Input::get('userid');
+    $news->title = Input::get('title');
+    $news->content = Input::get('content'); // 入库用msqyl_real_escape_string 前面解析用htmlspecialchars
+    $news->cateid = Input::get('cateid');
+    $news->fromurl = Input::get('fromurl');
+
+    // News::create(Input::all())
+    if ( $news->save() ) {
       // return Redirect::back()->with('msg', 'Success');
       return Redirect::to('/cms/news/home')->with('msg', 'Success');
      } else {

@@ -23,16 +23,17 @@
             </div>
             
               
-            <div class="text-muted col-sm-10 col-sm-offset-1">
+            <div class="text-muted col-sm-10 col-sm-offset-1 text-justify">
               
-              {{ $news->content }}<br><br>
+              {{ $news->content }}
             </div>
+            <div>
             <small>
               <div class="text-right col-sm-10 col-sm-offset-1">
                 from : <a href="{{ $news->fromurl }}" target="_blank">{{ $news->fromurl }}</a> 
               </div>
             </small>
-
+</div>
             </div>
         </div>
     </div>
