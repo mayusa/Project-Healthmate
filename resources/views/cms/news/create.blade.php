@@ -12,8 +12,8 @@
                 </div>
               </div>           
             </div>
-            <!-- success msg -->
             <div class="panel-body">
+            <!-- success msg -->
             @if (Session::has('msg'))
                <div class="alert alert-success text-center">{{ Session::get('msg') }}</div>
             @endif

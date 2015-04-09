@@ -37,7 +37,11 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
   // cms news
   Route::get('/news/home', 'NewsController@home');
   Route::get('/news/{id}/view', 'NewsController@view');
+
   Route::get('/newscategory', 'NewsController@getCategory');
+  // restful get a news category
+  Route::get('/newscategory/{id}/', 'NewsController@showCate');
+
   Route::resource('/news', 'NewsController');
 
   // cms doctors
@@ -61,3 +65,5 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth']
   Route::get('/{id}/edit', 'UserProfileController@edit');
   Route::post('/{id}/edit','UserProfileController@update');
 });
+
+

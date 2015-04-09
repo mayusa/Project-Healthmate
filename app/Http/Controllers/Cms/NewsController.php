@@ -49,6 +49,12 @@ class NewsController extends Controller {
 
     return response()->json(News::find($id));
   }
+    // GET 1 news
+  public function showCate($id){
+
+    return response()->json(NewsCategory::find($id));
+  }
+
     // goto edit page
   public function edit($id)
   {
@@ -62,6 +68,7 @@ class NewsController extends Controller {
     $news->title = Input::get('title');
     $news->content = Input::get('content');
     $news->cateid = Input::get('cateid');
+    $news->fromurl = Input::get('fromurl');
 
     // change status field
     $news->status = Input::get('status');

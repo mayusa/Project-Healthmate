@@ -9,4 +9,11 @@ angular.module('newsService', [])
       }) ; 
   });
 
+angular.module('newsCagetoryService', [])
+  .factory('NewsCategory', function($resource) {   
+      return $resource('/cms/newscategory/:id/', {id: '@id'}, {
+        'update': {method: 'PUT'}
+      }) ; 
+  });
+
   

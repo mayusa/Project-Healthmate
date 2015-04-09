@@ -19,6 +19,7 @@
             <div class="text-center">
               <h3>{{ $news->title }}</h3>
               {{ $news->created_at }}
+              <hr>
             </div>
             
               
@@ -27,7 +28,7 @@
               {{ $news->content }}
             </div>
 
-            <div class="text-right">
+            <div class="text-right col-sm-10 col-sm-offset-1">
               from : {{ $news->fromurl }}
             </div>
 

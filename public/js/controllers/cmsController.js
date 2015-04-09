@@ -2,84 +2,115 @@
 'use strict';
 var app = angular.module('hmApp', ['newsService','newsCagetoryService','conditionsService','facilitiesService','doctorsService','ngResource']);
 
-app.config(function($interpolateProvider) {
+app.config(function($interpolateProvider) 
+{
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');
 });
 
-app.controller('CmsCtrl', ['$scope', function ($scope) {
+app.controller('CmsCtrl', ['$scope', function ($scope) 
+{
   //console.log('i am cms home page');
 }]);
 
 // /cms/news/home
 app.controller('CmsNewsCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
 {
-
-  $scope.sortField = "";
+  $scope.sortField = "created_at";
   $scope.newsall = News.query();
   $scope.newcatesall = NewsCategory.query();
 
   $scope.delePop = function (news)
   {
     $('#confirmBlock').modal('show');
-    console.log($scope.blockid );
+    //console.log($scope.blockid );
     $scope.blockid = news.id;
     $scope.blockobj= news;
   };
 
   $scope.changeStatus = function (id, n)//need object n(news) !!!
   {
-  	console.log(id);
-
+  	//console.log("id", id);
   	var news = News.get({id: id}, function(news)
     {
-    	console.log(news);
-
-      if(news.status == 0)
+      if(news.status == 0){
   			n.status = 1;
-  		else
+      }
+  		else{
   			n.status = 0
-
+      }
   		News.update({id: id}, n);
-  		
   	});
     // close modal
     $('#confirmBlock').modal('hide');
   }
-
 
 }]);
 
 // /cms/news/{id}/view
 app.controller('CmsNewsViewCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
 {
-
-
+  //data comes from laravel 
 }]);
 
 // /cms/news/{id}/edit
 app.controller('CmsNewsEditCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
 {
   $scope.newcatesall = NewsCategory.query();
-  var newsid = $("#newsid").val();
 
-  var news = News.get({id: newsid}, function(news)
+  var newsid = $("#newsid").val();
+  $scope.news={};
+  $scope.news.cateid = 0;
+  $scope.selected_cate = "";
+  $scope.err_msg = "";
+
+  News.get({id: newsid}, function(news)
   {
     $scope.news = news;
-  });
+    $scope.news.cateid = news.cateid;
+    // get news cateid from db(restful)
+    NewsCategory.get({id: news.cateid}, function(category){
+      $scope.selected_cate = category.category_name;
+      $scope.err_msg = "";
+    });
 
-  $scope.selected_cate = "Category";
-  $scope.err_msg = "Please select a category first";
+  });
 
   $scope.changeCate = function(cate, id) {
     $scope.selected_cate = cate;
     $scope.news.cateid = id;
     $scope.err_msg = "";
-
   };
 
-}]);
+  $scope.updateNews = function(event, n) {
+    if(event){
+      event.stopPropagation();
+      event.preventDefault();
+      if(checkInput()){
+        //console.log("true", $scope.news);
+        News.update({id: n.id}, n);
+        window.location.href="/cms/news/home";
+        return false;
+      }
+      return false;
+    }
+  }
 
+  var checkInput = function() {
+    if($scope.news.title == "") {
+      $scope.err_msg = "please enter a title";
+    } else if($scope.news.cateid == 0) {
+      $scope.err_msg = "please select a category";
+    } else if($scope.news.content == "") {
+      $scope.err_msg = "please enter content";
+    } else {
+      $scope.err_msg = "";
+      return true;
+    }
+      return false;
+  }
+
+}]);
 
 // /cms/news/create
 app.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
@@ -109,7 +140,7 @@ app.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', function 
     if(event){
       event.stopPropagation();
       event.preventDefault();
-      if($scope.checkInput()){
+      if(checkInput()){
 
 	  		console.log("true", $scope.news);
 				$("#news_form").submit();
@@ -121,7 +152,7 @@ app.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', function 
     }
   }
 
-  $scope.checkInput = function() {
+  var checkInput = function() {
   	if($scope.news.title == "") {
 			$scope.err_msg = "please enter a title";
 		} else if($scope.news.cateid == 0) {
@@ -134,7 +165,6 @@ app.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', function 
 		}
 			return false;
   }
-
 
 }]);
 

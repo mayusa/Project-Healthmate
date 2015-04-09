@@ -85,7 +85,6 @@
 
   <script src="/js/controllers/cmsController.js"></script>
   <script src="/js/services/cmsNewsService.js"></script>
-  <script src="/js/services/cmsNewsCategoryService.js"></script>
   <script src="/js/services/cmsDoctorsService.js"></script>
   <script src="/js/services/cmsConditionsService.js"></script>
   <script src="/js/services/cmsFacilitiesService.js"></script>
