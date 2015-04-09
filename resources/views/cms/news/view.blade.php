@@ -25,12 +25,13 @@
               
             <div class="text-muted col-sm-10 col-sm-offset-1">
               
-              {{ $news->content }}
+              {{ $news->content }}<br><br>
             </div>
-
-            <div class="text-right col-sm-10 col-sm-offset-1">
-              from : {{ $news->fromurl }}
-            </div>
+            <small>
+              <div class="text-right col-sm-10 col-sm-offset-1">
+                from : <a href="{{ $news->fromurl }}" target="_blank">{{ $news->fromurl }}</a> 
+              </div>
+            </small>
 
             </div>
         </div>
