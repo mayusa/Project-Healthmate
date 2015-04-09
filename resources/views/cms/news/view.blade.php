@@ -30,7 +30,7 @@
             <div>
             <small>
               <div class="text-right col-sm-10 col-sm-offset-1">
-                from : <a href="{{ $news->fromurl }}" target="_blank">{{ $news->fromurl }}</a> 
+                from : {{ $news->fromurl }}
               </div>
             </small>
 </div>

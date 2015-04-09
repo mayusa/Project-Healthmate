@@ -55,17 +55,14 @@
                 </div><!-- /input-group -->
               </div><!-- /.col-lg-6 -->
 
-            </div>
+            </div> <!-- / row-->
             </h5>
 
+            <!-- 加载ueditor 编辑器的容器 -->
             <h5>
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2">
-
-                <!-- 加载ueditor 编辑器的容器 -->
                 <script id="editContainer" name="content" type="text/plain" ng-model="news.content" ng-change="checkInput()"></script>
-              </div><!-- /.col-lg-6 -->
-
               </div><!-- /.col-lg-6 -->
 
             </div>
@@ -82,6 +79,7 @@
           <div class="text-center">
             <button class="btn btn-lg btn-info col-xs-12 col-xs-offset-0 col-md-4 col-md-offset-4" ng-click="updateNews( $event, news )">Submit</button>
           </div>
+
           </form>
           <!-- / end form -->
 
