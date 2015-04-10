@@ -1,32 +1,3 @@
-Allergy and Immunology
-Blood and Cancer Care (hematology and oncology)
-Cardiology
-Cardiothoracic Surgery
-Dentistry
-Dermatology
-Diabetes, Endocrinology and Metabolism
-Ear, Nose, and Throat (ENT)
-Family Practice
-Gastroenterology
-General Surgery
-Hand Surgery
-Infertility and Reproductive Endocrinology
-Internal Medicine
-Nephrology
-Neurology
-Neurosurgery
-Obstetrics and Gynecology
-Ophthalmology
-Orthopedic Surgery
-Pain Medicine
-Pediatrics
-Plastic Surgery
-Psychiatry
-Pulmonology
-Rheumatology
-Spine Surgery
-Urology
-Vascular Surgery
 Addiction Medicine
 Addiction Psychiatry
 Adolescent Medicine
@@ -42,7 +13,6 @@ Cancer Care (oncology)
 Cardiac Surgery
 Cardiology
 Cardiothoracic Surgery
-Cardiovascular Surgery
 Cerebrovascular Surgery
 Chemical Pathology
 Clinical and Laboratory Immunology
@@ -113,6 +83,7 @@ Neurology
 Neuromusculoskeletal Medicine and Osteo Manipulative Medicine
 Neuropathology
 Neuroradiology
+Neurosurgery
 Neurosurgery
 Nuclear Medicine
 Nuclear Radiology
