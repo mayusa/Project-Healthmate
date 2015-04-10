@@ -4,7 +4,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect, Input, Auth;
-use App\User;
+use App\Doctors;
+use App\Doctor_Specialty;
+use App\Specialty;
 
 // using route middleware to check admin auth
 class DoctorsController extends Controller {
