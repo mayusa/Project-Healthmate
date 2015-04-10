@@ -4,24 +4,41 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect, Input, Auth;
-use App\User;
+use App\Facility;
+use App\Facility_Category;
 
 // using route middleware to check admin auth
 class FacilitiesController extends Controller {
     // for route: return angular page
-    public function view(){
+    public function home(){
         return view('cms.facilities.home');
     }
     // RESTful methods: return json data. 
     // 并且需要验证用户，保护路径不被匿名访问
     // GET user list
+
+    // facility detail page
+    public function view($id){
+        return view('cms.facilities.view')->withFacility(Facility::find($id));//withFacility: $facility
+    }
+    // restful: return all facilities
     public function index()
     {
-        return response()->json(User::all());
+        return response()->json(Facility::all());
     }
+    // get all facility categories
+    public function getCategory()
+    {
+      return response()->json(Facility_Category::all());
+    }
+    // goto create form page
+    public function create(){
+      return view('cms.facilities.create');
+    }
+
     // GET 1 user
     public function show($id){
-      return response()->json(User::find($id));
+      return response()->json(Facility::find($id));
     }
     // 暂时没用，交给/User/UserProfileController.php处理
     public function edit($id)

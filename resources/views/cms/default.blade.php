@@ -80,11 +80,10 @@
   <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
   <script src="https://code.angularjs.org/1.3.15/angular-resource.min.js"></script>-->
 
-  <script src="/js/controllers/cmsController.js"></script>
-  <script src="/js/services/cmsNewsService.js"></script>
-  <script src="/js/services/cmsDoctorsService.js"></script>
-  <script src="/js/services/cmsConditionsService.js"></script>
-  <script src="/js/services/cmsFacilitiesService.js"></script>
+  <script src="/js/app.js"></script>  
+  <script src="/js/controllers/cmsControllers.js"></script>
+  <script src="/js/services/cmsServices.js"></script>
+
  		<!-- ueditor 配置文件 -->
     <script type="text/javascript" src="/lib/ueditor/ueditor.config.js"></script>
     <!-- editor 编辑器源码文件 -->

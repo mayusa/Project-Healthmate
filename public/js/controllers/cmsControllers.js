@@ -1,20 +1,17 @@
 /* Controllers */
 'use strict';
-var app = angular.module('hmApp', ['newsService','newsCagetoryService','conditionsService','facilitiesService','doctorsService','ngResource']);
+var cmsCtrls = angular.module('cmsCtrls', ['cmsServs','ngResource']);
 
-app.config(function($interpolateProvider) 
-{
-    $interpolateProvider.startSymbol('<%');
-    $interpolateProvider.endSymbol('%>');
-});
 
-app.controller('CmsCtrl', ['$scope', function ($scope) 
+cmsCtrls.controller('CmsCtrl', ['$scope', function ($scope) 
 {
   //console.log('i am cms home page');
 }]);
 
+// --- NEWS CONTROLLERS -----------------------------------------------------------//
+
 // /cms/news/home
-app.controller('CmsNewsCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
+cmsCtrls.controller('CmsNewsCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
 {
   $scope.sortField = "created_at";
   $scope.newsall = News.query();
@@ -48,7 +45,7 @@ app.controller('CmsNewsCtrl', ['$scope', 'News', 'NewsCategory', function ($scop
 }]);
 
 // /cms/news/{id}/view
-app.controller('CmsNewsViewCtrl', ['$scope', 'News', function ($scope, News) 
+cmsCtrls.controller('CmsNewsViewCtrl', ['$scope', 'News', function ($scope, News) 
 {
   //data comes from laravel 
   var htmlcontent = $(".text-justify").text();
@@ -58,7 +55,7 @@ app.controller('CmsNewsViewCtrl', ['$scope', 'News', function ($scope, News)
 }]);
 
 // /cms/news/{id}/edit
-app.controller('CmsNewsEditCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
+cmsCtrls.controller('CmsNewsEditCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
 {
   $scope.newcatesall = NewsCategory.query();
 
@@ -124,7 +121,7 @@ app.controller('CmsNewsEditCtrl', ['$scope', 'News', 'NewsCategory', function ($
 }]);
 
 // /cms/news/create
-app.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
+cmsCtrls.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
 {
 
 	// $scope.err_msg = "please select a category first";
@@ -181,15 +178,21 @@ app.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', function 
 
 }]);
 
-app.controller('CmsFacilityCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) {
+
+// --- FACILITY CONTROLLERS -----------------------------------------------------------//
+cmsCtrls.controller('CmsFacilityCtrl', ['$scope', 'Facilites', 'FacilitesCategory', function ($scope, News, NewsCategory) {
 
 }]);
 
-app.controller('CmsDoctorCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) {
+
+// --- DOCTOR CONTROLLERS -----------------------------------------------------------//
+cmsCtrls.controller('CmsDoctorCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) {
 
 }]);
 
-app.controller('CmsConditionCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) {
+
+// --- CONDITION CONTROLLERS -----------------------------------------------------------//
+cmsCtrls.controller('CmsConditionCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) {
 
 }]);
 
