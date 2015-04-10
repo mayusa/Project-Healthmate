@@ -16,6 +16,7 @@ class CreateDoctorTable extends Migration {
 		{
 			$table->increments('id');
 			$table->Integer('userid');//user id
+			$table->Integer('speciid');//specialty id
       $table->tinyInteger('doctor_name')->default(1);//1-yes, 0-false
       $table->text('intro');
       $table->string('address');

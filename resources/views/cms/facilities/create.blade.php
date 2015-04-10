@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div ng-controller="CmsNewsCreateCtrl">
+<div ng-controller="CmsFacilityCreateCtrl">
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -30,7 +30,7 @@
             </div>
             @endif
           <!-- start form -->
-          <form id="news_form" action="/cms/news" method="POST" name="frm" novalidate>
+          <form id="facility_form" action="/cms/facilities" method="POST" name="frm" novalidate>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <input type="hidden" name="userid" value="{{Auth::id()}}">
               <div class="row">
@@ -39,17 +39,17 @@
                 <div id="err" class="text-danger"><% err_msg %></div> 
               </div>
               </div>
-            <!-- news title -->
+            <!-- facility title -->
             <h5>
               <div class="row">
               <div class="col-lg-8 col-lg-offset-2">
                 <div class="input-group">
-                  <input type="text" class="form-control" aria-label="..." name="title" id="title" placeholder="News Title" ng-model="news.title" ng-change="checkInput()" required="required">
+                  <input type="text" class="form-control" aria-label="..." name="title" id="title" placeholder="facility Title" ng-model="facility.title" ng-change="checkInput()" required="required">
                   <div class="input-group-btn">
-                  <input type="hidden" name="cateid" value="<% news.cateid %>">
+                  <input type="hidden" name="facicateid" value="<% facility.facicateid %>">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><% selected_cate %> <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                      <li ng-repeat="category in newcatesall"><a href="#" ng-click='changeCate(category.category_name, $index+1)'><% category.category_name %></a></li>
+                      <li ng-repeat="category in facilitycatesall"><a href="#" ng-click='changeCate(category.category_name, $index+1)'><% category.category_name %></a></li>
                     </ul>
                   </div><!-- /btn-group -->
                 </div><!-- /input-group -->
@@ -58,11 +58,11 @@
             </div>
             </h5>
 
-            <!-- 加载ueditor 编辑器的容器 -->
+            <!--  -->
             <h5>
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2">
-                <script id="createContainer" name="content" type="text/plain" ng-model="news.content" ng-change="checkInput()"></script>
+                <textarea name="content" id="content" rows="30" ng-model="facility.content" ng-change="checkInput()"></textarea>
               </div><!-- /.col-lg-6 -->
             </div>
             </h5>
@@ -70,13 +70,13 @@
             <h5>
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2">
-                  <input type="text" class="form-control" aria-label="..." name="fromurl" id="fromurl" placeholder="News Source (URL)" ng-model="news.from">
+                  <input type="text" class="form-control" aria-label="..." name="fromurl" id="fromurl" placeholder="facility Source (URL)" ng-model="facility.fromurl">
               </div><!-- /.col-lg-6 -->
             </div>
             </h5>
 
           <div class="text-center">
-            <button class="btn btn-lg btn-info col-xs-12 col-xs-offset-0 col-md-4 col-md-offset-4" ng-click="submitNews( $event )">Submit</button>
+            <button class="btn btn-lg btn-info col-xs-12 col-xs-offset-0 col-md-4 col-md-offset-4" ng-click="submitFacility( $event )">Submit</button>
           </div>
 
           </form>
@@ -88,11 +88,4 @@
 
 </div>
 
-<script>
-
-// 实例 ueditor 编辑器
-var uecreate = UE.getEditor('createContainer');
-uecreate.ready(function(){});
-
-  </script>
 @endsection

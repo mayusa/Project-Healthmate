@@ -56,7 +56,7 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
   Route::resource('/facilities', 'FacilitiesController');
   Route::get('/facilitiescategory', 'FacilitiesController@getCategory'); // 2 levels// return json data
 
-
+// 未完成
   // cms doctors -------------------------------------------------------------------------- // 
   Route::get('/doctors/home', 'DoctorsController@home');
   Route::get('/doctors/{id}/view', 'DoctorsController@view'); // facilities detail page

@@ -21,7 +21,6 @@
             <div class="panel-body">
 
               <!-- response msg -->
-              <div class="panel-body">
               @if (Session::has('msg'))
                  <div class="alert alert-success text-center">{{ Session::get('msg') }}</div>
               @endif
@@ -56,7 +55,6 @@
                 </tr>
             </table>
 
-            </div>
         </div>
     </div>
     

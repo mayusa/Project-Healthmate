@@ -8,7 +8,7 @@ cmsCtrls.controller('CmsCtrl', ['$scope', function ($scope)
   //console.log('i am cms home page');
 }]);
 
-// --- NEWS CONTROLLERS -----------------------------------------------------------//
+// --- NEWS CONTROLLERS (need ueditor)-------------------------------------------------//
 
 // /cms/news/home
 cmsCtrls.controller('CmsNewsCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
@@ -132,7 +132,7 @@ cmsCtrls.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', func
 	$scope.news.cateid = 0;
 	$scope.news.title = ""
 	$scope.news.content = ""
-	$scope.news.from = ""
+	$scope.news.fromurl = ""
 	$scope.err_msg = "Please select a category first";
 
   $scope.changeCate = function(cate, id) {
@@ -180,7 +180,61 @@ cmsCtrls.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', func
 
 
 // --- FACILITY CONTROLLERS -----------------------------------------------------------//
-cmsCtrls.controller('CmsFacilityCtrl', ['$scope', 'Facilites', 'FacilitesCategory', function ($scope, News, NewsCategory) {
+cmsCtrls.controller('CmsFacilityCtrl', ['$scope', 'Facilites', 'FacilitesCategory', function ($scope, Facilites, FacilitesCategory) {
+  $scope.welcome = "hello";
+}]);
+
+// /cms/facilities/create
+cmsCtrls.controller('CmsFacilityCreateCtrl', ['$scope', 'Facilites', 'FacilitesCategory', function ($scope, Facilites, FacilitesCategory) 
+{
+  $scope.facilitycatesall = FacilitesCategory.query();
+
+  $scope.selected_cate = "Category";
+  $scope.facility = {};
+  $scope.facility.facicateid = 0;
+  $scope.facility.title = ""
+  $scope.facility.content = ""
+  $scope.facility.fromurl = ""
+  $scope.err_msg = "Please select a category first";
+
+  $scope.changeCate = function(cate, id) {
+    $scope.selected_cate = cate;
+    $scope.facility.facicateid = id;
+    $scope.err_msg = "";
+
+  };
+
+  $scope.submitFacility = function(event) {
+    
+    $scope.facility.content = uecreate.getContent();
+
+    if(event){
+      event.stopPropagation();
+      event.preventDefault();
+      if(checkInput()){
+        console.log("true", $scope.facility);
+        $("#facility_form").submit();
+        return false;
+      } 
+
+      console.log("false", $scope.facility);
+      return false;
+    }
+  }
+
+  var checkInput = function() {
+    if($scope.facility.title == "") {
+      $scope.err_msg = "please enter a title";
+    } else if($scope.facility.facicateid == 0) {
+      $scope.err_msg = "please select a category";
+    } else if($scope.facility.content == "") {
+      $scope.err_msg = "please enter content";
+    } else {
+      $scope.err_msg = "";
+      return true;
+    }
+      return false;
+  }
 
 }]);
 

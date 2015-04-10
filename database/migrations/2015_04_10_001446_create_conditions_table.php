@@ -26,6 +26,8 @@ class CreateConditionsTable extends Migration {
       $table->text('symptoms');
       $table->text('tests');
       $table->text('treatment');
+      $table->string('img_url'); // url string
+      $table->string('video_url'); // url string
 
 		});
 	}

@@ -70,7 +70,7 @@
             <h5>
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2">
-                  <input type="text" class="form-control" aria-label="..." name="fromurl" id="fromurl" placeholder="News Source (URL)" ng-model="news.from">
+                  <input type="text" class="form-control" aria-label="..." name="fromurl" id="fromurl" placeholder="News Source (URL)" ng-model="news.fromurl">
               </div><!-- /.col-lg-6 -->
             </div>
             </h5>

@@ -27,6 +27,10 @@ class CreateFacilityTable extends Migration {
       $table->text('overview');
       $table->timestamps();
       $table->string('pic_url'); // array string
+      $table->string('facebook_url'); // array string
+      $table->string('youtube_url'); // array string
+      $table->string('twitter_url'); // array string
+      $table->string('google_url'); // array string
 		});
 	}
 
