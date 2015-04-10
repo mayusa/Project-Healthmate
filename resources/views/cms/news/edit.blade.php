@@ -91,8 +91,7 @@
 // 实例 ueditor 编辑器, instance name should be variable
 var ueedit = UE.getEditor('editContainer');
 ueedit.ready(function(){
-  var newsContent = '{{ $news->content }}';
-  newsContent = UE.utils.html(newsContent);
+  var newsContent = UE.utils.html("{{ $news->content }}");
   // console.log(newsContent);
   UE.getEditor('editContainer').setContent(newsContent);
 
