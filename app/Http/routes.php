@@ -23,35 +23,46 @@ Route::controllers([
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth', 'middleware' => 'admin'], function()
 {
   Route::get('/', 'AdminHomeController@index');
+
   // goto angular view page(make::View)
   Route::get('/users/home', 'UsersController@view');
-  // laravel resource control
-  Route::resource('/users', 'UsersController');
+  // to maintain all users data
+  Route::resource('/users', 'UsersController'); // restfu data resource
+
+  // to maintain  facility category data // not finished yet
+  Route::resource('/facilitiescategory', 'FacilitiesCategoryController');
 
 });
 
 // CMS module
 Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', 'middleware' => 'editor'], function()
 {
+  // cms home ------------------------------------------------------------------------------ // 
   Route::get('/', 'CmsHomeController@index'); // /cms home page
-  // cms news
-  Route::get('/news/home', 'NewsController@home');
-  Route::get('/news/{id}/view', 'NewsController@view');
 
+  // cms news ------------------------------------------------------------------------------ // 
+  Route::get('/news/home', 'NewsController@home'); // news home pae 
+  Route::get('/news/{id}/view', 'NewsController@view'); // news detail page
+  Route::resource('/news', 'NewsController'); // restful data resource
+  // cms news category
   Route::get('/newscategory', 'NewsController@getCategory');
   // restful get a news category
   Route::get('/newscategory/{id}/', 'NewsController@showCate');
 
-  Route::resource('/news', 'NewsController');
 
-  // cms doctors
+  // cms facilities ----------------------------------------------------------------------- // 
+  Route::get('/facilities/home', 'FacilitiesController@view');
+  Route::get('/facilities/{id}/view', 'FacilitiesController@view'); // facilities detail page
+  Route::resource('/facilities', 'FacilitiesController');
+  Route::get('/facilitiescategory', 'FacilitiesController@getCategory'); // 2 levels
+
+
+  // cms doctors --------------------------------------------------------------------------- // 
   Route::get('/doctors/home', 'DoctorsController@view');
   Route::resource('/doctors', 'DoctorsController');
 
-  // cms facilities
-  Route::get('/facilities/home', 'FacilitiesController@view');
-  Route::resource('/facilities', 'FacilitiesController');
-  // cms conditions
+
+  // cms conditions ----------------------------------------------------------------------- // 
   Route::get('/conditions/home', 'ConditionsController@view');
   Route::resource('/conditions', 'ConditionsController');
 
