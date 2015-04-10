@@ -37,15 +37,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 // CMS module
 Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', 'middleware' => 'editor'], function()
 {
-  // cms home ------------------------------------------------------------------------------ // 
+  // --- cms home ------------------------------------------------------------------------------ // 
   Route::get('/', 'CmsHomeController@index'); // /cms home page
 
   // cms news ------------------------------------------------------------------------------ // 
   Route::get('/news/home', 'NewsController@home'); // news home pae 
   Route::get('/news/{id}/view', 'NewsController@view'); // news detail page
-  Route::resource('/news', 'NewsController'); // restful data resource
+  Route::resource('/news', 'NewsController'); // restful data resource(return json data)
   // cms news category
-  Route::get('/newscategory', 'NewsController@getCategory');
+  Route::get('/newscategory', 'NewsController@getCategory');// return json data
   // restful get a news category
   Route::get('/newscategory/{id}/', 'NewsController@showCate');
 
@@ -54,7 +54,7 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
   Route::get('/facilities/home', 'FacilitiesController@view');
   Route::get('/facilities/{id}/view', 'FacilitiesController@view'); // facilities detail page
   Route::resource('/facilities', 'FacilitiesController');
-  Route::get('/facilitiescategory', 'FacilitiesController@getCategory'); // 2 levels
+  Route::get('/facilitiescategory', 'FacilitiesController@getCategory'); // 2 levels// return json data
 
 
   // cms doctors --------------------------------------------------------------------------- // 
