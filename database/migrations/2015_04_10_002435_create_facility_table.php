@@ -26,7 +26,7 @@ class CreateFacilityTable extends Migration {
       $table->string('tel');
       $table->text('overview');
       $table->timestamps();
-      $table->string('pic_url');
+      $table->string('pic_url'); // array string
 		});
 	}
 
