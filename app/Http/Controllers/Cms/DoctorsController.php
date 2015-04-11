@@ -11,7 +11,7 @@ use App\Specialty;
 // using route middleware to check admin auth
 class DoctorsController extends Controller {
     // for route: return angular page
-    public function view(){
+    public function home(){
         return view('cms.doctors.home');
     }
     // RESTful methods: return json data. 

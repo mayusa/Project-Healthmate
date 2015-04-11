@@ -7,6 +7,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
               <div class="row">
+              
                 <div class="col-sm-8 col-xs-12">
                   <h5><strong>CMS News List</strong> <a href="/cms/news/create" class="btn btn-info btn-xs"> add news </a> </h5>
                 </div>
@@ -46,6 +47,7 @@
                     <td class="hidden-xs">
                         <span ng-if=" news.status == 1 ">active</span>
                         <span ng-if=" news.status == 0 " class="text-danger">blocked</span>
+                    </td>
                     <td class="hidden-xs">
                       <a href="/cms/news/<%news.id%>/edit" class="btn btn-info btn-xs">EDIT</a>
                       <button ng-if=" news.status == 1 " class="btn btn-danger btn-xs" ng-click="delePop(news)" >BLOCK</button>

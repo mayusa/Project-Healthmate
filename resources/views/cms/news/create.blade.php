@@ -29,6 +29,7 @@
               </ul>
             </div>
             @endif
+            
           <!-- start form -->
           <form id="news_form" action="/cms/news" method="POST" name="frm" novalidate>
             <input type="hidden" name="_token" value="{{ csrf_token() }}">

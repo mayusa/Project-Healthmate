@@ -57,7 +57,7 @@ class NewsController extends Controller {
 
     return response()->json(News::find($id));
   }
-    // GET 1 news
+    // GET 1 news category
   public function showCate($id){
 
     return response()->json(NewsCategory::find($id));

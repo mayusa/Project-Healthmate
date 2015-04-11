@@ -54,9 +54,13 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
   Route::get('/facilities/home', 'FacilitiesController@home');
   Route::get('/facilities/{id}/view', 'FacilitiesController@view'); // facilities detail page
   Route::resource('/facilities', 'FacilitiesController');
-  Route::get('/facilitiescategory', 'FacilitiesController@getCategory'); // 2 levels// return json data
 
-// 未完成
+  Route::get('/facilitiescategory', 'FacilitiesController@getCategory'); // 2 levels// return json data
+  // restful get a news category
+  Route::get('/facilitiescategory/{id}/', 'FacilitiesController@showCate');
+  
+
+// 以下CMS功能还未完成
   // cms doctors -------------------------------------------------------------------------- // 
   Route::get('/doctors/home', 'DoctorsController@home');
   Route::get('/doctors/{id}/view', 'DoctorsController@view'); // facilities detail page

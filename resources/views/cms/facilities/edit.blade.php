@@ -2,39 +2,36 @@
 
 @section('content')
 
-<div ng-controller="CmsFacilityCreateCtrl">
-  <div class="row">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-sm-8 col-xs-12">
-            <h5><strong>CMS Create Facility </strong></h5>
-          </div>
-        </div>           
-      </div>
+<div ng-controller="CmsFacilityEditCtrl">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-sm-8 col-xs-12">
+                  <h5><strong>Edit Facility</strong></h5>
+                </div>
+              </div>           
+            </div>
 
-      <div class="panel-body">
-        <!-- success msg -->
-        @if (Session::has('msg'))
-        <div class="alert alert-success text-center">{{ Session::get('msg') }}</div>
-        @endif
-        <!-- error message -->
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-          <strong>Whoops!</strong> There were some problems with your input.<br><br>
-          <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
+            <div class="panel-body">
 
-        <!-- start form -->
-        <form id="facility_form" action="/cms/facilities" method="POST" name="frm" novalidate>
+            <!-- error message -->
+            @if (count($errors) > 0)
+            <div class="alert alert-danger">
+              <strong>Whoops!</strong> There were some problems with your input.<br><br>
+              <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+
+            <!-- start form -->
+        <form id="facility_form" name="frm" novalidate>
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          <!-- field 1:userid -->
-          <input type="hidden" name="userid" value="{{Auth::id()}}">
+          <!-- field 1:facilityid -->
+          <input type="hidden" name="id" value="{{ $facility->id }}" id="facilityid">
           <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
               <!--warning message-->
@@ -57,13 +54,8 @@
                     <input type="hidden" name="facicateid" value="<% facility.facicateid %>">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><% selected_cate %> <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                      <li ng-repeat="category in facilitycatesall" id="menu<%$index%>">
-                        <a href="#" ng-click="changeCate(category.faci_cate_name, $index+1)">
-                         <% category.id %>-<span ng-if="category.root_faci_cate_id!=0"> (<% category.root_faci_cate_id %>) -</span> <% category.faci_cate_name %>
-                        </a>
-                      </li>
+                      <li ng-repeat="category in facilitycatesall"><a href="#" ng-click='changeCate(category.faci_cate_name, $index+1)'><% category.faci_cate_name %></a></li>
                     </ul>
-
                   </div><!-- /btn-group -->
                   <!-- / facility category -->
                 </div><!-- /input-group -->
@@ -205,16 +197,16 @@
 
 
           <div class="text-center">
-            <button class="btn btn-lg btn-info col-xs-12 col-xs-offset-0 col-md-4 col-md-offset-4" ng-click="submitFacility( $event )">Submit</button>
+            <button class="btn btn-lg btn-info col-xs-12 col-xs-offset-0 col-md-4 col-md-offset-4" ng-click="updateFacility( $event, facility )">Submit</button>
           </div>
 
         </form>
         <!-- / end form -->
 
-      </div>
+
+            </div>
+        </div>
     </div>
-  </div>
 
 </div>
-
 @endsection

@@ -84,7 +84,7 @@ cmsCtrls.controller('CmsNewsEditCtrl', ['$scope', 'News', 'NewsCategory', functi
   $scope.changeCate = function(cate, id) {
     $scope.selected_cate = cate;
     $scope.news.cateid = id;
-    $scope.err_msg = "";
+    $scope.checkInput();
   };
 
   $scope.updateNews = function(event, n) {
@@ -104,7 +104,7 @@ cmsCtrls.controller('CmsNewsEditCtrl', ['$scope', 'News', 'NewsCategory', functi
     }
   }
 
-  var checkInput = function() {
+  $scope.checkInput = function() {
     if($scope.news.title == "") {
       $scope.err_msg = "please enter a title";
     } else if($scope.news.cateid == 0) {
@@ -127,18 +127,18 @@ cmsCtrls.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', func
 	// $scope.err_msg = "please select a category first";
   $scope.newcatesall = NewsCategory.query();
 
-	$scope.selected_cate = "Category";
+	$scope.selected_cate = "News Category";
 	$scope.news = {};
 	$scope.news.cateid = 0;
 	$scope.news.title = ""
 	$scope.news.content = ""
 	$scope.news.fromurl = ""
-	$scope.err_msg = "Please select a category first";
+	$scope.err_msg = "Please select a news category first";
 
   $scope.changeCate = function(cate, id) {
   	$scope.selected_cate = cate;
   	$scope.news.cateid = id;
-		$scope.err_msg = "";
+		$scope.checkInput();
 
   };
 
@@ -151,7 +151,7 @@ cmsCtrls.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', func
     if(event){
       event.stopPropagation();
       event.preventDefault();
-      if(checkInput()){
+      if($scope.checkInput()){
 	  		console.log("true", $scope.news);
 				$("#news_form").submit();
 				return false;
@@ -162,13 +162,13 @@ cmsCtrls.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', func
     }
   }
 
-  var checkInput = function() {
+  $scope.checkInput = function() {
   	if($scope.news.title == "") {
-			$scope.err_msg = "please enter a title";
+			$scope.err_msg = "Please enter a title";
 		} else if($scope.news.cateid == 0) {
-			$scope.err_msg = "please select a category";
+			$scope.err_msg = "Please select a category";
 		} else if($scope.news.content == "") {
-			$scope.err_msg = "please enter content";
+			$scope.err_msg = "Please enter content";
 		} else {
 			$scope.err_msg = "";
 			return true;
@@ -180,8 +180,12 @@ cmsCtrls.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', func
 
 
 // --- FACILITY CONTROLLERS -----------------------------------------------------------//
-cmsCtrls.controller('CmsFacilityCtrl', ['$scope', 'Facilites', 'FacilitesCategory', function ($scope, Facilites, FacilitesCategory) {
-  $scope.welcome = "hello";
+cmsCtrls.controller('CmsFacilityCtrl', ['$scope', 'Facilites', 'FacilitesCategory', function ($scope, Facilites, FacilitesCategory) 
+{
+  $scope.sortField = "created_at";
+  $scope.facilitiesall = Facilites.query();
+  $scope.facilitycatesall = FacilitesCategory.query();
+
 }]);
 
 // /cms/facilities/create
@@ -189,40 +193,126 @@ cmsCtrls.controller('CmsFacilityCreateCtrl', ['$scope', 'Facilites', 'FacilitesC
 {
   $scope.facilitycatesall = FacilitesCategory.query();
 
-  $scope.selected_cate = "Category";
+  $scope.selected_cate = "Facility Category";
   $scope.facility = {};
   $scope.facility.facicateid = 0;
-  $scope.facility.title = ""
-  $scope.facility.content = ""
-  $scope.facility.fromurl = ""
-  $scope.err_msg = "Please select a category first";
+  $scope.facility.facility_name = ""
+  $scope.facility.intro = ""; //textarea
+  $scope.facility.address = "";
+  $scope.facility.web_url = "";
+  $scope.facility.tel = "";
+  $scope.facility.latitude = "";
+  $scope.facility.longitude = "";
+  $scope.facility.overview = "";//textarea
+  $scope.facility.pic_url = "";
+  $scope.facility.facebook_url = "";
+  $scope.facility.youtube_url = "";
+  $scope.facility.twitter_url = "";
+  $scope.facility.google_url = "";
+
+  $scope.err_msg = "Please select a facility category first";
 
   $scope.changeCate = function(cate, id) {
     $scope.selected_cate = cate;
     $scope.facility.facicateid = id;
-    $scope.err_msg = "";
-
+    $scope.checkInput();
   };
 
   $scope.submitFacility = function(event) {
-    
-    $scope.facility.content = uecreate.getContent();
 
     if(event){
       event.stopPropagation();
       event.preventDefault();
-      if(checkInput()){
+      if($scope.checkInput()){
         console.log("true", $scope.facility);
         $("#facility_form").submit();
         return false;
       } 
-
       console.log("false", $scope.facility);
       return false;
     }
   }
 
-  var checkInput = function() {
+  $scope.checkInput = function() {
+    if($scope.facility.facility_name == "") {
+      console.log("check name input");
+      $scope.err_msg = "Please enter a facility name";
+    } else if($scope.facility.facicateid == 0) {
+      console.log("check category input");
+      $scope.err_msg = "Please select a facility category";
+    } else if($scope.facility.intro == "") {
+      console.log("check introducton input");
+      $scope.err_msg = "Please enter facility introducton";
+    } else {
+      $scope.err_msg = "";
+      return true;
+    }
+    
+    return false;
+  }
+
+}]);
+// /cms/facilities/{id}/edit
+cmsCtrls.controller('CmsFacilityEditCtrl', ['$scope', 'Facilites', 'FacilitesCategory', function ($scope, Facilites, FacilitesCategory) 
+{
+  $scope.facilitycatesall = FacilitesCategory.query();
+
+  var facilityid = $("#facilityid").val();
+  console.log(facilityid);
+  $scope.selected_cate = "Facility Category";
+  $scope.facility = {};
+  $scope.facility.facicateid = 0;
+  $scope.facility.facility_name = ""
+  $scope.facility.intro = ""; //textarea
+  $scope.facility.address = "";
+  $scope.facility.web_url = "";
+  $scope.facility.tel = "";
+  $scope.facility.latitude = "";
+  $scope.facility.longitude = "";
+  $scope.facility.overview = "";//textarea
+
+  $scope.facility.pic_url = "";
+  $scope.facility.facebook_url = "";
+  $scope.facility.youtube_url = "";
+  $scope.facility.twitter_url = "";
+  $scope.facility.google_url = "";
+  $scope.err_msg = "";
+
+  Facilites.get({id: facilityid}, function(facility)
+  {
+    $scope.facility = facility;
+    $scope.facility.facicateid = facility.facicateid;
+    // get facility facicateid from db(restful)
+    FacilitesCategory.get({id: facility.facicateid}, function(category){
+      $scope.selected_cate = category.faci_cate_name;
+      $scope.err_msg = "";
+    });
+
+  });
+
+  $scope.changeCate = function(cate, id) {
+    $scope.selected_cate = cate;
+    $scope.facility.facicateid = id;
+    $scope.checkInput();
+  };
+
+  $scope.updateFacility = function(event, f) 
+  {    
+    if(event){
+      event.stopPropagation();
+      event.preventDefault();
+      if( $scope.checkInput ){
+
+        console.log("true", $scope.facility);
+        Facilites.update({id: f.id}, f);
+        window.location.href="/cms/facilities/home";
+        return false;
+      }
+      return false;
+    }
+  }
+
+  $scope.checkInput = function() {
     if($scope.facility.title == "") {
       $scope.err_msg = "please enter a title";
     } else if($scope.facility.facicateid == 0) {
