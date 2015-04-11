@@ -252,6 +252,7 @@ cmsCtrls.controller('CmsFacilityCreateCtrl', ['$scope', 'Facilites', 'FacilitesC
   }
 
 }]);
+
 // /cms/facilities/{id}/edit
 cmsCtrls.controller('CmsFacilityEditCtrl', ['$scope', 'Facilites', 'FacilitesCategory', function ($scope, Facilites, FacilitesCategory) 
 {
@@ -329,14 +330,139 @@ cmsCtrls.controller('CmsFacilityEditCtrl', ['$scope', 'Facilites', 'FacilitesCat
 }]);
 
 
-// --- DOCTOR CONTROLLERS -----------------------------------------------------------//
-cmsCtrls.controller('CmsDoctorCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) {
+// --- CONDITION CONTROLLERS -----------------------------------------------------------//
+cmsCtrls.controller('CmsConditionCtrl', ['$scope', 'Conditions', function ($scope, Conditions) 
+{
+
+  $scope.sortField = "created_at";
+  $scope.conditionsall = Conditions.query();
+
+  $scope.changeStatus = function (c)//need object n(condition) !!!
+  {
+    var id = c.id;
+    var condition = Conditions.get({id: id}, function(condition)
+    {
+      if(condition.is_common==1){
+        c.is_common = 0;
+      }
+      else{
+        c.is_common = 1
+      }
+      console.log(c);
+      Conditions.update({id: id}, c);
+    });
+  }
+}]);
+
+
+// /cms/conditions/create
+cmsCtrls.controller('CmsConditionCreateCtrl', ['$scope', 'Conditions', function ($scope, Conditions) 
+{
+
+  $scope.condition = {};
+  $scope.condition.is_common = 0;
+  $scope.condition.title = ""
+  $scope.condition.content = ""; //textarea
+  $scope.condition.fromurl = "";
+  $scope.condition.description = "";
+  $scope.condition.symptoms = "";
+  $scope.condition.tests = "";
+  $scope.condition.treatment = "";
+  $scope.condition.img_url = "";//textarea
+  $scope.condition.video_url = "";
+  $scope.condition.status = 1;
+
+  $scope.err_msg = "";
+
+  $scope.submitCondition = function(event) {
+    if(event){
+      event.stopPropagation();
+      event.preventDefault();
+      if($scope.checkInput()){
+        console.log("true", $scope.condition);
+        $("#condition_form").submit();
+        return false;
+      } 
+      console.log("false", $scope.condition);
+      return false;
+    }
+  }
+
+  $scope.checkInput = function() {
+    if($scope.condition.title == "") {
+      $scope.err_msg = "Please enter a condition title";
+    } else if($scope.condition.facicateid == 0) {
+      $scope.err_msg = "Please enter condition content";
+    } else {
+      $scope.err_msg = "";
+      return true;
+    }
+    
+    return false;
+  }
+
+}]);
+
+// /cms/conditions/{id}/edit
+cmsCtrls.controller('CmsConditionEditCtrl', ['$scope', 'Conditions', function ($scope, Conditions) 
+{
+
+  var conditionid = $("#conditionid").val();
+  $scope.condition = {};
+  $scope.condition.is_common = 0;
+  $scope.condition.title = ""
+  $scope.condition.content = ""; //textarea
+  $scope.condition.fromurl = "";
+  $scope.condition.description = "";
+  $scope.condition.symptoms = "";
+  $scope.condition.tests = "";
+  $scope.condition.treatment = "";
+  $scope.condition.img_url = "";//textarea
+  $scope.condition.video_url = "";
+  $scope.condition.status = 1;
+
+  $scope.err_msg = "";
+
+  Conditions.get({id: conditionid}, function(condition)
+  {
+    $scope.condition = condition;
+    $scope.condition.conditionid = condition.id;
+
+  });
+  $scope.updateCondition = function(event, c) {
+    if(event){
+      event.stopPropagation();
+      event.preventDefault();
+      if($scope.checkInput()){
+        console.log("true", $scope.condition);
+        Conditions.update({id: c.id}, c);
+        window.location.href="/cms/conditions/home";
+        return false;
+      } 
+      console.log("false", $scope.condition);
+      return false;
+    }
+  }
+
+  $scope.checkInput = function() {
+    if($scope.condition.title == "") {
+      $scope.err_msg = "Please enter a condition title";
+    } else if($scope.condition.conditionid == 0) {
+      $scope.err_msg = "Please enter condition content";
+    } else {
+      $scope.err_msg = "";
+      return true;
+    }
+    
+    return false;
+  }
 
 }]);
 
 
-// --- CONDITION CONTROLLERS -----------------------------------------------------------//
-cmsCtrls.controller('CmsConditionCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) {
+
+// --- DOCTOR CONTROLLERS -----------------------------------------------------------//
+cmsCtrls.controller('CmsDoctorCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) {
 
 }]);
 

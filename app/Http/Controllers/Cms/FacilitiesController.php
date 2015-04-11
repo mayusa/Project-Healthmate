@@ -13,9 +13,12 @@ class FacilitiesController extends Controller {
 	public function home(){
 		return view('cms.facilities.home');
 	}
-	// RESTful methods: return json data. 
-	// 并且需要验证用户，保护路径不被匿名访问
-	// GET user list
+
+	// restful: return all facilities
+	public function index()
+	{
+		return response()->json(Facility::all());
+	}
 
 	// facility detail page
 	public function view($id){
@@ -28,18 +31,12 @@ class FacilitiesController extends Controller {
     return response()->json(Facility_Category::find($id));
   }
 
-	// restful: return all facilities
-	public function index()
-	{
-		return response()->json(Facility::all());
-	}
-
 	// get all facility categories
 	public function getCategory()
 	{
 	  return response()->json(Facility_Category::all());
 	}
-
+	//--- save a new facility -----------------------/
 	// goto create form page
 	public function create(){
 	  return view('cms.facilities.create');

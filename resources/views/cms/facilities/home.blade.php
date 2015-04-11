@@ -50,7 +50,8 @@
           </tr>
           <!--/ ngrepeat-->
           </table>
-        </div>
+          
+        </div> <!--/ panel-body-->
       </div>
     </div>
 

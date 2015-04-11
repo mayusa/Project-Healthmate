@@ -8,7 +8,6 @@ cmsServs.factory('News', function($resource) {
         'update': {method: 'PUT'}
       }) ; 
   });
-
 cmsServs.factory('NewsCategory', function($resource) {   
       return $resource('/cms/newscategory/:id/', {id: '@id'}, {
         'update': {method: 'PUT'}
@@ -22,9 +21,16 @@ cmsServs.factory('Facilites', function($resource) {
         'update': {method: 'PUT'}
       }) ; 
   });
-
 cmsServs.factory('FacilitesCategory', function($resource) {
         return $resource('/cms/facilitiescategory/:id/', {id: '@id'}, {
             'update': {method: 'PUT'}
         }) ;
     });
+
+
+// cms Conditions Service -----------------------------//
+cmsServs.factory('Conditions', function($resource) {   
+      return $resource('/cms/conditions/:id/', {id: '@id'}, {
+        'update': {method: 'PUT'}
+      }) ; 
+  });
