@@ -16,10 +16,11 @@ class DatabaseSeeder extends Seeder {
 
 		//$this->call('AdminUserSeeder');
 
-		$this->call('RoleTableSeeder');
-		$this->call('NewsCategoryTableSeeder');
-		$this->call('FacilityCategorySeeder');
-		$this->call('SpecialityTableSeeder');
+		// $this->call('RoleTableSeeder');
+		// $this->call('NewsCategoryTableSeeder');
+		// $this->call('FacilityCategorySeeder');
+		// $this->call('SpecialityTableSeeder');
+		$this->call('NewsSeeder');
 	}
 
 }
