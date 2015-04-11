@@ -14,7 +14,7 @@
               </div>           
             </div>
             <div class="panel-body">
-
+              Dear <b class="text-danger">{{ Auth::user()->name }}</b> (Editor), Welcome to HealthMate Content Management System~~~!
             </div>
         </div>
     </div>

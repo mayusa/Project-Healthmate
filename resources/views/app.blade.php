@@ -84,10 +84,10 @@
 							<ul class="dropdown-menu" role="menu">
 
                 @if (Auth::user()->rid == 2 || Auth::user()->rid == 3 )
-                 <li><a href="/admin">Admin</a></li>
+                 <li><a href="/admin/users/home">Admin</a></li>
                 @endif
                 @if (Auth::user()->rid == 2 || Auth::user()->rid == 3 || Auth::user()->rid == 4 )
-                 <li><a href="/cms">CMS</a></li>
+                 <li><a href="/cms/news/home">CMS</a></li>
                 @endif
                 <li><a href="{{ URL('/user/'. Auth::id() . '/profile') }}"><span class="am-icon-user"></span> My Profile</a></li>
                                 
