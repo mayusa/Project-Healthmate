@@ -28,6 +28,18 @@ cmsServs.factory('FacilitesCategory', function($resource) {
     });
 
 
+// cms Doctors Service -----------------------------//
+cmsServs.factory('Doctors', function($resource) {   
+      return $resource('/cms/doctors/:id/', {id: '@id'}, {
+        'update': {method: 'PUT'}
+      }) ; 
+  });
+cmsServs.factory('Specialties', function($resource) {
+        return $resource('/cms/specialties/:id/', {id: '@id'}, {
+            'update': {method: 'PUT'}
+        }) ;
+    });
+
 // cms Conditions Service -----------------------------//
 cmsServs.factory('Conditions', function($resource) {   
       return $resource('/cms/conditions/:id/', {id: '@id'}, {

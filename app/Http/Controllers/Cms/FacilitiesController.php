@@ -36,6 +36,7 @@ class FacilitiesController extends Controller {
 	{
 	  return response()->json(Facility_Category::all());
 	}
+	
 	//--- save a new facility -----------------------/
 	// goto create form page
 	public function create(){

@@ -17,7 +17,7 @@ class CreateDoctorTable extends Migration {
 			$table->increments('id');
 			$table->Integer('userid');//user id
 			$table->Integer('speciid');//specialty id
-      $table->tinyInteger('doctor_name')->default(1);//1-yes, 0-false
+      $table->string('doctor_name');
       $table->text('intro');
       $table->string('address');
       $table->string('latitude');
@@ -28,6 +28,7 @@ class CreateDoctorTable extends Migration {
       $table->string('appointments'); //appointment intro
 			$table->timestamps();
       $table->string('pic_url');
+			$table->tinyInteger('status')->default(1);//1-active, 0-blocked
 		});
 	}
 

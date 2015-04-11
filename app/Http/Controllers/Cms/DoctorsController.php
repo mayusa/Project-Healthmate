@@ -4,8 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect, Input, Auth;
-use App\Doctors;
-use App\Doctor_Specialty;
+use App\Doctor;
 use App\Specialty;
 
 // using route middleware to check admin auth
@@ -14,41 +13,79 @@ class DoctorsController extends Controller {
     public function home(){
         return view('cms.doctors.home');
     }
-    // RESTful methods: return json data. 
-    // 并且需要验证用户，保护路径不被匿名访问
-    // GET user list
+
+    // GET doctor list --------------------------------------- //
     public function index()
     {
-        return response()->json(User::all());
+        return response()->json(Doctor::all());
     }
-    // GET 1 user
+
+    public function getSpecialty()
+    {
+        return response()->json(Specialty::all());
+    }
+
+    // doctor detail page ---------------------------------- //
+
+    public function view($id){
+      return view('cms.doctors.view')->withDoctor(Doctor::find($id));//: $doctor
+    }
+
     public function show($id){
-      return response()->json(User::find($id));
+      return response()->json(Doctor::find($id));
     }
-    // 暂时没用，交给/User/UserProfileController.php处理
+
+    public function showSpecialty($id){
+      return response()->json(Specialty::find($id));
+    }
+
+    //--- save a new doctor -----------------------/
+    // goto create form page
+    public function create(){
+      return view('cms.doctors.create');
+    }
+
+    // store a doctor to db
+    public function store()
+    {
+      // if using Input::all(), need config Doctor Model -> $fillable
+      if ( Doctor::create(Input::all()) ) 
+      {
+        // return Redirect::back()->with('msg', 'Success');
+        return Redirect::to('/cms/doctors/home')->with('msg', 'Success');
+       } else {
+        return Redirect::back()->withInput()->withErrors('db error!');
+       }
+    }
+
+  // goto edit page
     public function edit($id)
     {
-       return Redirect::to('/admin/users');
+      return view('cms.doctors.edit')->withDoctor(Doctor::find($id));//$doctor
     }
+
     // PUT
     public function update($id)
     {
-        $user = User::find($id);
+        $doctor = Doctor::find($id);
 
-        $user->name = Input::get('name');
-        $user->first_name = Input::get('first_name');
-        $user->last_name = Input::get('last_name');
-        $user->gender = Input::get('gender');
-        $user->phone = Input::get('phone');
-        $user->address = Input::get('address');
-        $user->zip_code = Input::get('zip_code');
-        $user->birth = Input::get('birth');
+        $doctor->speciid = Input::get('speciid');
+        $doctor->doctor_name = Input::get('doctor_name');
+        $doctor->intro = Input::get('intro');
+        $doctor->address = Input::get('address');
+        $doctor->latitude = Input::get('latitude');
+        $doctor->longitude = Input::get('longitude');
+        $doctor->overview = Input::get('overview');
+        $doctor->background = Input::get('background');
+        
+        $doctor->appointments = Input::get('appointments');
+        $doctor->pic_url = Input::get('pic_url');
 
         // change status field
-        $user->status = Input::get('status');
+        // $doctor->status = Input::get('status');
 
 
-        if ($user->save()) {
+        if ($doctor->save()) {
             return "success";
         } else {
             return "error";;

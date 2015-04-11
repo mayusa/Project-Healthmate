@@ -330,6 +330,160 @@ cmsCtrls.controller('CmsFacilityEditCtrl', ['$scope', 'Facilites', 'FacilitesCat
 }]);
 
 
+
+// --- DOCTOR CONTROLLERS -----------------------------------------------------------//
+cmsCtrls.controller('CmsDoctorCtrl', ['$scope', 'Doctors', 'Specialties', function ($scope, Doctors, Specialties) 
+{
+  $scope.sortField = "created_at";
+  $scope.doctorsall = Doctors.query();
+  $scope.specialtiesall = Specialties.query();
+}]);
+
+// /cms/doctor/{id}/view
+cmsCtrls.controller('CmsDoctorViewCtrl', ['$scope', 'Specialties', function ($scope, Specialties) 
+{
+
+  $scope.specialtyname = "";
+  var speciid = $("#speciid").val();
+  console.log(speciid);
+  Specialties.get({id: speciid}, function(specility)
+  {
+    $scope.specialtyname = specility.speci_name;
+  });
+
+}]);
+
+// /cms/doctors/create
+cmsCtrls.controller('CmsDoctorCreateCtrl', ['$scope', 'Doctors', 'Specialties', function ($scope, Doctors, Specialties) 
+{
+  $scope.specialtiesall = Specialties.query();
+
+  $scope.selected_speci = "Doctor Specialty";
+  $scope.doctor = {};
+  $scope.doctor.speciid = 0;
+  $scope.doctor.doctor_name = ""
+  $scope.doctor.intro = ""; //textarea
+  $scope.doctor.address = "";
+  $scope.doctor.latitude = "";
+  $scope.doctor.longitude = "";
+  $scope.doctor.overview = "";//textarea
+  // $scope.doctor.patient_ratings = 0;
+  $scope.doctor.background = "";
+  $scope.doctor.appointments = "";
+  $scope.doctor.pic_url = "";
+
+  $scope.err_msg = "Please select a doctor specilty first";
+
+  $scope.changeSpecialty = function(speci, id) {
+    $scope.selected_speci = speci;
+    $scope.doctor.speciid = id;
+    $scope.checkInput($scope.doctor.speciid);
+  };
+
+  $scope.submitDoctor = function(event) {
+
+    if(event){
+      event.stopPropagation();
+      event.preventDefault();
+      if($scope.checkInput()){
+        console.log("true", $scope.doctor);
+        $("#doctor_form").submit();
+        return false;
+      } 
+      console.log("false", $scope.doctor);
+      return false;
+    }
+  }
+
+  $scope.checkInput = function() {
+    if($scope.doctor.doctor_name == "") {
+      $scope.err_msg = "Please enter a doctor name";
+    } else if($scope.doctor.speciid == 0) {
+      $scope.err_msg = "Please select a doctor specialty";
+    } else {
+      $scope.err_msg = "";
+      return true;
+    }
+    
+    return false;
+  }
+
+}]);
+
+
+// /cms/doctors/{id}/edit
+cmsCtrls.controller('CmsDoctorEditCtrl', ['$scope', 'Doctors', 'Specialties', function ($scope, Doctors, Specialties) 
+{
+  $scope.specialtiesall = Specialties.query();
+
+  var doctorid = $("#doctorid").val();
+
+  $scope.selected_cate = "Doctor Specialty";
+  $scope.doctor = {};
+  $scope.doctor.speciid = 0;
+  $scope.selected_speci = "";
+  $scope.doctor.doctor_name = "";
+  $scope.doctor.intro = ""; //textarea
+  $scope.doctor.address = "";
+  $scope.doctor.latitude = "";
+  $scope.doctor.longitude = "";
+  $scope.doctor.overview = "";//textarea
+  $scope.doctor.background = "";
+  $scope.doctor.appointments = "";
+  $scope.doctor.pic_url = "";
+
+  $scope.err_msg = "";
+
+  Doctors.get({id: doctorid}, function(doctor)
+  {
+    $scope.doctor = doctor;
+    $scope.doctor.speciid = doctor.speciid;
+    // get doctor speciid from db(restful)
+    Specialties.get({id: doctor.speciid}, function(specialty){
+      $scope.selected_speci = specialty.speci_name;
+      $scope.err_msg = "";
+    });
+
+  });
+
+  $scope.changeSpecialty = function(speci_name, id) {
+    $scope.selected_speci = speci_name;
+    $scope.doctor.speciid = id;
+    $scope.checkInput();
+  };
+
+  $scope.updateDoctor = function(event, d) 
+  {    
+    if(event){
+      event.stopPropagation();
+      event.preventDefault();
+      if( $scope.checkInput ){
+
+        console.log("true", $scope.doctor);
+        Doctors.update({id: d.id}, d);
+        window.location.href="/cms/doctors/home";
+        return false;
+      }
+      return false;
+    }
+  }
+
+  $scope.checkInput = function() {
+    if($scope.doctor.title == "") {
+      $scope.err_msg = "please enter a title";
+    } else if($scope.doctor.speciid == 0) {
+      $scope.err_msg = "please select a category";
+    } else if($scope.doctor.content == "") {
+      $scope.err_msg = "please enter content";
+    } else {
+      $scope.err_msg = "";
+      return true;
+    }
+      return false;
+  }
+
+}]);
+
 // --- CONDITION CONTROLLERS -----------------------------------------------------------//
 cmsCtrls.controller('CmsConditionCtrl', ['$scope', 'Conditions', function ($scope, Conditions) 
 {
@@ -391,7 +545,7 @@ cmsCtrls.controller('CmsConditionCreateCtrl', ['$scope', 'Conditions', function 
   $scope.checkInput = function() {
     if($scope.condition.title == "") {
       $scope.err_msg = "Please enter a condition title";
-    } else if($scope.condition.facicateid == 0) {
+    } else if($scope.condition.content == 0) {
       $scope.err_msg = "Please enter condition content";
     } else {
       $scope.err_msg = "";
@@ -458,14 +612,6 @@ cmsCtrls.controller('CmsConditionEditCtrl', ['$scope', 'Conditions', function ($
   }
 
 }]);
-
-
-
-// --- DOCTOR CONTROLLERS -----------------------------------------------------------//
-cmsCtrls.controller('CmsDoctorCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) {
-
-}]);
-
 
 
 

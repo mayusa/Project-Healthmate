@@ -37,8 +37,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 // CMS module
 Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', 'middleware' => 'editor'], function()
 {
+
   // --- cms home ------------------------------------------------------------------------------ // 
   Route::get('/', 'CmsHomeController@index'); // /cms home page
+
 
   // cms news ------------------------------------------------------------------------------ // 
   Route::get('/news/home', 'NewsController@home'); // news home pae 
@@ -60,20 +62,20 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
   Route::get('/facilitiescategory/{id}/', 'FacilitiesController@showCate');
 
 
+  // cms doctors -------------------------------------------------------------------------- // 
+  Route::get('/doctors/home', 'DoctorsController@home');
+  Route::get('/doctors/{id}/view', 'DoctorsController@view'); // doctor detail page
+  Route::resource('/doctors', 'DoctorsController');  
+  // cms doctors specialties -------------------------------------------------------------- // 
+  Route::get('/specialties', 'DoctorsController@getSpecialty');// doctor specialty // 2 levels// return json data
+  Route::get('/specialties/{id}/', 'DoctorsController@showSpecialty');
+
+
   // cms conditions ----------------------------------------------------------------------- // 
   Route::get('/conditions/home', 'ConditionsController@home');
   Route::get('/conditions/{id}/view', 'ConditionsController@view'); // facilities detail page
 
   Route::resource('/conditions', 'ConditionsController');
-
-
-// 以下CMS功能还未完成
-  // cms doctors -------------------------------------------------------------------------- // 
-  Route::get('/doctors/home', 'DoctorsController@home');
-  Route::get('/doctors/{id}/view', 'DoctorsController@view'); // facilities detail page
-  Route::resource('/doctors', 'DoctorsController');  
-  // cms doctors specialties -------------------------------------------------------------- // 
-  Route::resource('/specialties;', 'SpecialtiesController');// doctor specialty // 2 levels// return json data
 
 });
 
