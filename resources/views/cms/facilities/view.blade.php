@@ -47,6 +47,11 @@
 
         </div>
 
+
+        <div class="text-muted col-sm-12">
+          <h5><hr></h5>
+        </div>
+
       </div>
     </div>
 

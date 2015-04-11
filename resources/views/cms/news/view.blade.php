@@ -16,26 +16,34 @@
             <!-- success msg -->
             <div class="panel-body">
 
-            <div class="text-center">
-              <h3>{{ $news->title }}</h3>
-              {{ $news->created_at }}
-              <hr>
-            </div>
-            
-              
-            <div class="text-muted col-sm-10 col-sm-offset-1 text-justify">
-              
-              {{ $news->content }}
-            </div>
-            <div>
-            <small>
-              <div class="text-right col-sm-10 col-sm-offset-1">
-                from : {{ $news->fromurl }}
+              <div class="text-center">
+                <h3>{{ $news->title }}</h3>
+                {{ $news->created_at }}
+                <hr>
               </div>
-            </small>
-</div>
-            </div>
-        </div>
+              
+                
+              <div class="text-muted col-sm-10 col-sm-offset-1 text-justify">
+                {{ $news->content }}
+              </div>
+
+              <div class="row">
+                <small>
+                  <div class="text-right col-sm-10 col-sm-offset-1">
+                    from : {{ $news->fromurl }}
+                  </div>
+                </small>
+              </div>
+
+              <div class="text-center">
+                <hr>
+              </div>
+
+            </div> <!--/ panel-body-->
+
+
+            
+        </div> <!--/ panel-->
     </div>
 
 </div>
