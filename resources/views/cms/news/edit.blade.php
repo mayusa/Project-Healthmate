@@ -48,7 +48,7 @@
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><% selected_cate %> <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                       <li ng-repeat="category in newcatesall">
-                        <a href="#" ng-click='changeCate(category.category_name, $index+1)'><% category.category_name %></a>
+                        <a href="#" ng-click='changeCate(category.category_name, category.id)'><% category.category_name %></a>
                       </li>
                     </ul>
                   </div><!-- /btn-group -->

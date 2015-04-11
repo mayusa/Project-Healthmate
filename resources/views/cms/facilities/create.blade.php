@@ -58,7 +58,7 @@
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><% selected_cate %> <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                       <li ng-repeat="category in facilitycatesall" id="menu<%$index%>">
-                        <a href="#" ng-click="changeCate(category.faci_cate_name, $index+1)">
+                        <a href="#" ng-click="changeCate(category.faci_cate_name, category.id)">
                          <% category.id %>-<span ng-if="category.root_faci_cate_id!=0"> (<% category.root_faci_cate_id %>) -</span> <% category.faci_cate_name %>
                         </a>
                       </li>
