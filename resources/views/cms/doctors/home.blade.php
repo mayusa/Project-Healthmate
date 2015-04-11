@@ -10,7 +10,7 @@
         <div class="row">
 
           <div class="col-sm-8 col-xs-12">
-            <h5><strong>CMS Facilities List</strong> <a href="/cms/doctors/create" class="btn btn-info btn-xs"> add doctor </a> </h5>
+            <h5><strong>CMS Doctors List</strong> <a href="/cms/doctors/create" class="btn btn-info btn-xs"> add doctor </a> </h5>
           </div>
 
           <div class="col-sm-4 col-xs-12">
