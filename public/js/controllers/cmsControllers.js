@@ -94,7 +94,7 @@ cmsCtrls.controller('CmsNewsEditCtrl', ['$scope', 'News', 'NewsCategory', functi
     if(event){
       event.stopPropagation();
       event.preventDefault();
-      if(checkInput()){
+      if($scope.checkInput()){
         //console.log("true", $scope.news);
         News.update({id: n.id}, n);
         window.location.href="/cms/news/home";
