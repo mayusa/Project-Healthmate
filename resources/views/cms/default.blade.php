@@ -57,7 +57,7 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">							
                 @if (Auth::user()->rid == 2 || Auth::user()->rid == 3 )
-                 <li><a href="/admin">Admin</a></li>
+                 <li><a href="/admin/users/home">Admin</a></li>
                 @endif
                 <li><a href="/">Back Home</a></li>
 								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>

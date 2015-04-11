@@ -36,7 +36,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav" id="nav">
 					<li	@if(strstr(Request::url(), '/admin') == '/admin') class="active" @endif >
-					<a href="{{ url('/admin') }}">Admin Home</a></li>
+					<a href="{{ url('/admin/users/home') }}">Admin Home</a></li>
           <li @if(strstr(Request::url(), '/admin') == '/admin/users/home') class="active" @endif>
 					<a href="/admin/users/home">Users</a></li>
 				</ul>
@@ -45,7 +45,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-                <li><a href="/cms">CMS</a></li>
+                <li><a href="/cms/news/home">CMS</a></li>
                 <li><a href="/">Back Home</a></li>
                 <li><a href="{{ URL('/user/'. Auth::id() . '/profile') }}"><span class="am-icon-user"></span> My Profile</a></li>
 								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
