@@ -52,6 +52,7 @@ Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
   // information -> news ------------------------------------------------------------------------------ // 
   Route::get('/news/home', 'NewsController@home'); // news home pae 
   Route::get('/news/{id}/view', 'NewsController@view'); // news detail page
+  Route::get('/news/angular','NewsController@angular'); // for angular pagination
   Route::resource('/news', 'NewsController'); // restful data resource(return json data)
   // information -> news category
   Route::get('/newscategory', 'NewsController@getCategory');// return json data

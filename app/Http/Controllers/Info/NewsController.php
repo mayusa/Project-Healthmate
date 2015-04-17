@@ -22,8 +22,20 @@ class NewsController extends Controller {
     // RESTful methods: return json data. 
   public function index()
   {
+    //涉及到分页，暂时不用此func,使用下面的angular()
     return response()->json(News::all());
   }
+
+  // for angular pagination
+   public function angular()
+  {
+    // laravel pagination
+    $news = News::paginate(20);
+    return $news;
+    // {"total":100,"per_page":10,"current_page":1,"last_page":10,"next_page_url":"http:\/\/socialeat.app\/api\/items\/?page=2","prev_page_url":null,"from":1,"to":10,
+    // "data":[ {...}, {...}}]
+  }
+
     // get all news categories
   public function getCategory()
   {

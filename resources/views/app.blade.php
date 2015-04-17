@@ -130,6 +130,9 @@
 	<script src="/lib/angular/angular.js"></script>
 	<script src="/lib/angular/angular-resource.min.js"></script>
 	
+	<script src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+	
   <script src="/js/appinfo.js"></script>  
   <script src="/js/controllers/infoControllers.js"></script>
   <script src="/js/services/infoServices.js"></script>

@@ -1,6 +1,6 @@
 /* Controllers */
 'use strict';
-var infoCtrls = angular.module('infoCtrls', ['infoServs','ngResource']);
+var infoCtrls = angular.module('infoCtrls', ['infoServs','ngResource', 'ui.bootstrap', 'ui.bootstrap.tpls']);
 
 infoCtrls.controller('InfoCtrl', ['$scope', function ($scope) 
 {
@@ -10,10 +10,48 @@ infoCtrls.controller('InfoCtrl', ['$scope', function ($scope)
 // --- NEWS CONTROLLERS (need ueditor)-------------------------------------------------//
 
 // /info/news/home
-infoCtrls.controller('InfoNewsCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
+infoCtrls.controller('InfoNewsCtrl', ['$scope', '$http',  'News', 'NewsCategory', function ($scope, $http, News, NewsCategory) 
 {
   $scope.sortField = "created_at";
-  $scope.newsall = News.query();
+  // $scope.newsall = News.query();
+
+  // pagination;
+  $scope.newsall = [];
+  $scope.lastpage=1;
+
+  $scope.init = function() {
+      $http({
+          url: '/info/news/angular',
+          method: "GET",
+          params: {page:  $scope.lastpage}
+      })
+      .success(function(data){
+          $scope.newsall = data.data;
+          $scope.currentpage = data.current_page;
+          console.log("response data", data);
+
+          // bootstrip pagination
+          $scope.totalItems =data.total;
+          $scope.currentPage = data.current_page;
+          $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+          };
+          $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+            $scope.lastpage = $scope.currentPage;
+            $scope.init();
+          };
+          $scope.maxSize = 5;
+          $scope.bigTotalItems = data.total;
+          $scope.bigCurrentPage = 1;
+          // end pagination
+      });
+
+
+  };
+
+  $scope.init();
+
   $scope.newcatesall = NewsCategory.query();
 
 }]);
