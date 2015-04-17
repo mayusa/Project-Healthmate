@@ -127,3 +127,11 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth']
 });
 
 // Module 3: My Health
+Route::group(['prefix' => 'myhealth', 'namespace' => 'MyHealth', 'middleware' => 'user'], function()
+{
+  // not resource control
+  Route::get('/{id}/profile', 'UserProfileController@view');
+  Route::get('/{id}/edit', 'UserProfileController@edit');
+  Route::post('/{id}/edit','UserProfileController@update');
+});
+

@@ -50,8 +50,8 @@
 							<span class="fa fa-heartbeat"></span></h1>Conditions
 						</a>
 					</li>
-					<li @if( strpos(Request::url(), '/info/calendar') ) class="active" @endif>
-						<a href="{{ url('/info/calendar') }}">
+					<li @if( strpos(Request::url(), '/myhealth/calendar') ) class="active" @endif>
+						<a href="{{ url('/myhealth/calendar') }}">
 							<h1><span class="fa fa-calendar"></span></h1>Calendar
 						</a>
 					</li>
@@ -65,8 +65,8 @@
 							<span class="fa fa-phone"></span></h1>Hotlines
 						</a>
 					</li>
-					<li @if( strpos(Request::url(), '/info/myhealth') ) class="active" @endif>
-						<a href="{{ url('/info/myhealth') }}">
+					<li @if( strpos(Request::url(), '/myhealth') ) class="active" @endif>
+						<a href="{{ url('/myhealth/home') }}">
 							<h1><span class="fa fa-medkit"></span></h1>My Health
 						</a>
 					</li>
