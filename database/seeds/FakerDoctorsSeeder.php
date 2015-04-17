@@ -33,8 +33,7 @@ class FakerDoctorsSeeder extends Seeder {
           'patient_ratings' => $faker->randomDigitNotNull, 
           'background' => $faker->text($maxNbChars = 600), 
           'appointments' => $faker->text($maxNbChars = 600), 
-          'pic_url' => $faker->url, 
-          'status' => 1
+          'pic_url' => $faker->url
         ]); 
 
       }
