@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers\Cms;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Redirect, Input, Auth;
 use App\User;
 

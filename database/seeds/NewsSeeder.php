@@ -15,7 +15,8 @@ class NewsSeeder extends Seeder {
     {
       DB::table('news')->truncate();
 
-        // Create a Faker object
+      // Create a Faker object
+      // https://github.com/fzaninotto/Faker
       $faker = Faker\Factory::create();
 
         // Create 10 news

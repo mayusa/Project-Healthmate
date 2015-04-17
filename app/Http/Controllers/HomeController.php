@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 use App\Page;
 
+use App\Http\Requests;
+use Illuminate\Http\Request;
 use App\User;
 use Auth;
 

@@ -13,16 +13,55 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
-
+// laravel auth middleware
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
 
-// Admin module
+//  Module 0: Public Informations
+Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
+{
+  // information -> doctors
+  Route::get('/doctors/home', 'DoctorsController@home');
+  Route::get('/doctors/{id}/view', 'DoctorsController@view'); // doctor detail page
+  Route::resource('/doctors', 'DoctorsController');  
+  // information -> doctors specialties -------------------------------------------------------------- // 
+  Route::get('/specialties', 'DoctorsController@getSpecialty');// doctor specialty // 2 levels// return json data
+  Route::get('/specialties/{id}/', 'DoctorsController@showSpecialty');
+
+  // information -> facilities ----------------------------------------------------------------------- // 
+  Route::get('/facilities/home', 'FacilitiesController@home');
+  Route::get('/facilities/{id}/view', 'FacilitiesController@view'); // facilities detail page
+  Route::resource('/facilities', 'FacilitiesController');
+
+  Route::get('/facilitiescategory', 'FacilitiesController@getCategory'); // 2 levels// return json data
+  // restful get a news category
+  Route::get('/facilitiescategory/{id}/', 'FacilitiesController@showCate');
+
+  // information -> conditions ----------------------------------------------------------------------- // 
+  Route::get('/conditions/home', 'ConditionsController@home');
+  Route::get('/conditions/{id}/view', 'ConditionsController@view'); // facilities detail page
+
+  Route::resource('/conditions', 'ConditionsController');
+
+  // information -> news ------------------------------------------------------------------------------ // 
+  Route::get('/news/home', 'NewsController@home'); // news home pae 
+  Route::get('/news/{id}/view', 'NewsController@view'); // news detail page
+  Route::resource('/news', 'NewsController'); // restful data resource(return json data)
+  // information -> news category
+  Route::get('/newscategory', 'NewsController@getCategory');// return json data
+  // restful get a news category
+  Route::get('/newscategory/{id}/', 'NewsController@showCate');
+
+
+});
+
+
+//  Module 1: Admin
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth', 'middleware' => 'admin'], function()
 {
-  Route::get('/', 'AdminHomeController@index');
+  Route::get('/doctors/home', 'DoctorsController@home');
 
   // goto angular view page(make::View)
   Route::get('/users/home', 'UsersController@view');
@@ -34,7 +73,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
 });
 
-// CMS module
+// Module 2: CMS
 Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', 'middleware' => 'editor'], function()
 {
 
@@ -79,7 +118,6 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
 
 });
 
-// User module
 Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth'], function()
 {
   // not resource control
@@ -88,4 +126,4 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth']
   Route::post('/{id}/edit','UserProfileController@update');
 });
 
-
+// Module 3: My Health

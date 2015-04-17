@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('NewsCategoryTableSeeder');
 		// $this->call('FacilityCategorySeeder');
 		// $this->call('SpecialityTableSeeder');
-		$this->call('NewsSeeder');
+		// $this->call('NewsSeeder');
+		$this->call('InsuranceCarrierSeeder');
 	}
 
 }

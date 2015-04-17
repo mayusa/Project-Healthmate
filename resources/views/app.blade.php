@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="hmApp">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,40 +34,39 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav text-center row">
-          <li class="hidden"><a href="#page-top"></a></li>
-					<li class="page-scroll">
-						<a href="{{ url('/') }}">
+				<ul class="nav navbar-nav text-center">
+					<li @if( strpos(Request::url(), '/info/doctors') ) class="active" @endif>
+						<a href="{{ url('/info/doctors/home') }}">
 							<h1><span class="fa fa-user-md"></span></h1>Doctors
 						</a>
 					</li>
-					<li class="page-scroll">
-						<a href="{{ url('/') }}">
+					<li @if( strpos(Request::url(), '/info/facilities') ) class="active" @endif>
+						<a href="{{ url('/info/facilities/home') }}">
 							<h1><span class="fa fa-hospital-o"></span></h1>Facilities
 						</a>
 					</li>
-					<li class="page-scroll">
-						<a href="{{ url('/') }}"><h1>
+					<li @if( strpos(Request::url(), '/info/conditions') ) class="active" @endif>
+						<a href="{{ url('/info/conditions/home') }}"><h1>
 							<span class="fa fa-heartbeat"></span></h1>Conditions
 						</a>
 					</li>
-					<li class="page-scroll">
-						<a href="{{ url('/') }}">
+					<li @if( strpos(Request::url(), '/info/calendar') ) class="active" @endif>
+						<a href="{{ url('/info/calendar') }}">
 							<h1><span class="fa fa-calendar"></span></h1>Calendar
 						</a>
 					</li>
-					<li class="page-scroll">
-						<a href="{{ url('/') }}">
+					<li @if( strpos(Request::url(), '/info/news') ) class="active" @endif>
+						<a href="{{ url('/info/news/home') }}">
 							<h1><span class="fa fa-newspaper-o"></span></h1>News
 						</a>
 					</li>
-					<li class="page-scroll">
-						<a href="{{ url('/') }}"><h1>
+					<li @if( strpos(Request::url(), '/info/hotlines') ) class="active" @endif>
+						<a href="{{ url('/info/hotlines') }}"><h1>
 							<span class="fa fa-phone"></span></h1>Hotlines
 						</a>
 					</li>
-					<li class="page-scroll">
-						<a href="{{ url('/') }}">
+					<li @if( strpos(Request::url(), '/info/myhealth') ) class="active" @endif>
+						<a href="{{ url('/info/myhealth') }}">
 							<h1><span class="fa fa-medkit"></span></h1>My Health
 						</a>
 					</li>
@@ -100,7 +99,9 @@
 		</div>
 	</nav>
 
+	<div class="container">
 	@yield('content')
+	</div>
 
 <footer class="navbar navbar-inverse navbar-fixed-bottom">
   <div class="container">
@@ -128,6 +129,11 @@
   <!--AngularJS-->
 	<script src="/lib/angular/angular.js"></script>
 	<script src="/lib/angular/angular-resource.min.js"></script>
+	
+  <script src="/js/appinfo.js"></script>  
+  <script src="/js/controllers/infoControllers.js"></script>
+  <script src="/js/services/infoServices.js"></script>
+
 
   <script src="/js/custom.js"></script>
   <script src="/js/animatedHeader.js"></script>

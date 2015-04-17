@@ -2,11 +2,18 @@
 use Closure;
 use Auth;
 
-class EditorMiddleware {
+class UserMiddleware {
 
+	/**
+	 * Handle an incoming request.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  \Closure  $next
+	 * @return mixed
+	 */
 	public function handle($request, Closure $next)
 	{
-		// check login first
+				// check login first
 		if (!Auth::check())
     {
         // throw new \Exception("LOGIN PLEASE");
@@ -14,13 +21,10 @@ class EditorMiddleware {
             'email' => 'LOGIN PLEASE',
         ]);
 
-    } 
-    else if(Auth::user()->rid != 2 && Auth::user()->rid != 3 && Auth::user()->rid != 4)
+    }
+    else if(Auth::id() != Session::::get('userid'))
     {
-        // throw new \Exception("YOU ARE NOT ADMIN");
-        return redirect('/auth/login')->withErrors([
-            'email' => 'YOU ARE NOT EDITOR !',
-        ]);
+        return Redirect::back()->withInput()->withErrors('user id error!');
     }
     else if(Auth::user()->status == 1)
     {
@@ -30,6 +34,6 @@ class EditorMiddleware {
         ]);
     }
 		return $next($request);
-	} // end func handle 
+	}
 
 }

@@ -38,6 +38,10 @@ body.index nav.navbar{
 	max-height:300px
 }
 
+.navbar-right {
+	padding-top: 5px;
+}
+
 @media(min-width:768px) {
 	body.index .navbar-nav li a {
 		padding-top: 8px;
@@ -63,7 +67,7 @@ body.index nav.navbar{
 			padding: 8px 15px;
 		}
     body.index nav.navbar-fixed-top {
-        padding: 5px 0;
+        padding: 0;
         -webkit-transition: all .9s;
         -moz-transition: all .9s;
         transition: all .9s;

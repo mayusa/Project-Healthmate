@@ -14,8 +14,8 @@ class CreateConditionsTable extends Migration {
 	{
 		Schema::create('condition', function(Blueprint $table)
 		{
-			$table->increments('id');//condition id
-      $table->Integer('userid');//user id
+			$table->increments('id');//conditionid
+      $table->Integer('userid');//userid
       $table->tinyInteger('is_common')->default(0);//1-yes, 0-false
       $table->string('title');
       $table->text('content');
