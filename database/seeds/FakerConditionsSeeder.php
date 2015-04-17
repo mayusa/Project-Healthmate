@@ -25,7 +25,7 @@ class FakerConditionsSeeder extends Seeder {
           'userid' => 1,
           'is_common' => 0, 
           'title' => $faker->sentence($nbWords = 6), 
-          'content' => $faker->text($maxNbChars = 2000), 
+          'content' => $faker->text($maxNbChars = 20000), 
           'fromurl' => $faker->url, 
           'description' => $faker->text($maxNbChars = 1000), 
           'symptoms' => $faker->text($maxNbChars = 1000), 

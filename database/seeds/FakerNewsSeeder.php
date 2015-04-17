@@ -25,7 +25,7 @@ class FakerNewsSeeder extends Seeder {
           'userid' => 1,  
           'cateid' => $faker->randomDigitNotNull($max = 7),  
           'title' => $faker->sentence($nbWords = 6),  
-          'content' => $faker->text($maxNbChars = 200),  
+          'content' => $faker->text($maxNbChars = 20000),  
           'fromurl' => $faker->url  
         ]); 
 
