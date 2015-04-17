@@ -533,11 +533,11 @@ cmsCtrls.controller('CmsConditionCreateCtrl', ['$scope', 'Conditions', function 
       event.stopPropagation();
       event.preventDefault();
       if($scope.checkInput()){
-        console.log("true", $scope.condition);
+        // console.log("true", $scope.condition);
         $("#condition_form").submit();
         return false;
       } 
-      console.log("false", $scope.condition);
+      // console.log("false", $scope.condition);
       return false;
     }
   }
@@ -545,7 +545,7 @@ cmsCtrls.controller('CmsConditionCreateCtrl', ['$scope', 'Conditions', function 
   $scope.checkInput = function() {
     if($scope.condition.title == "") {
       $scope.err_msg = "Please enter a condition title";
-    } else if($scope.condition.content == 0) {
+    } else if($scope.condition.content == "") {
       $scope.err_msg = "Please enter condition content";
     } else {
       $scope.err_msg = "";
@@ -601,7 +601,7 @@ cmsCtrls.controller('CmsConditionEditCtrl', ['$scope', 'Conditions', function ($
   $scope.checkInput = function() {
     if($scope.condition.title == "") {
       $scope.err_msg = "Please enter a condition title";
-    } else if($scope.condition.conditionid == 0) {
+    } else if($scope.condition.content == "") {
       $scope.err_msg = "Please enter condition content";
     } else {
       $scope.err_msg = "";

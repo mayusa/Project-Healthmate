@@ -78,7 +78,7 @@
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2">
                 <label for="description">Content</label>
-                <textarea name="content" class="form-control" id="content" rows="5" placeholder="condition content" ng-model="condition.content"></textarea>
+                <textarea name="content" class="form-control" id="content" rows="5" placeholder="condition content" ng-model="condition.content" ng-change="checkInput()"></textarea>
               </div><!-- /.col-lg-6 -->
             </div>
           </h5>

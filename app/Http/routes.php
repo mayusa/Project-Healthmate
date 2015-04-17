@@ -22,6 +22,10 @@ Route::controllers([
 //  Module 0: Public Informations
 Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
 {
+
+  // information -> hotlines
+  Route::get('/hotlines', 'HotlinesController@home');
+
   // information -> doctors
   Route::get('/doctors/home', 'DoctorsController@home');
   Route::get('/doctors/{id}/view', 'DoctorsController@view'); // doctor detail page
