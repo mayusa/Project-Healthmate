@@ -9,7 +9,7 @@
         <div class="row">
 
           <div class="col-sm-8 col-xs-12">
-            <h5><strong></strong></h5>
+            <h5><strong>News List</strong></h5>
           </div>
 
           <div class="col-sm-4 col-xs-12">
@@ -49,9 +49,10 @@
     </div>
 
     <div class="text-right">
-    <!-- bootstrap ui pagination -->
-      <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+      <!-- bootstrap ui pagination -->
+      <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" max-size="maxSize" boundary-links="true" previous-text="‹" next-text="›" first-text="«" last-text="»">
     </div>
+    
   </div>
 
 </div>

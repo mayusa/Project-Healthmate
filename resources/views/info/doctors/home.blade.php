@@ -10,7 +10,7 @@
         <div class="row">
 
           <div class="col-sm-8 col-xs-12">
-            <h5><strong></strong></h5>
+            <h5><strong>Doctors List</strong></h5>
           </div>
 
           <div class="col-sm-4 col-xs-12">
@@ -41,7 +41,7 @@
             <td><a href="/info/doctors/<% doctor.id %>/view"><% doctor.doctor_name %></a> </td>
             <td class="hidden-xs">
               <span ng-repeat="specialty in specialtiesall"> 
-                <span ng-if="doctor.speciid === specialty.id "><% specialty.speci_name %></span></span>
+                <span ng-if="doctor.speciid === specialty.id "><% specialty.speci_name %></span>
               </span>
             </td>
           </tr>
@@ -49,7 +49,14 @@
           </table>
           
         </div> <!--/ panel-body-->
+
       </div>
+
+      <div class="text-right">
+        <!-- bootstrap ui pagination -->
+        <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" max-size="maxSize" boundary-links="true" previous-text="‹" next-text="›" first-text="«" last-text="»"></pagination>
+      </div>
+
     </div>
 
 </div>

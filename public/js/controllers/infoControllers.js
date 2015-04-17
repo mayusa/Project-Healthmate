@@ -10,11 +10,12 @@ infoCtrls.controller('InfoCtrl', ['$scope', function ($scope)
 // --- NEWS CONTROLLERS (need ueditor)-------------------------------------------------//
 
 // /info/news/home
-infoCtrls.controller('InfoNewsCtrl', ['$scope', '$http',  'News', 'NewsCategory', function ($scope, $http, News, NewsCategory) 
+infoCtrls.controller('InfoNewsCtrl', ['$scope', '$http', 'News', 'NewsCategory', function ($scope, $http, News, NewsCategory) 
 {
   $scope.sortField = "created_at";
-  // $scope.newsall = News.query();
+  $scope.newcatesall = NewsCategory.query();
 
+  // $scope.newsall = News.query();
   // pagination;
   $scope.newsall = [];
   $scope.lastpage=1;
@@ -46,13 +47,9 @@ infoCtrls.controller('InfoNewsCtrl', ['$scope', '$http',  'News', 'NewsCategory'
           $scope.bigCurrentPage = 1;
           // end pagination
       });
-
-
   };
 
   $scope.init();
-
-  $scope.newcatesall = NewsCategory.query();
 
 }]);
 
@@ -68,21 +65,94 @@ infoCtrls.controller('InfoNewsViewCtrl', ['$scope', 'News', function ($scope, Ne
 
 
 // --- FACILITY CONTROLLERS -----------------------------------------------------------//
-infoCtrls.controller('InfoFacilityCtrl', ['$scope', 'Facilites', 'FacilitesCategory', function ($scope, Facilites, FacilitesCategory) 
+infoCtrls.controller('InfoFacilityCtrl', ['$scope', '$http', 'Facilites', 'FacilitesCategory', function ($scope, $http, Facilites, FacilitesCategory) 
 {
   $scope.sortField = "created_at";
-  $scope.facilitiesall = Facilites.query();
+  // $scope.facilitiesall = Facilites.query();
   $scope.facilitycatesall = FacilitesCategory.query();
+
+        // pagination;
+  $scope.facilitiesall = [];
+  $scope.lastpage=1;
+
+  $scope.init = function() {
+      $http({
+          url: '/info/facilities/angular',
+          method: "GET",
+          params: {page:  $scope.lastpage}
+      })
+      .success(function(data){
+          $scope.facilitiesall = data.data;
+          $scope.currentpage = data.current_page;
+          console.log("response data", data);
+
+          // bootstrip pagination
+          $scope.totalItems =data.total;
+          $scope.currentPage = data.current_page;
+          $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+          };
+          $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+            $scope.lastpage = $scope.currentPage;
+            $scope.init();
+          };
+          $scope.maxSize = 5;
+          $scope.bigTotalItems = data.total;
+          $scope.bigCurrentPage = 1;
+          // end pagination
+      });
+
+  };
+
+  $scope.init();
 
 }]);
 
 
 // --- DOCTOR CONTROLLERS -----------------------------------------------------------//
-infoCtrls.controller('InfoDoctorCtrl', ['$scope', 'Doctors', 'Specialties', function ($scope, Doctors, Specialties) 
+infoCtrls.controller('InfoDoctorCtrl', ['$scope', '$http', 'Doctors', 'Specialties', function ($scope, $http, Doctors, Specialties) 
 {
   $scope.sortField = "created_at";
-  $scope.doctorsall = Doctors.query();
+  // $scope.doctorsall = Doctors.query();
   $scope.specialtiesall = Specialties.query();
+
+    // pagination;
+  $scope.doctorsall = [];
+  $scope.lastpage=1;
+
+  $scope.init = function() {
+      $http({
+          url: '/info/doctors/angular',
+          method: "GET",
+          params: {page:  $scope.lastpage}
+      })
+      .success(function(data){
+          $scope.doctorsall = data.data;
+          $scope.currentpage = data.current_page;
+          console.log("response data", data);
+
+          // bootstrip pagination
+          $scope.totalItems =data.total;
+          $scope.currentPage = data.current_page;
+          $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+          };
+          $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+            $scope.lastpage = $scope.currentPage;
+            $scope.init();
+          };
+          $scope.maxSize = 5;
+          $scope.bigTotalItems = data.total;
+          $scope.bigCurrentPage = 1;
+          // end pagination
+      });
+
+  };
+
+  $scope.init();
+
 }]);
 
 // /info/doctor/{id}/view
@@ -100,26 +170,48 @@ infoCtrls.controller('InfoDoctorViewCtrl', ['$scope', 'Specialties', function ($
 
 
 // --- CONDITION CONTROLLERS -----------------------------------------------------------//
-infoCtrls.controller('InfoConditionCtrl', ['$scope', 'Conditions', function ($scope, Conditions) 
+infoCtrls.controller('InfoConditionCtrl', ['$scope', '$http' ,'Conditions', function ($scope, $http,  Conditions) 
 {
   $scope.sortField = "created_at";
-  $scope.conditionsall = Conditions.query();
+  // $scope.conditionsall = Conditions.query();
 
-  $scope.changeStatus = function (c)//need object n(condition) !!!
-  {
-    var id = c.id;
-    var condition = Conditions.get({id: id}, function(condition)
-    {
-      if(condition.is_common==1){
-        c.is_common = 0;
-      }
-      else{
-        c.is_common = 1
-      }
-      console.log(c);
-      Conditions.update({id: id}, c);
-    });
-  }
+      // pagination;
+  $scope.conditionsall = [];
+  $scope.lastpage=1;
+
+  $scope.init = function() {
+      $http({
+          url: '/info/conditions/angular',
+          method: "GET",
+          params: {page:  $scope.lastpage}
+      })
+      .success(function(data){
+          $scope.conditionsall = data.data;
+          $scope.currentpage = data.current_page;
+          console.log("response data", data);
+
+          // bootstrip pagination
+          $scope.totalItems =data.total;
+          $scope.currentPage = data.current_page;
+          $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+          };
+          $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+            $scope.lastpage = $scope.currentPage;
+            $scope.init();
+          };
+          $scope.maxSize = 5;
+          $scope.bigTotalItems = data.total;
+          $scope.bigCurrentPage = 1;
+          // end pagination
+      });
+
+  };
+
+  $scope.init();
+
+
 }]);
 
 

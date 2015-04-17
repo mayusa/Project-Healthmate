@@ -29,6 +29,7 @@ Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
   // information -> doctors
   Route::get('/doctors/home', 'DoctorsController@home');
   Route::get('/doctors/{id}/view', 'DoctorsController@view'); // doctor detail page
+  Route::get('/doctors/angular','DoctorsController@angular'); // for angular pagination
   Route::resource('/doctors', 'DoctorsController');  
   // information -> doctors specialties -------------------------------------------------------------- // 
   Route::get('/specialties', 'DoctorsController@getSpecialty');// doctor specialty // 2 levels// return json data
@@ -37,6 +38,7 @@ Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
   // information -> facilities ----------------------------------------------------------------------- // 
   Route::get('/facilities/home', 'FacilitiesController@home');
   Route::get('/facilities/{id}/view', 'FacilitiesController@view'); // facilities detail page
+  Route::get('/facilities/angular','FacilitiesController@angular'); // for angular pagination
   Route::resource('/facilities', 'FacilitiesController');
 
   Route::get('/facilitiescategory', 'FacilitiesController@getCategory'); // 2 levels// return json data
@@ -47,6 +49,7 @@ Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
   Route::get('/conditions/home', 'ConditionsController@home');
   Route::get('/conditions/{id}/view', 'ConditionsController@view'); // facilities detail page
 
+  Route::get('/conditions/angular','ConditionsController@angular'); // for angular pagination
   Route::resource('/conditions', 'ConditionsController');
 
   // information -> news ------------------------------------------------------------------------------ // 

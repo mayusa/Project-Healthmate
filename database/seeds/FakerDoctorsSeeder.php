@@ -19,11 +19,11 @@ class FakerDoctorsSeeder extends Seeder {
       $faker = Faker\Factory::create();
 
         // Create 10 news
-      for ($i=0; $i < 60; $i++) 
+      for ($i=0; $i < 226; $i++) 
       {
         Doctor::create([  
           'userid' => 1,
-          'speciid' => $faker->randomDigitNotNull, 
+          'speciid' => rand(1,174), 
           'doctor_name' => $faker->name, 
           'intro' => $faker->text($maxNbChars = 1000), 
           'address' => $faker->address, 

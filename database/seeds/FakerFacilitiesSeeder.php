@@ -23,7 +23,7 @@ class FakerFacilitiesSeeder extends Seeder {
       {
         Facility::create([  
           'userid' => 1,
-          'facicateid' => $faker->randomDigitNotNull,
+          'facicateid' => rand(1,13),
           'facility_name'=> $faker->text($maxNbChars = 50), 
           'intro' => $faker->text($maxNbChars = 1000), 
           'address' => $faker->address, 

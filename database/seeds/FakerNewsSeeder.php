@@ -19,18 +19,17 @@ class FakerNewsSeeder extends Seeder {
       $faker = Faker\Factory::create();
 
         // Create 10 news
-      for ($i=0; $i < 60; $i++) 
+      for ($i=0; $i < 66; $i++) 
       {
         News::create([  
           'userid' => 1,  
-          'cateid' => $faker->randomDigitNotNull($max = 7),  
+          'cateid' => rand(1,7),  
           'title' => $faker->sentence($nbWords = 6),  
-          'content' => $faker->text($maxNbChars = 20000),  
+          'content' => $faker->text($maxNbChars = 6000),  
           'fromurl' => $faker->url  
         ]); 
 
       }
-
     }
 
   }
