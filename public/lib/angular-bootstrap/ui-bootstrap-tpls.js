@@ -2273,7 +2273,7 @@ angular.module('ui.bootstrap.pagination', [])
 }])
 
 .constant('paginationConfig', {
-  itemsPerPage: 10,
+  itemsPerPage: 20,
   boundaryLinks: false,
   directionLinks: true,
   firstText: 'First',
@@ -2390,7 +2390,7 @@ angular.module('ui.bootstrap.pagination', [])
 }])
 
 .constant('pagerConfig', {
-  itemsPerPage: 10,
+  itemsPerPage: 20,
   previousText: '« Previous',
   nextText: 'Next »',
   align: true
