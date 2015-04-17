@@ -36,7 +36,7 @@
             </th>
           </tr>
           <!--ngrepeat-->
-          <tr ng-repeat="doctor in doctorsall | filter:search | orderBy:sortField" ng-if="doctor.status==1">
+          <tr ng-repeat="doctor in doctorsall | filter:search | orderBy:sortField">
             <td><% doctor.id %></td>
             <td><a href="/info/doctors/<% doctor.id %>/view"><% doctor.doctor_name %></a> </td>
             <td class="hidden-xs">

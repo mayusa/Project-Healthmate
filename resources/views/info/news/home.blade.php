@@ -33,7 +33,7 @@
                     <th>update</th>
                 </tr>
                 <tr ng-repeat="news in newsall | filter:search | orderBy:sortField" ng-class="{ active:news.status == 0 }" ng-if="news.status==1">
-                    <td><a href="/cms/news/<% news.id %>/view"><% news.title %></a> </td>
+                    <td><a href="/info/news/<% news.id %>/view"><% news.title %></a> </td>
                     <td class="hidden-xs">
 
                       <span ng-repeat="category in newcatesall"> 
