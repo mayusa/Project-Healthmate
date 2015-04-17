@@ -24,9 +24,9 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('InsuranceCarrierSeeder');
 
 		// faker data:
-		//$this->call('FakerNewsSeeder');
-		// $this->call('FakerDoctorsSeeder');
-		//$this->call('FakerFacilitiesSeeder');
+		$this->call('FakerNewsSeeder');
+		$this->call('FakerDoctorsSeeder');
+		$this->call('FakerFacilitiesSeeder');
 		$this->call('FakerConditionsSeeder');
 	}
 
