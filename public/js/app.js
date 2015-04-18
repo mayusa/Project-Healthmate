@@ -1,7 +1,6 @@
 'use strict';
 
 var app = angular.module('hmApp', [
-	'ui.bootstrap',
 	'cmsCtrls',
 	'cmsServs'
 	]);
