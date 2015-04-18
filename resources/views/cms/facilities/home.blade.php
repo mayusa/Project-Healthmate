@@ -53,6 +53,13 @@
           
         </div> <!--/ panel-body-->
       </div>
+
+
+    <div class="text-right">
+      <!-- bootstrap ui pagination -->
+      <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" max-size="maxSize" boundary-links="true" previous-text="‹" next-text="›" first-text="«" last-text="»">
+    </div>
+    
     </div>
 
   </div>

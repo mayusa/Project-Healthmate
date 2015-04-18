@@ -20,6 +20,16 @@ class ConditionsController extends Controller
     return response()->json(Condition::all());
   }
 
+  // for angular pagination
+   public function angular()
+  {
+    // laravel pagination
+    $items = Condition::paginate(20);
+    return $items;
+    // {"total":100,"per_page":10,"current_page":1,"last_page":10,"next_page_url":"http:\/\/socialeat.app\/api\/items\/?page=2","prev_page_url":null,"from":1,"to":10,
+    // "data":[ {...}, {...}}]
+  }
+
   // GET 1 condition -> page
   public function view($id){
     return view('cms.conditions.view')->withCondition(Condition::find($id));//withCondition: $condition

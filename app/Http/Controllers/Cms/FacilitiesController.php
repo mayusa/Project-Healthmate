@@ -19,6 +19,16 @@ class FacilitiesController extends Controller {
 	{
 		return response()->json(Facility::all());
 	}
+	
+  // for angular pagination
+   public function angular()
+  {
+    // laravel pagination
+    $items = Facility::paginate(20);
+    return $items;
+    // {"total":100,"per_page":10,"current_page":1,"last_page":10,"next_page_url":"http:\/\/socialeat.app\/api\/items\/?page=2","prev_page_url":null,"from":1,"to":10,
+    // "data":[ {...}, {...}}]
+  }
 
 	// facility detail page
 	public function view($id){

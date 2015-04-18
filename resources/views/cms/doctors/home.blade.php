@@ -42,7 +42,7 @@
             <td><a href="/cms/doctors/<% doctor.id %>/view"><% doctor.doctor_name %></a> </td>
             <td class="hidden-xs">
               <span ng-repeat="specialty in specialtiesall"> 
-                <span ng-if="doctor.speciid === specialty.id "><% specialty.speci_name %></span></span>
+                <span ng-if="doctor.speciid === specialty.id "><% specialty.speci_name %></span>
               </span>
             </td>
             <td class="hidden-xs">
@@ -54,6 +54,12 @@
           
         </div> <!--/ panel-body-->
       </div>
+
+    <div class="text-right">
+      <!-- bootstrap ui pagination -->
+      <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" max-size="maxSize" boundary-links="true" previous-text="‹" next-text="›" first-text="«" last-text="»">
+    </div>
+    
     </div>
 
 </div>

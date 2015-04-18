@@ -77,8 +77,10 @@
 
 	<script src="/lib/angular/angular.js"></script>
 	<script src="/lib/angular/angular-resource.min.js"></script>
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-  <script src="https://code.angularjs.org/1.3.15/angular-resource.min.js"></script>-->
+	
+  <!--ui-bootstrap-angular-->
+	<script src="/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
 
   <script src="/js/app.js"></script>  
   <script src="/js/controllers/cmsControllers.js"></script>

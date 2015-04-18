@@ -1,6 +1,11 @@
 /* Controllers */
 'use strict';
-var infoCtrls = angular.module('infoCtrls', ['infoServs','ngResource', 'ui.bootstrap', 'ui.bootstrap.tpls']);
+var infoCtrls = angular.module('infoCtrls', [
+  'infoServs',
+  'ngResource', 
+  'ui.bootstrap', 
+  'ui.bootstrap.tpls'
+  ]);
 
 infoCtrls.controller('InfoCtrl', ['$scope', function ($scope) 
 {
@@ -29,7 +34,7 @@ infoCtrls.controller('InfoNewsCtrl', ['$scope', '$http', 'News', 'NewsCategory',
       .success(function(data){
           $scope.newsall = data.data;
           $scope.currentpage = data.current_page;
-          console.log("response data", data);
+          //console.log("response data", data);
 
           // bootstrip pagination
           $scope.totalItems =data.total;
@@ -38,7 +43,7 @@ infoCtrls.controller('InfoNewsCtrl', ['$scope', '$http', 'News', 'NewsCategory',
             $scope.currentPage = pageNo;
           };
           $scope.pageChanged = function() {
-            console.log('Page changed to: ' + $scope.currentPage);
+            //console.log('Page changed to: ' + $scope.currentPage);
             $scope.lastpage = $scope.currentPage;
             $scope.init();
           };
@@ -84,7 +89,7 @@ infoCtrls.controller('InfoFacilityCtrl', ['$scope', '$http', 'Facilites', 'Facil
       .success(function(data){
           $scope.facilitiesall = data.data;
           $scope.currentpage = data.current_page;
-          console.log("response data", data);
+          //console.log("response data", data);
 
           // bootstrip pagination
           $scope.totalItems =data.total;
@@ -93,7 +98,7 @@ infoCtrls.controller('InfoFacilityCtrl', ['$scope', '$http', 'Facilites', 'Facil
             $scope.currentPage = pageNo;
           };
           $scope.pageChanged = function() {
-            console.log('Page changed to: ' + $scope.currentPage);
+            //console.log('Page changed to: ' + $scope.currentPage);
             $scope.lastpage = $scope.currentPage;
             $scope.init();
           };
@@ -130,7 +135,7 @@ infoCtrls.controller('InfoDoctorCtrl', ['$scope', '$http', 'Doctors', 'Specialti
       .success(function(data){
           $scope.doctorsall = data.data;
           $scope.currentpage = data.current_page;
-          console.log("response data", data);
+          //console.log("response data", data);
 
           // bootstrip pagination
           $scope.totalItems =data.total;
@@ -139,7 +144,7 @@ infoCtrls.controller('InfoDoctorCtrl', ['$scope', '$http', 'Doctors', 'Specialti
             $scope.currentPage = pageNo;
           };
           $scope.pageChanged = function() {
-            console.log('Page changed to: ' + $scope.currentPage);
+            //console.log('Page changed to: ' + $scope.currentPage);
             $scope.lastpage = $scope.currentPage;
             $scope.init();
           };
@@ -160,7 +165,7 @@ infoCtrls.controller('InfoDoctorViewCtrl', ['$scope', 'Specialties', function ($
 {
   $scope.specialtyname = "";
   var speciid = $("#speciid").val();
-  console.log(speciid);
+  //console.log(speciid);
   Specialties.get({id: speciid}, function(specility)
   {
     $scope.specialtyname = specility.speci_name;
@@ -188,7 +193,7 @@ infoCtrls.controller('InfoConditionCtrl', ['$scope', '$http' ,'Conditions', func
       .success(function(data){
           $scope.conditionsall = data.data;
           $scope.currentpage = data.current_page;
-          console.log("response data", data);
+          //console.log("response data", data);
 
           // bootstrip pagination
           $scope.totalItems =data.total;
@@ -197,7 +202,7 @@ infoCtrls.controller('InfoConditionCtrl', ['$scope', '$http' ,'Conditions', func
             $scope.currentPage = pageNo;
           };
           $scope.pageChanged = function() {
-            console.log('Page changed to: ' + $scope.currentPage);
+            //console.log('Page changed to: ' + $scope.currentPage);
             $scope.lastpage = $scope.currentPage;
             $scope.init();
           };

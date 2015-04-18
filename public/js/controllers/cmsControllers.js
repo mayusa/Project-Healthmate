@@ -1,6 +1,11 @@
 /* Controllers */
 'use strict';
-var cmsCtrls = angular.module('cmsCtrls', ['cmsServs','ngResource']);
+var cmsCtrls = angular.module('cmsCtrls', [
+  'cmsServs',
+  'ngResource', 
+  'ui.bootstrap', 
+  'ui.bootstrap.tpls'
+  ]);
 
 
 cmsCtrls.controller('CmsCtrl', ['$scope', function ($scope) 
@@ -11,11 +16,46 @@ cmsCtrls.controller('CmsCtrl', ['$scope', function ($scope)
 // --- NEWS CONTROLLERS (need ueditor)-------------------------------------------------//
 
 // /cms/news/home
-cmsCtrls.controller('CmsNewsCtrl', ['$scope', 'News', 'NewsCategory', function ($scope, News, NewsCategory) 
+cmsCtrls.controller('CmsNewsCtrl', ['$scope', '$http', 'News', 'NewsCategory', function ($scope, $http, News, NewsCategory) 
 {
-  $scope.sortField = "created_at";
-  $scope.newsall = News.query();
+  // $scope.newsall = News.query(); //using angular $resource
   $scope.newcatesall = NewsCategory.query();
+  // pagination
+  $scope.newsall = [];
+  $scope.lastpage=1;
+
+  $scope.init = function() {
+      $http({
+          url: '/cms/news/angular',
+          method: "GET",
+          params: {page:  $scope.lastpage}
+      })
+      .success(function(data){
+          $scope.newsall = data.data;
+          $scope.currentpage = data.current_page;
+          //console.log("response data", data);
+
+          // bootstrip pagination
+          $scope.totalItems =data.total;
+          $scope.currentPage = data.current_page;
+          $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+          };
+          $scope.pageChanged = function() {
+            //console.log('Page changed to: ' + $scope.currentPage);
+            $scope.lastpage = $scope.currentPage;
+            $scope.init();
+          };
+          $scope.maxSize = 5;
+          $scope.bigTotalItems = data.total;
+          $scope.bigCurrentPage = 1;
+      });
+  };
+
+  $scope.init();
+  // end pagination
+
+  $scope.sortField = "created_at";
 
   $scope.delePop = function (news)
   {
@@ -180,11 +220,45 @@ cmsCtrls.controller('CmsNewsCreateCtrl', ['$scope', 'News', 'NewsCategory', func
 
 
 // --- FACILITY CONTROLLERS -----------------------------------------------------------//
-cmsCtrls.controller('CmsFacilityCtrl', ['$scope', 'Facilites', 'FacilitesCategory', function ($scope, Facilites, FacilitesCategory) 
+cmsCtrls.controller('CmsFacilityCtrl', ['$scope', '$http', 'Facilites', 'FacilitesCategory', function ($scope, $http, Facilites, FacilitesCategory) 
 {
   $scope.sortField = "created_at";
-  $scope.facilitiesall = Facilites.query();
+  // $scope.facilitiesall = Facilites.query();
   $scope.facilitycatesall = FacilitesCategory.query();
+    // pagination
+  $scope.facilitiesall = [];
+  $scope.lastpage=1;
+
+  $scope.init = function() {
+      $http({
+          url: '/cms/facilities/angular',
+          method: "GET",
+          params: {page:  $scope.lastpage}
+      })
+      .success(function(data){
+          $scope.facilitiesall = data.data;
+          $scope.currentpage = data.current_page;
+          console.log("response data", data);
+
+          // bootstrip pagination
+          $scope.totalItems =data.total;
+          $scope.currentPage = data.current_page;
+          $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+          };
+          $scope.pageChanged = function() {
+            console.log('Page changed to: ' + $scope.currentPage);
+            $scope.lastpage = $scope.currentPage;
+            $scope.init();
+          };
+          $scope.maxSize = 5;
+          $scope.bigTotalItems = data.total;
+          $scope.bigCurrentPage = 1;
+      });
+  };
+
+  $scope.init();
+  // end pagination
 
 }]);
 
@@ -332,11 +406,45 @@ cmsCtrls.controller('CmsFacilityEditCtrl', ['$scope', 'Facilites', 'FacilitesCat
 
 
 // --- DOCTOR CONTROLLERS -----------------------------------------------------------//
-cmsCtrls.controller('CmsDoctorCtrl', ['$scope', 'Doctors', 'Specialties', function ($scope, Doctors, Specialties) 
+cmsCtrls.controller('CmsDoctorCtrl', ['$scope', '$http', 'Doctors', 'Specialties', function ($scope, $http, Doctors, Specialties) 
 {
   $scope.sortField = "created_at";
-  $scope.doctorsall = Doctors.query();
+  // $scope.doctorsall = Doctors.query();
   $scope.specialtiesall = Specialties.query();
+    // pagination
+  $scope.doctorsall = [];
+  $scope.lastpage=1;
+
+  $scope.init = function() {
+      $http({
+          url: '/cms/doctors/angular',
+          method: "GET",
+          params: {page:  $scope.lastpage}
+      })
+      .success(function(data){
+          $scope.doctorsall = data.data;
+          $scope.currentpage = data.current_page;
+          //console.log("response data", data);
+
+          // bootstrip pagination
+          $scope.totalItems =data.total;
+          $scope.currentPage = data.current_page;
+          $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+          };
+          $scope.pageChanged = function() {
+            //console.log('Page changed to: ' + $scope.currentPage);
+            $scope.lastpage = $scope.currentPage;
+            $scope.init();
+          };
+          $scope.maxSize = 5;
+          $scope.bigTotalItems = data.total;
+          $scope.bigCurrentPage = 1;
+      });
+  };
+
+  $scope.init();
+  // end pagination
 }]);
 
 // /cms/doctor/{id}/view
@@ -345,7 +453,7 @@ cmsCtrls.controller('CmsDoctorViewCtrl', ['$scope', 'Specialties', function ($sc
 
   $scope.specialtyname = "";
   var speciid = $("#speciid").val();
-  console.log(speciid);
+  //console.log(speciid);
   Specialties.get({id: speciid}, function(specility)
   {
     $scope.specialtyname = specility.speci_name;
@@ -386,11 +494,11 @@ cmsCtrls.controller('CmsDoctorCreateCtrl', ['$scope', 'Doctors', 'Specialties', 
       event.stopPropagation();
       event.preventDefault();
       if($scope.checkInput()){
-        console.log("true", $scope.doctor);
+        //console.log("true", $scope.doctor);
         $("#doctor_form").submit();
         return false;
       } 
-      console.log("false", $scope.doctor);
+      //console.log("false", $scope.doctor);
       return false;
     }
   }
@@ -459,7 +567,7 @@ cmsCtrls.controller('CmsDoctorEditCtrl', ['$scope', 'Doctors', 'Specialties', fu
       event.preventDefault();
       if( $scope.checkInput ){
 
-        console.log("true", $scope.doctor);
+        //console.log("true", $scope.doctor);
         Doctors.update({id: d.id}, d);
         window.location.href="/cms/doctors/home";
         return false;
@@ -485,11 +593,45 @@ cmsCtrls.controller('CmsDoctorEditCtrl', ['$scope', 'Doctors', 'Specialties', fu
 }]);
 
 // --- CONDITION CONTROLLERS -----------------------------------------------------------//
-cmsCtrls.controller('CmsConditionCtrl', ['$scope', 'Conditions', function ($scope, Conditions) 
+cmsCtrls.controller('CmsConditionCtrl', ['$scope', '$http', 'Conditions', function ($scope, $http, Conditions) 
 {
 
   $scope.sortField = "created_at";
-  $scope.conditionsall = Conditions.query();
+  // $scope.conditionsall = Conditions.query();
+  // pagination
+  $scope.conditionsall = [];
+  $scope.lastpage=1;
+
+  $scope.init = function() {
+      $http({
+          url: '/cms/conditions/angular',
+          method: "GET",
+          params: {page:  $scope.lastpage}
+      })
+      .success(function(data){
+          $scope.conditionsall = data.data;
+          $scope.currentpage = data.current_page;
+          //console.log("response data", data);
+
+          // bootstrip pagination
+          $scope.totalItems =data.total;
+          $scope.currentPage = data.current_page;
+          $scope.setPage = function (pageNo) {
+            $scope.currentPage = pageNo;
+          };
+          $scope.pageChanged = function() {
+            //console.log('Page changed to: ' + $scope.currentPage);
+            $scope.lastpage = $scope.currentPage;
+            $scope.init();
+          };
+          $scope.maxSize = 5;
+          $scope.bigTotalItems = data.total;
+          $scope.bigCurrentPage = 1;
+      });
+  };
+
+  $scope.init();
+  // end pagination
 
   $scope.changeStatus = function (c)//need object n(condition) !!!
   {
@@ -502,7 +644,7 @@ cmsCtrls.controller('CmsConditionCtrl', ['$scope', 'Conditions', function ($scop
       else{
         c.is_common = 1
       }
-      console.log(c);
+      //console.log(c);
       Conditions.update({id: id}, c);
     });
   }
@@ -588,12 +730,12 @@ cmsCtrls.controller('CmsConditionEditCtrl', ['$scope', 'Conditions', function ($
       event.stopPropagation();
       event.preventDefault();
       if($scope.checkInput()){
-        console.log("true", $scope.condition);
+        //console.log("true", $scope.condition);
         Conditions.update({id: c.id}, c);
         window.location.href="/cms/conditions/home";
         return false;
       } 
-      console.log("false", $scope.condition);
+      //console.log("false", $scope.condition);
       return false;
     }
   }

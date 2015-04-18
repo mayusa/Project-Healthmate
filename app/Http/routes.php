@@ -22,7 +22,6 @@ Route::controllers([
 //  Module 0: Public Informations
 Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
 {
-
   // information -> hotlines
   Route::get('/hotlines', 'HotlinesController@home');
 
@@ -48,7 +47,6 @@ Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
   // information -> conditions ----------------------------------------------------------------------- // 
   Route::get('/conditions/home', 'ConditionsController@home');
   Route::get('/conditions/{id}/view', 'ConditionsController@view'); // facilities detail page
-
   Route::get('/conditions/angular','ConditionsController@angular'); // for angular pagination
   Route::resource('/conditions', 'ConditionsController');
 
@@ -61,7 +59,6 @@ Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
   Route::get('/newscategory', 'NewsController@getCategory');// return json data
   // restful get a news category
   Route::get('/newscategory/{id}/', 'NewsController@showCate');
-
 
 });
 
@@ -88,10 +85,10 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
   // --- cms home ------------------------------------------------------------------------------ // 
   Route::get('/', 'CmsHomeController@index'); // /cms home page
 
-
   // cms news ------------------------------------------------------------------------------ // 
   Route::get('/news/home', 'NewsController@home'); // news home pae 
   Route::get('/news/{id}/view', 'NewsController@view'); // news detail page
+  Route::get('/news/angular','NewsController@angular'); // for angular pagination
   Route::resource('/news', 'NewsController'); // restful data resource(return json data)
   // cms news category
   Route::get('/newscategory', 'NewsController@getCategory');// return json data
@@ -102,6 +99,7 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
   // cms facilities ----------------------------------------------------------------------- // 
   Route::get('/facilities/home', 'FacilitiesController@home');
   Route::get('/facilities/{id}/view', 'FacilitiesController@view'); // facilities detail page
+  Route::get('/facilities/angular','FacilitiesController@angular'); // for angular pagination
   Route::resource('/facilities', 'FacilitiesController');
 
   Route::get('/facilitiescategory', 'FacilitiesController@getCategory'); // 2 levels// return json data
@@ -112,6 +110,7 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
   // cms doctors -------------------------------------------------------------------------- // 
   Route::get('/doctors/home', 'DoctorsController@home');
   Route::get('/doctors/{id}/view', 'DoctorsController@view'); // doctor detail page
+  Route::get('/doctors/angular','DoctorsController@angular'); // for angular pagination
   Route::resource('/doctors', 'DoctorsController');  
   // cms doctors specialties -------------------------------------------------------------- // 
   Route::get('/specialties', 'DoctorsController@getSpecialty');// doctor specialty // 2 levels// return json data
@@ -122,6 +121,7 @@ Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', '
   Route::get('/conditions/home', 'ConditionsController@home');
   Route::get('/conditions/{id}/view', 'ConditionsController@view'); // facilities detail page
 
+  Route::get('/conditions/angular','ConditionsController@angular'); // for angular pagination
   Route::resource('/conditions', 'ConditionsController');
 
 });
