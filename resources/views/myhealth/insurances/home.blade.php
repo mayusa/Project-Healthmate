@@ -19,10 +19,6 @@
     </div>
     
 
-    <div class="text-right">
-      <!-- bootstrap ui pagination -->
-      <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" max-size="maxSize" boundary-links="true" previous-text="‹" next-text="›" first-text="«" last-text="»">
-    </div>
     
     <!-- modal: delete confirm popup -->
     <div class="modal fade in bs-example-modal-sm" id="confirmBlock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
