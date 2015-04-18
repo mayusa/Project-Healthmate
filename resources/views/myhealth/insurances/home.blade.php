@@ -4,19 +4,19 @@
 
 @section('content')
 
-<div ng-controller="MyAppintmentCtrl">
+<div ng-controller="MyFamilyCtrl">
     <div class="myhealthcontainer">
         <div class="panel panel-default">
             <div class="panel-heading">
               <div class="row">
               
                 <div class="col-sm-8 col-xs-12">
-                  <h5><strong>My Appointments List</strong></h5>
+                  <h5><strong>My Insurance</strong></h5>
                 </div>
 
-                  <div class="col-sm-4 col-xs-12 text-right">
-
-                    <a href="/myhealth/appointments/create" class="btn btn-info btn-xs"> add appointment </a>
+                  <div class="col-sm-4 col-xs-12">
+                    <label for="searchinput" class="sr-only">Search</label>
+                     <input ng-model="search.$" class="form-control" id="searchinput" placeholder="search">
                   </div>
 
               </div>          
@@ -27,8 +27,7 @@
               @if (Session::has('msg'))
                  <div class="alert alert-success text-center">{{ Session::get('msg') }}</div>
               @endif
-
-            calender plugin
+            my insurence info
 
         </div>
     </div>

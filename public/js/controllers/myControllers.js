@@ -1,7 +1,7 @@
 /* Controllers */
 'use strict';
 var myCtrls = angular.module('myCtrls', [
-  'infoServs',
+  'myServs',
   'ngResource', 
   'ui.bootstrap', 
   'ui.bootstrap.tpls'

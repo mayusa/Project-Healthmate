@@ -50,8 +50,8 @@
 							<span class="fa fa-heartbeat"></span></h1>Conditions
 						</a>
 					</li>
-					<li @if( strpos(Request::url(), '/myhealth/calendar') ) class="active" @endif>
-						<a href="{{ url('/myhealth/calendar') }}">
+					<li>
+						<a href="{{ url('/myhealth/appointments/home') }}">
 							<h1><span class="fa fa-calendar"></span></h1>Calendar
 						</a>
 					</li>
