@@ -45,6 +45,11 @@ body.index nav.navbar{
 .pagination {
 	margin-top: 5px;
 }
+
+.myhealthcontainer .panel-default {
+	border-top: none;
+}
+
 @media(min-width:768px) {
 	body.index .navbar-nav li a {
 		padding-top: 8px;

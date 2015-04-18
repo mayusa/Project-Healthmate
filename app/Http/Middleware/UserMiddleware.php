@@ -22,10 +22,6 @@ class UserMiddleware {
         ]);
 
     }
-    else if(Auth::id() != Session::::get('userid'))
-    {
-        return Redirect::back()->withInput()->withErrors('user id error!');
-    }
     else if(Auth::user()->status == 1)
     {
         // throw new \Exception("YOU ARE NOT ADMIN");

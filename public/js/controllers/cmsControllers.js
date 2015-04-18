@@ -128,7 +128,6 @@ cmsCtrls.controller('CmsNewsEditCtrl', ['$scope', 'News', 'NewsCategory', functi
   };
 
   $scope.updateNews = function(event, n) {
-
     $scope.news.content = ueedit.getContent();
     
     if(event){

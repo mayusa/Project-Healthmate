@@ -81,7 +81,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 // Module 2: CMS
 Route::group(['prefix' => 'cms', 'namespace' => 'Cms', 'middleware' => 'auth', 'middleware' => 'editor'], function()
 {
-
   // --- cms home ------------------------------------------------------------------------------ // 
   Route::get('/', 'CmsHomeController@index'); // /cms home page
 
@@ -135,11 +134,13 @@ Route::group(['prefix' => 'user', 'namespace' => 'User', 'middleware' => 'auth']
 });
 
 // Module 3: My Health
-Route::group(['prefix' => 'myhealth', 'namespace' => 'MyHealth', 'middleware' => 'user'], function()
+Route::group(['prefix' => 'myhealth', 'namespace' => 'My', 'middleware' => 'auth', 'middleware' => 'user'], function()
 {
-  // not resource control
-  Route::get('/{id}/profile', 'UserProfileController@view');
-  Route::get('/{id}/edit', 'UserProfileController@edit');
-  Route::post('/{id}/edit','UserProfileController@update');
+  // myhealth homepage
+  Route::get('/home', 'MyController@home');
+
+  // myhealth appointment ---------------------------------------------------------------------//
+  
+
 });
 
