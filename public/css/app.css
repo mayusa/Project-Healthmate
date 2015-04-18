@@ -50,6 +50,10 @@ body.index nav.navbar{
 	border-top: none;
 }
 
+.mynav .nav > li > a {
+	padding:0 10px;
+}
+
 @media(min-width:768px) {
 	body.index .navbar-nav li a {
 		padding-top: 8px;

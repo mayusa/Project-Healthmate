@@ -2,7 +2,9 @@
 
 var app = angular.module('hmApp', [
 	'infoCtrls',
-	'infoServs'
+	'infoServs',
+	'myCtrls',
+	'myServs'
 	]);
 
 app.config(function($interpolateProvider) 

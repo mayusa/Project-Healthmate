@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div ng-controller="MyAppintmentCtrl">
+<div ng-controller="MyAppointmentCtrl">
     <div class="myhealthcontainer">
         <div class="panel panel-default">
             <div class="panel-body">

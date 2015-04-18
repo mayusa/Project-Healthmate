@@ -138,6 +138,9 @@
   <script src="/js/controllers/infoControllers.js"></script>
   <script src="/js/services/infoServices.js"></script>
 
+  <script src="/js/controllers/myControllers.js"></script>
+  <script src="/js/services/myServices.js"></script>
+
 
   <script src="/js/custom.js"></script>
   <script src="/js/animatedHeader.js"></script>
