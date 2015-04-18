@@ -107,7 +107,7 @@
   <div class="container">
 	<div class="row">
 		<h5>
-			<div class="text-left col-sm-6"><small>Copyright © 2015 HealthMate LLC. All rights reserved.</small></div>
+			<div class="text-left col-sm-6"><small>Copyright © 2015 HealthMate. All rights reserved.</small></div>
 		</h5>
 		<h5>
 		  <div class="text-right col-sm-6">
