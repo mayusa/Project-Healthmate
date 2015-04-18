@@ -62,7 +62,7 @@
             <h5>
             <div class="row">
               <div class="col-lg-8 col-lg-offset-2">
-                <script id="editContainer" name="content" type="text/plain" ng-model="news.content" ng-change="checkInput()"></script>
+                <script id="editContainer" name="content" type="text/plain" ng-model="news.content" ng-change="checkInput()">{!! $news->content !!}</script>
               </div><!-- /.col-lg-6 -->
 
             </div>
@@ -91,10 +91,6 @@
 // 实例 ueditor 编辑器, instance name should be variable
 var ueedit = UE.getEditor('editContainer');
 ueedit.ready(function(){
-  var newscontent = UE.utils.html('{{ $news->content }}');
-  UE.getEditor('editContainer').setContent(newscontent);
-
-  //ue.execCommand('insertHtml', "{{ $news->content }}");
 })
 </script>
 </div>
