@@ -41,7 +41,8 @@
             <td><a href="/info/doctors/<% doctor.id %>/view"><% doctor.doctor_name %></a> </td>
             <td class="hidden-xs">
               <span ng-repeat="specialty in specialtiesall"> 
-                <span ng-if="doctor.speciid === specialty.id "><% specialty.speci_name %></span>
+                <span ng-if="doctor.speciid === specialty.id ">
+                <span ng-bind="doctor.speci_name = specialty.speci_name"></span><% specialty.speci_name %></span>
               </span>
             </td>
           </tr>
