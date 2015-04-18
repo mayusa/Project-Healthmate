@@ -66,7 +66,7 @@
 						</a>
 					</li>
 					<li @if( strpos(Request::url(), '/myhealth') ) class="active" @endif>
-						<a href="{{ url('/myhealth/home') }}">
+						<a href="{{ url('/myhealth/appointments/home') }}">
 							<h1><span class="fa fa-medkit"></span></h1>My Health
 						</a>
 					</li>

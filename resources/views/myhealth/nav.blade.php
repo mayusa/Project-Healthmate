@@ -1,9 +1,6 @@
 <div class="container">
 
 	<ul class="nav nav-tabs">
-	  <li @if( strpos(Request::url(), '/myhealth/home') ) class="active" @endif>
-	  	<a href="/myhealth/home">My Health Home</a>
-	  </li>
 	  <li @if( strpos(Request::url(), '/myhealth/family') ) class="active" @endif >
 	  	<a href="/myhealth/family/home">My Family</a>
 	  </li>
