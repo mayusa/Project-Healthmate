@@ -1,5 +1,4 @@
 <div class="container mynav">
-
 	<ul class="nav nav-tabs">
 	  <li @if( strpos(Request::url(), '/myhealth/family') ) class="active" @endif >
 	  	<a href="/myhealth/family/home">
