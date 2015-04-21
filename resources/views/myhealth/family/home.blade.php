@@ -85,7 +85,7 @@
                   <div class="col-xs-6">
                   <div class="input-group">
                     <span class="input-group-addon">
-                      <input type="radio" name="gender" value="1" checked="checked" ng-model="member.gender">
+                      <input type="radio" name="gender" value="1" ng-checked="member.gender == 1" ng-model="member.gender">
                     </span>
                     <input type="text" class="form-control" name="" value="male">
                   </div><!-- /input-group -->
@@ -93,7 +93,7 @@
                 <div class="col-xs-6">
                   <div class="input-group">
                     <span class="input-group-addon">
-                      <input type="radio" name="gender" value="0" ng-model="member.gender">
+                      <input type="radio" name="gender" value="0" ng-checked="member.gender == 0" ng-model="member.gender">
                     </span>
                     <input type="text" class="form-control" name="" value="female">
                   </div><!-- /input-group -->

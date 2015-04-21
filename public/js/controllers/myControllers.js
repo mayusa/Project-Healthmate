@@ -70,7 +70,7 @@ myCtrls.controller('FamilyCreateCtrl', ['$scope', '$http', 'Family', function ($
 	$scope.member.user_id = $("#user_id").val();
 	$scope.member.first_name = "";
 	$scope.member.last_name = "";
-	$scope.member.gender = "";
+	$scope.member.gender = 1;
 	$scope.member.birth = "";
 	$scope.err_msg = "Please enter first name of new member";
 
@@ -78,12 +78,14 @@ myCtrls.controller('FamilyCreateCtrl', ['$scope', '$http', 'Family', function ($
   // 不要使用关键词,比如'submit',否则jquery提交可能无效
   $scope.submitMember = function(event,f) {
     if(event){
+			f.user_id = $("#user_id").val();
       event.stopPropagation();
       event.preventDefault();
       if($scope.checkInput()){
         // console.log(f);
         Family.save(f);
 				$scope.member = {}; // clear data
+				$scope.member.gender = 1;
 
 				// $scope.familysall.push($scope.member);
 				// console.log($scope.familysall);
