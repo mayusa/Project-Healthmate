@@ -143,12 +143,15 @@ Route::group(['prefix' => 'myhealth', 'namespace' => 'My', 'middleware' => 'auth
   // myhealth family ---------------------------------------------------------------------//
   Route::get('/family/home', 'FamilyController@home');
   Route::resource('/family', 'FamilyController');
+
   // myhealth insurance ---------------------------------------------------------------------//
   Route::get('/insurances/home', 'InsurancesController@home');
   Route::resource('/insurances', 'InsurancesController');
+
   // myhealth appointment ---------------------------------------------------------------------//
   Route::get('/appointments/home', 'AppointmentsController@home');
   Route::resource('/appointments', 'AppointmentsController');
+  
   // myhealth appointment ---------------------------------------------------------------------//
   Route::get('/conditions/home', 'ConditionsController@home');
   Route::resource('/conditions', 'ConditionsController');

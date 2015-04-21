@@ -15,7 +15,7 @@ class CreateUserFamiliesTable extends Migration {
 		Schema::create('user_families', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->Integer('userid');//user id
+			$table->Integer('user_id')->unsigned();//user id
       $table->string('first_name');
       $table->string('last_name');
       $table->tinyInteger('gender');
@@ -26,6 +26,13 @@ class CreateUserFamiliesTable extends Migration {
 			$table->timestamps();
       // 1 - active , 0 - blocked
       $table->tinyInteger('status')->default(1);
+
+      // foreign key
+      $table->foreign('user_id')
+      			->references('id')
+      			->on('users')
+      			->onDelete('cascade')
+      			;
 		});
 	}
 

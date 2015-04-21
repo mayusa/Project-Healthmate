@@ -13,7 +13,7 @@ class AdminUserSeeder extends Seeder {
      */
     public function run()
     {
-        DB::table('users')->truncate();
+        //DB::table('users')->truncate(); //有外键指向users id
         //create a super admin first
         User::create([
             'email' => 'ashucn@gmail.com',

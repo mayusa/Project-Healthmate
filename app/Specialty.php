@@ -6,6 +6,9 @@ class Specialty extends Model {
 
 	//
 	protected $table = 'specialty';//must declare before seed
+
+	public $timestaps = false;
+	
  //    // need declare input of all fields
 	protected $fillable = ['speci_name', 'root_speci_id', 'is_common'];
 

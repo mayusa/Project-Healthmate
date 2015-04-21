@@ -6,5 +6,7 @@ class NewsCategory extends Model {
 
 	//
 	protected $table = 'news_category';
+	
+	public $timestaps = false;
 
 }

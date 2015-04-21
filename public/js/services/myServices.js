@@ -7,9 +7,11 @@ myServs.factory('Appontment', function($resource) {
       return $resource('/myhealth/appontments/:id/', {id: '@id'}, {}) ; 
   });
 
-// myServs.factory('NewsCategory', function($resource) {   
-//       return $resource('/myhealth/newscategory/:id/', {id: '@id'}, {}) ; 
-//   });
+myServs.factory('Family', function($resource) {   
+      return $resource('/myhealth/family/:id/', {id: '@id'}, {
+        'update': {method: 'PUT'}
+      }) ; 
+  });
 
 // // myhealth Facilities Service -----------------------------//
 // myServs.factory('Facilites', function($resource) {   

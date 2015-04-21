@@ -126,7 +126,8 @@
 	<script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
 
 	<script src="/lib/underscore/underscore.js"></script>
-	<script src="/lib/bootstrap-calendar/js/calendar.js"></script>
+	<!-- <script src="/lib/bootstrap-calendar/js/calendar.js"></script> -->
+  <!-- <script src="/js/myAppointment.js"></script> -->
 
 	<script src="/lib/magnific-popup/jquery.magnific-popup.js"></script>
 	<script src="/lib/jquery2/jquery.easing.min.js"></script>
@@ -148,6 +149,5 @@
 
   <script src="/js/custom.js"></script>
   <script src="/js/animatedHeader.js"></script>
-  <script src="/js/myAppointment.js"></script>
 </body>
 </html>

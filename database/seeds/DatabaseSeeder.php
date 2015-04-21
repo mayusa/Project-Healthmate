@@ -14,14 +14,14 @@ class DatabaseSeeder extends Seeder {
 	{
 		Model::unguard();
 
-		//$this->call('AdminUserSeeder');
+		// $this->call('AdminUserSeeder');
 		// $this->call('RoleTableSeeder');
 
-		// category data
-		// $this->call('NewsCategoryTableSeeder');
-		// $this->call('FacilityCategorySeeder');
-		// $this->call('SpecialityTableSeeder');
-		// $this->call('InsuranceCarrierSeeder');
+		//category data
+		$this->call('NewsCategoryTableSeeder');
+		$this->call('FacilityCategorySeeder');
+		$this->call('SpecialityTableSeeder');
+		$this->call('InsuranceCarrierSeeder');
 
 		// faker data:
 		$this->call('FakerNewsSeeder');

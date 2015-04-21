@@ -53,6 +53,18 @@ body.index nav.navbar{
 .mynav .nav > li > a {
 	padding:0 10px;
 }
+.glyphicon-remove {
+	position: absolute;
+	cursor: pointer;
+	right:35px;
+	top:15px;
+	font-size: 1.6em;
+	display: none;
+}
+
+.thumbnail:hover .glyphicon-remove{
+	display:block;
+}
 
 @media(min-width:768px) {
 	body.index .navbar-nav li a {

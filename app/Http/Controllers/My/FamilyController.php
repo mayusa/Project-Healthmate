@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect, Input, Auth;
+use App\User;
 use App\UserFamily;
 
 // using route middleware to check admin auth
@@ -17,17 +18,9 @@ class FamilyController extends Controller
   // GET condition list
   public function index()
   {
-    return response()->json(UserFamily::all());
-  }
-
-  // for angular pagination
-   public function angular()
-  {
-    // laravel pagination
-    $items = UserFamily::paginate(20);
-    return $items;
-    // {"total":100,"per_page":10,"current_page":1,"last_page":10,"next_page_url":"http:\/\/socialeat.app\/api\/items\/?page=2","prev_page_url":null,"from":1,"to":10,
-    // "data":[ {...}, {...}}]
+    // return response()->json(UserFamily::all());
+    $user = User::find(Auth::id());
+    return response()->json($user->userFamily()->where('status', '>', 0)->get()->toArray());
   }
 
   // GET 1 condition -> page
@@ -71,29 +64,25 @@ class FamilyController extends Controller
   // PUT
   public function update($id)
   {
-    $condition = UserFamily::find($id);
-
-    $condition->userid = Input::get('userid');
-    $condition->is_common = Input::get('is_common');
-    $condition->title = Input::get('title');
-    $condition->content = Input::get('content');
-    $condition->fromurl = Input::get('fromurl');
-
-    $condition->description = Input::get('description');
-    $condition->symptoms = Input::get('symptoms');
-    $condition->tests = Input::get('tests');
-    $condition->treatment = Input::get('treatment');
-    $condition->img_url = Input::get('img_url'); // array
-    $condition->video_url = Input::get('video_url'); //array
-
-    // change status field
-    $condition->status = Input::get('status');
-
-
-    if ($condition->save()) {
-      return $condition->is_common;
-    } else {
-      return "error";;
+    $member = UserFamily::find($id);
+    if( Auth::id() != $member->user_id ){
+        return "error1";
     }
-  }
+
+    $member->first_name = Input::get('first_name');
+    $member->last_name = Input::get('last_name');
+    $member->gender = Input::get('gender');
+    $member->birth = Input::get('birth');
+    $member->phone = Input::get('phone');
+    $member->email = Input::get('email');
+    $member->zip_code = Input::get('zip_code');
+    $member->status = Input::get('status');
+
+    if ($member->save()) {
+        return "success";
+    } else {
+        return "error2";
+    }
+
+  } // end update
 }

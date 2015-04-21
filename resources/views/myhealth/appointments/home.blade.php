@@ -25,7 +25,7 @@
                  <div class="alert alert-success text-center">{{ Session::get('msg') }}</div>
               @endif
 
-
+{{-- 
           <div class="page-header">
 
             <div class="pull-right form-inline">
@@ -74,7 +74,7 @@
               </div>
             </div>
           </div>
-
+ --}}
     </div>
 
 </div>

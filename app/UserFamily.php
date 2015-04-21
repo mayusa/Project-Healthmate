@@ -6,7 +6,7 @@ class UserFamily extends Model {
 
 	protected $table = 'user_families';
 	protected $fillable = [
-	'userid', 
+	'user_id', 
 	'first_name', 
 	'last_name', 
 	'gender', 
@@ -16,5 +16,10 @@ class UserFamily extends Model {
 	'zip_code',
 	'status'
 	];
+
+
+	public function user(){
+		return $this->belongsTo('App\User');
+	}
 
 }
