@@ -83,6 +83,7 @@ myCtrls.controller('FamilyCreateCtrl', ['$scope', '$http', 'Family', function ($
       if($scope.checkInput()){
         // console.log(f);
         Family.save(f);
+				$scope.member = {}; // clear data
 
 				// $scope.familysall.push($scope.member);
 				// console.log($scope.familysall);
