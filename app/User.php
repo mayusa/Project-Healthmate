@@ -23,9 +23,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $fillable = ['name', 'email', 'password'];
+
 	// laravel 5 Eloquent ORM
 	public function userFamily(){
 		return $this->hasMany('App\UserFamily');
+	}
+	
+	public function myAppointment(){
+		return $this->hasMany('App\MyAppointment');
 	}
 
 	/**

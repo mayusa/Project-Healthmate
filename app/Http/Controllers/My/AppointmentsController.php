@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect, Input, Auth;
+use App\User;
 use App\MyAppointment;
 
 // using route middleware to check admin auth
@@ -17,7 +18,10 @@ class AppointmentsController extends Controller
   // GET condition list
   public function index()
   {
-    return response()->json(MyAppointment::all());
+    // return response()->json(MyAppointment::all());
+    
+    $user = User::find(Auth::id());
+    return response()->json($user->myAppointment()->where('status', '>', 0)->get()->toArray());
   }
 
   // for angular pagination
@@ -60,7 +64,7 @@ class AppointmentsController extends Controller
      }
   }
 
-//--- update a new condition -----------------------/
+//--- update a new appointment -----------------------/
 
   // goto edit page
   public function edit($id)
@@ -71,27 +75,25 @@ class AppointmentsController extends Controller
   // PUT
   public function update($id)
   {
-    $condition = MyAppointment::find($id);
+    $appointment = MyAppointment::find($id);
 
-    $condition->userid = Input::get('userid');
-    $condition->is_common = Input::get('is_common');
-    $condition->title = Input::get('title');
-    $condition->content = Input::get('content');
-    $condition->fromurl = Input::get('fromurl');
+    $appointment->user_id = Input::get('user_id');
+    $appointment->provider_name = Input::get('provider_name');
+    $appointment->provider_phone = Input::get('provider_phone');
+    $appointment->provider_address = Input::get('provider_address');
+    $appointment->provider_specialty = Input::get('provider_specialty');
 
-    $condition->description = Input::get('description');
-    $condition->symptoms = Input::get('symptoms');
-    $condition->tests = Input::get('tests');
-    $condition->treatment = Input::get('treatment');
-    $condition->img_url = Input::get('img_url'); // array
-    $condition->video_url = Input::get('video_url'); //array
+    $appointment->patient_name = Input::get('patient_name');
+    $appointment->appointment_date = Input::get('appointment_date');
+    $appointment->appointment_time = Input::get('appointment_time');
+    $appointment->reason = Input::get('reason');
+    $appointment->notes = Input::get('notes'); //array
 
     // change status field
-    $condition->status = Input::get('status');
+    $appointment->status = Input::get('status');
 
-
-    if ($condition->save()) {
-      return $condition->is_common;
+    if ($appointment->save()) {
+      return "ok";
     } else {
       return "error";;
     }

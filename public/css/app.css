@@ -65,6 +65,9 @@ body.index nav.navbar{
 .thumbnail:hover .glyphicon-remove{
 	display:block;
 }
+.appointment_date {
+	margin:30px 0;
+}
 
 @media(min-width:768px) {
 	body.index .navbar-nav li a {

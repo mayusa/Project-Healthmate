@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class MyAppointment extends Model {
 
 	protected $table = 'my_appointments';
+
 	protected $fillable = [
 	'user_id', 
 	'provider_name', 
@@ -13,9 +14,13 @@ class MyAppointment extends Model {
 	'provider_specialty', 
 	'patient_name', 
 	'appointment_date',
+	'appointment_time',
 	'reason',
 	'notes'
 	];
 
+	public function user(){
+		return $this->belongsTo('App\User');
+	}
 
 }

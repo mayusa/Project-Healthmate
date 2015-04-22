@@ -152,7 +152,7 @@ Route::group(['prefix' => 'myhealth', 'namespace' => 'My', 'middleware' => 'auth
   Route::get('/appointments/home', 'AppointmentsController@home');
   Route::resource('/appointments', 'AppointmentsController');
   
-  // myhealth appointment ---------------------------------------------------------------------//
+  // myhealth conditions ---------------------------------------------------------------------//
   Route::get('/conditions/home', 'ConditionsController@home');
   Route::resource('/conditions', 'ConditionsController');
 
