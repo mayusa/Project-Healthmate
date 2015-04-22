@@ -186,9 +186,7 @@ myCtrls.controller('AppointmentCreateCtrl', ['$scope', '$http', 'Appointment', f
   	console.log("check");
   	if($scope.appointment_date == null) {
 			$scope.err_msg = "Please select appointment date.";
-		} else if($scope.appointment_time == null) {
-			$scope.err_msg = "Please select appointment time";
-		} else if($scope.item.patient_name == "") {
+		} else if($scope.item.patient_name == null) {
 			$scope.err_msg = "Please enter patient name";
 		} else {
 			$scope.err_msg = "";

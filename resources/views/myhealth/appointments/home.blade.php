@@ -88,7 +88,7 @@
                   <div class="col-xs-7">
                     <div class="input-group appointment_date">
                       <span class="input-group-addon">Date </span>
-                      <input type="text" class="form-control" name="appointment_date" id="appointment_date" datepicker-popup="<%format%>" ng-model="appointment_date" is-open="opened" min-date="minDate" max-date="'2019-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                      <input type="text" class="form-control" name="appointment_date" id="appointment_date" datepicker-popup="<%format%>" ng-model="appointment_date" is-open="opened" min-date="minDate" max-date="'2019-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" ng-change="checkInput()" />
                       <span class="input-group-addon" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></span>
                     </div>
                   </div>
@@ -97,7 +97,6 @@
                  </div>
                 </div>
                 {{-- time --}}
-
 
                 <div>
                   <h3>Provider Information</h3><hr>
@@ -137,7 +136,7 @@
                 <h5>
                 <div class="input-group">
                   <span class="input-group-addon">patient name</span>
-                  <input type="text" name="patient_name" class="form-control" ng-model="item.patient_name">
+                  <input type="text" name="patient_name" class="form-control" ng-model="item.patient_name" ng-change="checkInput()" required>
                   <div class="input-group-btn">
                   <input type="hidden" name="cateid" value="<% news.cateid %>">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Family member <span class="caret"></span></button>
