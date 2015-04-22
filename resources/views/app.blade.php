@@ -2,11 +2,12 @@
 <html lang="en" ng-app="hmApp">
 <head>
 	<meta charset="utf-8">
+	<title>Find a Symptom Checker, Conditions, Doctor, and Hospitals - HealthMate</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-	<title>HealthMate | Home</title>
-
+  <meta name="keywords" content="HealthMate, symptoms, symptom checker, health, medical, medicine, diseases, conditions">
+  <meta name="description" content="With HealthMate you can evaluate your symptoms, learn about possible causes, find appropriate medical facilities, get quality reports.">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
 	<link rel="stylesheet" href="/lib/magnific-popup/magnific-popup.css">
