@@ -6,7 +6,7 @@ class MyInsurance extends Model {
 
 	protected $table = 'my_insurances';
 	protected $fillable = [
-	'userid', 
+	'user_id', 
 	'carrier_id', 
 	'plan_id', 
 	'member_id', 

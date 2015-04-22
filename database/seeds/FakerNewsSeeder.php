@@ -22,7 +22,7 @@ class FakerNewsSeeder extends Seeder {
       for ($i=0; $i < 66; $i++) 
       {
         News::create([  
-          'userid' => 1,  
+          'user_id' => 1,  
           'cateid' => rand(1,7),  
           'title' => $faker->sentence($nbWords = 6),  
           'content' => $faker->text($maxNbChars = 6000),  

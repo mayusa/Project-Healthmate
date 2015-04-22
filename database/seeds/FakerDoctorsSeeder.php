@@ -22,7 +22,7 @@ class FakerDoctorsSeeder extends Seeder {
       for ($i=0; $i < 226; $i++) 
       {
         Doctor::create([  
-          'userid' => 1,
+          'user_id' => 1,
           'speciid' => rand(1,174), 
           'doctor_name' => $faker->name, 
           'intro' => $faker->text($maxNbChars = 1000), 

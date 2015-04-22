@@ -8,7 +8,7 @@ class Facility extends Model {
 	protected $table = 'facility';//must declare before seed
     // need declare input of all fields
 	protected $fillable = [
-	'userid', 
+	'user_id', 
 	'facicateid', 
 	'facility_name', 
 	'intro', 

@@ -6,7 +6,7 @@ class MyConditions extends Model {
 
 	protected $table = 'my_conditions';
 	protected $fillable = [
-	'userid', 
+	'user_id', 
 	'conditionid', 
 	'date', 
 	'doctor', 

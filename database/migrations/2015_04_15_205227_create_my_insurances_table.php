@@ -15,7 +15,7 @@ class CreateMyInsurancesTable extends Migration {
 		Schema::create('my_insurances', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->Integer('userid');//fk
+			$table->Integer('user_id');//fk
       $table->Integer('carrier_id');//fk
       $table->Integer('plan_id');//fk
       $table->string('member_id');

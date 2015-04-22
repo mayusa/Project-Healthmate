@@ -22,7 +22,7 @@ class FakerFacilitiesSeeder extends Seeder {
       for ($i=0; $i < 60; $i++) 
       {
         Facility::create([  
-          'userid' => 1,
+          'user_id' => 1,
           'facicateid' => rand(1,13),
           'facility_name'=> $faker->text($maxNbChars = 50), 
           'intro' => $faker->text($maxNbChars = 1000), 

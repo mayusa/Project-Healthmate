@@ -6,7 +6,7 @@ class MyAppointment extends Model {
 
 	protected $table = 'my_appointments';
 	protected $fillable = [
-	'userid', 
+	'user_id', 
 	'provider_name', 
 	'provider_phone', 
 	'provider_address', 

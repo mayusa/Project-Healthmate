@@ -15,7 +15,7 @@ class CreateFacilityTable extends Migration {
 		Schema::create('facility', function(Blueprint $table)
 		{
 			$table->increments('id');// facility id
-      $table->Integer('userid');// user id
+      $table->Integer('user_id');// user id
       $table->Integer('facicateid');// facility_category id
       $table->string('facility_name');
       $table->text('intro');

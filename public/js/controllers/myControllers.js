@@ -76,7 +76,8 @@ myCtrls.controller('FamilyCreateCtrl', ['$scope', '$http', 'Family', function ($
 
   // 切记表单元素的id和name都要自定义名称,
   // 不要使用关键词,比如'submit',否则jquery提交可能无效
-  $scope.submitMember = function(event,f) {
+  $scope.submitMember = function(event,f) 
+  {
     if(event){
 			f.user_id = $("#user_id").val();
       event.stopPropagation();
@@ -100,7 +101,8 @@ myCtrls.controller('FamilyCreateCtrl', ['$scope', '$http', 'Family', function ($
     }
   }
 
-  $scope.checkInput = function() {
+  $scope.checkInput = function() 
+  {
   	if($scope.member.first_name == "") {
 			$scope.err_msg = "Please enter first name of new member";
 		} else if($scope.member.last_name == "") {
@@ -111,7 +113,6 @@ myCtrls.controller('FamilyCreateCtrl', ['$scope', '$http', 'Family', function ($
 		}
 			return false;
   }
-
 
 }]);
 

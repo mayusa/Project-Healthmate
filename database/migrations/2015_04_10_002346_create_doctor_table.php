@@ -15,7 +15,7 @@ class CreateDoctorTable extends Migration {
 		Schema::create('doctor', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->Integer('userid');//user id
+			$table->Integer('user_id');//user id
 			$table->Integer('speciid');//specialty id
       $table->string('doctor_name');
       $table->text('intro');

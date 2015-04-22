@@ -22,7 +22,7 @@ class FakerConditionsSeeder extends Seeder {
       for ($i=0; $i < 60; $i++) 
       {
         Condition::create([  
-          'userid' => 1,
+          'user_id' => 1,
           'is_common' => 0, 
           'title' => $faker->sentence($nbWords = 6), 
           'content' => $faker->text($maxNbChars = 20000), 
