@@ -143,7 +143,7 @@
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Family member <span class="caret"></span></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                       <li><a href="#" ng-click='item.patient_name="{{Auth::user()->name}}"'> {{Auth::user()->name}}</a></li>
-                      <li ng-repeat="member in familysall"><a href="#" ng-click='item.patient_name=member.last_name'><%member.last_name%></a></li>
+                      <li ng-repeat="member in familysall"><a href="#" ng-click='item.patient_name=member.first_name'><%member.last_name%></a></li>
                     </ul>
                   </div><!-- /btn-group -->
 
