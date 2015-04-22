@@ -12,7 +12,7 @@
 */
 
 // Route::get('/', 'HomeController@index');
-Route::get('/', 'Info\NewsController@home');
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 // laravel auth middleware
 Route::controllers([

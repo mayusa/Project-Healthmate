@@ -196,7 +196,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title text-center">Are you sure <span ng-if="blockobj.status == 1" class="text-danger">block</span><span ng-if="blockobj.status == 0" class="text-success">unblock</span><br><%blockobj.title%> ?</h4>
+            <h4 class="modal-title text-center">Are you sure delete " <%del_item.appointment_date%> "?</h4>
           </div>
           <div class="modal-body text-center">
 
