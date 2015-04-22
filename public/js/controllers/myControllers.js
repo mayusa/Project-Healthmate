@@ -40,6 +40,7 @@ myCtrls.controller('MyAppointmentCtrl', ['$scope', '$http', 'Appointment', 'Fami
   };
 
   $scope.init();
+  $scope.sortField = "appointment_date";
 
   $scope.deletePop = function(obj, index){
   	$scope.del_item=obj;

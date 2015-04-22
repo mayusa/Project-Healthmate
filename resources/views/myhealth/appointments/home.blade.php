@@ -38,7 +38,7 @@
               </div>
 
               <h5>
-                <div class="col-sm-4" ng-repeat="appointment in appointmentsall">
+                <div class="col-sm-4" ng-repeat="appointment in appointmentsall | orderBy:sortField">
                   <div class="thumbnail text-center">
                   <span class="glyphicon glyphicon-remove text-left" ng-click="deletePop(appointment, $index)"></span>
 
