@@ -1,6 +1,6 @@
-## 'Health Mate' is May Liu's Capstone project that was built in April 2015.
-[DEMO ADDRESS](http://52.8.0.219)   
-A capstone is the culminating experience for students in the Master’s Degree in Computer Science. The capstone provides students with the opportunity to apply and integrate key concepts from each course in their program of study. Candidates must collaborate with their school community to identify an authentic and challenging technology-related need, problem, or research study to complete within the school, district or other educational agency. Working with faculty and relevant stakeholders, candidates must design, implement, and evaluate an appropriate solution to meet the need or problem.  
+## 'Health Mate' is May Liu's Capstone project that was built in April 2015.  
+[DEMO ADDRESS](http://52.8.0.219)   Email: ashucn@gmail.com  
+A capstone is the culminating experience for students in the Master’s Degree in Computer Science. The capstone provides students with the opportunity to apply and integrate key concepts from each course in their program of study. Candidates must collaborate with their school community to identify an authentic and challenging technology-related need, problem, or research study to complete within the school, district or other educational agency. Working with faculty and relevant stakeholders, candidates must design, implement, and evaluate an appropriate solution to meet the need or problem.   
 
 # Index  
 1. [Project Objectives](#1-project-objectives)
@@ -8,6 +8,7 @@ A capstone is the culminating experience for students in the Master’s Degree i
 3. [Project Environment](#3-project-environment)  
 4. [Application Design](#4-application-design)  
 
+![Mobile Screenshots](https://s-media-cache-ak0.pinimg.com/originals/70/5f/91/705f91aac60bff8c6afdc9fe7f832401.jpg)     ![Mobile Screenshots](https://s-media-cache-ak0.pinimg.com/originals/68/f8/e6/68f8e6e81b8bbecff1676044928a7885.jpg)
 ## 1. Project Objectives
 
 The purpose of “Health Mate” is to help people easily finding and understanding the information they need to know. So the objective is to build a `cross platform modern web application` that will provide resourceful and professional medical information. People can quickly and easily live with health at hand, with `very good user experience` .
