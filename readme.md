@@ -42,6 +42,11 @@ Laravel Homestead is an official, pre-packaged Vagrant "box" that provides you a
 ![Archiitecture](https://s-media-cache-ak0.pinimg.com/originals/77/71/bf/7771bf23c0afd626e8fa41374ab75434.jpg)    
 ![Use Cases](https://s-media-cache-ak0.pinimg.com/originals/03/6f/7f/036f7fc32d54a634b332a772d354466d.jpg)  
 ![ER Diagram](https://s-media-cache-ak0.pinimg.com/originals/e8/9c/ce/e89cceb4e95a0f4c1d0fd3c065aa40c6.jpg)  
-![MVC Design](https://s-media-cache-ak0.pinimg.com/originals/00/a0/4e/00a04e4a03ba5115518fc414b38d7b30.jpg)  
+![MVC Design](https://s-media-cache-ak0.pinimg.com/originals/00/a0/4e/00a04e4a03ba5115518fc414b38d7b30.jpg)   
+  
+   
+
+----
+May Liu  05/2015
 
 
