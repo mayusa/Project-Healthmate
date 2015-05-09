@@ -30,7 +30,7 @@ Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
   Route::get('/doctors/home', 'DoctorsController@home');
   Route::get('/doctors/{id}/view', 'DoctorsController@view'); // doctor detail page
   Route::get('/doctors/angular','DoctorsController@angular'); // for angular pagination
-  Route::resource('/doctors', 'DoctorsController');  
+  Route::resource('/doctors', 'DoctorsController');//暂时没用
   // information -> doctors specialties -------------------------------------------------------------- // 
   Route::get('/specialties', 'DoctorsController@getSpecialty');// doctor specialty // 2 levels// return json data
   Route::get('/specialties/{id}/', 'DoctorsController@showSpecialty');
@@ -62,7 +62,6 @@ Route::group(['prefix' => 'info', 'namespace' => 'Info'], function()
   Route::get('/newscategory/{id}/', 'NewsController@showCate');
 
 });
-
 
 //  Module 1: Admin
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth', 'middleware' => 'admin'], function()
@@ -144,17 +143,10 @@ Route::group(['prefix' => 'myhealth', 'namespace' => 'My', 'middleware' => 'auth
   Route::get('/family/home', 'FamilyController@home');
   Route::resource('/family', 'FamilyController');
 
-  // myhealth insurance ---------------------------------------------------------------------//
-  Route::get('/insurances/home', 'InsurancesController@home');
-  Route::resource('/insurances', 'InsurancesController');
-
   // myhealth appointment ---------------------------------------------------------------------//
   Route::get('/appointments/home', 'AppointmentsController@home');
   Route::resource('/appointments', 'AppointmentsController');
   
-  // myhealth conditions ---------------------------------------------------------------------//
-  Route::get('/conditions/home', 'ConditionsController@home');
-  Route::resource('/conditions', 'ConditionsController');
 
 });
 

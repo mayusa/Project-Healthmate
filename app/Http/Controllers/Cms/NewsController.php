@@ -7,19 +7,21 @@ use Redirect, Input, Auth;
 use App\News;
 use App\NewsCategory;
 
-
 // using route middleware to check admin auth
-class NewsController extends Controller {
-    // for route: return angular page
-  public function home(){
+class NewsController extends Controller 
+{
+  // for route: return angular page
+  public function home()
+  {
     return view('cms.news.home');
   }
 
   // news detail page
-  public function view($id){
+  public function view($id)
+  {
     return view('cms.news.view')->withNews(News::find($id));//withNews: $news
   }
-    // RESTful methods: return json data. 
+  // RESTful GET : return json data. 
   public function index()
   {
     return response()->json(News::all());
@@ -31,20 +33,20 @@ class NewsController extends Controller {
     // laravel pagination
     $items = News::paginate(20);
     return $items;
-    // {"total":100,"per_page":10,"current_page":1,"last_page":10,"next_page_url":"http:\/\/socialeat.app\/api\/items\/?page=2","prev_page_url":null,"from":1,"to":10,
-    // "data":[ {...}, {...}}]
+    //return json data: {"total":100,"per_page":10,"current_page":1,"last_page":10,"next_page_url":"http:\/\/socialeat.app\/api\/items\/?page=2","prev_page_url":null,"from":1,"to":10, "data":[ {...}, {...}}]
   }
   
-    // get all news categories
+  // get all news categories
   public function getCategory()
   {
     return response()->json(NewsCategory::all());
   }
 
-  public function create(){
+  public function create()
+  {
     return view('cms.news.create');
   }
-    // store news to db
+  // RESTful: POST - store news to db
   public function store()
   {
     $news = new News;
@@ -63,27 +65,24 @@ class NewsController extends Controller {
      }
   }
 
-    // GET 1 news
-  public function show($id){
-
+  public function show($id)// GET 1 news
+  {
     return response()->json(News::find($id));
   }
-    // GET 1 news category
-  public function showCate($id){
-
+    
+  public function showCate($id)// GET 1 news category
+  {
     return response()->json(NewsCategory::find($id));
   }
 
-    // goto edit page
-  public function edit($id)
+  public function edit($id)// goto edit page
   {
     return view('cms.news.edit')->withNews(News::find($id));
   }
-    // PUT
+
+  // RESTful: PUT
   public function update($id){
-
     $news = News::find($id);
-
     $news->title = Input::get('title');
     $news->content = Input::get('content');
     $news->cateid = Input::get('cateid');
@@ -97,8 +96,5 @@ class NewsController extends Controller {
     } else {
       return "error";
     }
-    
   }
-
-
 }
