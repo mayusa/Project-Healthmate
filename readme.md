@@ -5,7 +5,7 @@ A capstone is the culminating experience for students in the Master’s Degree i
 # Index  
 1. [Project Objectives](#1-project-objectives)
 2. [Project Features](#2-project-features)
-3. [Project Environment](#3-project-environment)  
+3. [Develop Environment](#3-develop-environment)  
 4. [Application Design](#4-application-design)  
 
 ![Mobile Screenshots](https://s-media-cache-ak0.pinimg.com/originals/70/5f/91/705f91aac60bff8c6afdc9fe7f832401.jpg)     ![Mobile Screenshots](https://s-media-cache-ak0.pinimg.com/originals/68/f8/e6/68f8e6e81b8bbecff1676044928a7885.jpg)
@@ -23,7 +23,7 @@ Editor can submit and manage all information of the “HealthMate” application
 ####2.3 Administrator
 Administrator can see all users’ list, check a particular user’s profile. And a super administrator can block any administrator, editor and user for security concerns.
 
-## 3. Project Environment
+## 3. Develop Environment
 ####3.1 Back-End => Laravel5 (PHP):
 Why Laravel? Well, technology moves pretty fast and it’s tough to keep up. Not only is it tough to keep up, but it is increasingly complex. Laravel strives to make moving forward with Web Development very simple. It is this unique combination of staying on the cutting edge of web based development with modern PHP, while also keeping things simple, that makes Laravel so attractive.
 
