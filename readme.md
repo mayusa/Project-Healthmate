@@ -4,9 +4,9 @@ A capstone is the culminating experience for students in the Master’s Degree i
 
 # Index  
 1. [Project Objectives](#1-project-objectives)
-2.[ Project Features](#1-project-objectives)
-3. Project Environment  
-4. Application Design  
+2. [Project Features](#2-project-features)
+3. [Project Environment](#3-project-environment)  
+4. [Application Design](#4-application-design)  
 
 ## 1. Project Objectives
 
@@ -38,7 +38,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity i
 Laravel Homestead is an official, pre-packaged Vagrant "box" that provides you a wonderful development environment without requiring you to install PHP, HHVM, a web server, and any other server software on your local machine. No more worrying about messing up your operating system! Vagrant boxes are completely disposable. If something goes wrong, you can destroy and re-create the box in minutes!
 ####3.6 Source Control: [github](https://github.com/mayusa/healthmate)
 
-## 3. Application Design  
+## 4. Application Design  
 ![Archiitecture](https://s-media-cache-ak0.pinimg.com/originals/77/71/bf/7771bf23c0afd626e8fa41374ab75434.jpg)    
 ![Use Cases](https://s-media-cache-ak0.pinimg.com/originals/03/6f/7f/036f7fc32d54a634b332a772d354466d.jpg)  
 ![ER Diagram](https://s-media-cache-ak0.pinimg.com/originals/e8/9c/ce/e89cceb4e95a0f4c1d0fd3c065aa40c6.jpg)  
