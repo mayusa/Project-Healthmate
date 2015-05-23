@@ -55,9 +55,9 @@ myCtrls.controller('MyAppointmentCtrl', ['$scope', '$http', 'Appointment', 'Fami
 		a.user_id = $("#user_id").val();
   	var id = a.id;
   	a.status = 0;
-  	$scope.appointmentsall.splice(index,1)
   	Appointment.update({id: id}, a);
-  	// $scope.init(); // 效率低
+    //$scope.appointmentsall.splice(index,1);
+  	$scope.init(); // 效率低
   	$('#confirmDelete').modal('hide');
   }
 
