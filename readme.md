@@ -33,7 +33,7 @@ AngularJS is a structural framework for dynamic web apps. It lets you use HTML a
 Bootstrap is an open source project originally created by Twitter to enable creation of responsive, mobile first web pages. Bootstrap has a standard set of classes that allow developers to quickly create applications that scale to devices of all sizes, and incorporate common components such as dialog boxes and validation. Bootstrap has become a standard for web design.
 ####3.3 Database => MySQL Community Server ( Open Source, free to use it )
 MySQL is (as of July 2013) the world's second most[a] widely used relational database management system (RDBMS) and most widely used open-source RDBMS. It being used for many small and big businesses.
-####3.4 Server => AWS EC2  
+####3.4 Host Server => AWS EC2  
 Amazon Elastic Compute Cloud (Amazon EC2) provides scalable computing capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2 eliminates your need to invest in hardware up front, so you can develop and deploy applications faster. You can use Amazon EC2 to launch as many or as few virtual servers as you need, configure security and networking, and manage storage. Amazon EC2 enables you to scale up or down to handle changes in requirements or spikes in popularity, reducing your need to forecast traffic.
 ####3.5 Local Develop/Test Server => Laravel Homestead  
 Laravel Homestead is an official, pre-packaged Vagrant "box" that provides you a wonderful development environment without requiring you to install PHP, HHVM, a web server, and any other server software on your local machine. No more worrying about messing up your operating system! Vagrant boxes are completely disposable. If something goes wrong, you can destroy and re-create the box in minutes!
