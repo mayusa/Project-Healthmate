@@ -1,5 +1,5 @@
 ## 'Health Mate' is May Liu's Capstone project that was built in April 2015.  
-[DEMO ADDRESS](http://52.8.0.219)   Email: ashucn@gmail.com  
+[DEMO ADDRESS](http://healthmate.ashu.cn)   Email: ashucn@gmail.com  
 A capstone is the culminating experience for students in the Master’s Degree in Computer Science. The capstone provides students with the opportunity to apply and integrate key concepts from each course in their program of study. Candidates must collaborate with their school community to identify an authentic and challenging technology-related need, problem, or research study to complete within the school, district or other educational agency. Working with faculty and relevant stakeholders, candidates must design, implement, and evaluate an appropriate solution to meet the need or problem.   
 
 # Index  
